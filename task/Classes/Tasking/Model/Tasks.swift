@@ -29,6 +29,19 @@ class Tasks:   NSObject {
         
 
     }
+    
+//    init(dict: [String: AnyObject]) {
+//         super.init()
+//
+//        concern_id = dict["concern_id"] as? String
+//        category = dict["category"] as? String
+//        tip_new = dict["tip_new"] as? Int
+//        web_url = dict["web_url"] as? String
+//        icon_url = dict["icon_url"] as? String
+//        flags = dict["flags"] as? Int
+//        type = dict["type"] as? Int
+//        name = dict["name"] as? String
+//    }
 
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
 }
