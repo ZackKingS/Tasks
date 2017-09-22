@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0935AA1F6BD99100C1BA5A /* Assets.xcassets */; };
 		3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0935AC1F6BD99100C1BA5A /* LaunchScreen.storyboard */; };
-		3A097C9B1F6F55D200222AEA /* TaskingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097C9A1F6F55D200222AEA /* TaskingCell.swift */; };
 		3A097CA71F6FAE9F00222AEA /* QQDRrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */; };
 		3A097CA81F6FAE9F00222AEA /* QQDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA11F6FAE9F00222AEA /* QQDynamicViewController.swift */; };
 		3A097CA91F6FAE9F00222AEA /* QQFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA21F6FAE9F00222AEA /* QQFriendViewController.swift */; };
@@ -47,7 +46,6 @@
 		3A0935A01F6BD99100C1BA5A /* task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A0935AA1F6BD99100C1BA5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A0935AD1F6BD99100C1BA5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3A097C9A1F6F55D200222AEA /* TaskingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskingCell.swift; sourceTree = "<group>"; };
 		3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQDRrawerViewController.swift; sourceTree = "<group>"; };
 		3A097CA11F6FAE9F00222AEA /* QQDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQDynamicViewController.swift; sourceTree = "<group>"; };
 		3A097CA21F6FAE9F00222AEA /* QQFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQFriendViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 			children = (
 				3A839E7E1F6BDD160024B9B0 /* TasksViewController.swift */,
 				3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */,
-				3A097C9A1F6F55D200222AEA /* TaskingCell.swift */,
 				3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */,
 			);
 			path = Controller;
@@ -416,7 +413,6 @@
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
 				3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */,
-				3A097C9B1F6F55D200222AEA /* TaskingCell.swift in Sources */,
 				3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */,
 				3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */,
 				3A097CA91F6FAE9F00222AEA /* QQFriendViewController.swift in Sources */,

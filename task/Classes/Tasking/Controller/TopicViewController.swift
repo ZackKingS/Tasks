@@ -30,7 +30,7 @@ class TopicViewController:  UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print("123")
         
         let first = UserDefaults.standard.object(forKey: "firstOpen")
         

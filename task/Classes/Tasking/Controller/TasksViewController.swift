@@ -25,16 +25,65 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableVie()
-        setRefresh()
-        setupNavBar()
-        
-        
-    
 
         
-        NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
+        let first = UserDefaults.standard.object(forKey: "firstOpen")
+        
+        if (first != nil) {
+            
+           //get_network_Page
+            
+            setupTableVie()
+            setRefresh()
+            
+        }else{
+            
+            //no_network_Page
+            let box = UIView()
+            
+            box.backgroundColor = UIColor.red
+            self.view.addSubview(box)
+            box.snp.makeConstraints { (make) -> Void in
+                make.edges.equalToSuperview()
+//                make.center.equalTo(self.view)
+            }
+            
+            let button:UIButton = UIButton(type:.custom)
+            button.setTitle("点击重试", for:.normal) //普通状态下的文字
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 11)
+            button.setTitleColor(UIColor.blue, for: .normal) //普通状态下文字的颜色
+            button.addTarget(self, action: #selector(reConectNetForwork), for: .touchUpInside)
+            self.view.addSubview(button)
+            button.snp.makeConstraints { (make) in
+                make.width.height.equalTo(50)
+                make.center.equalTo(self.view)
+            }
+            
+            
+            UserDefaults.standard.set("firstOpen", forKey: "firstOpen")
+            
+        }
+        
+         setupNavBar()
+        addNotifications()
+        
+    
     }
+    
+    func addNotifications(){
+        
+            NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
+        
+    }
+    
+    
+    @objc  func   reConectNetForwork(){
+        setupTableVie()
+        setRefresh()
+        
+    }
+    
+    
     /// 点击了加号按钮
   @objc  func checkDetail(notification: Notification) {
     
