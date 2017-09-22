@@ -23,8 +23,8 @@
 		3A097CBE1F6FB9B800222AEA /* LLViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB71F6FB9B800222AEA /* LLViewExtensions.swift */; };
 		3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */; };
 		3A097CC31F6FC08400222AEA /* s3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A097CC21F6FC08400222AEA /* s3.jpg */; };
+		3A110E951F756B61009989D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A110E941F756B61009989D6 /* Reachability.swift */; };
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
-		3A3C9C361F74EE150080DA70 /* TasksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C9C351F74EE150080DA70 /* TasksCell.xib */; };
 		3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A839E771F6BDCAC0024B9B0 /* AppDelegate.swift */; };
 		3A839E7B1F6BDCAC0024B9B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A839E781F6BDCAC0024B9B0 /* Info.plist */; };
 		3A839E7D1F6BDCFB0024B9B0 /* ZBTabbarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A839E7C1F6BDCFA0024B9B0 /* ZBTabbarVC.swift */; };
@@ -60,8 +60,8 @@
 		3A097CB71F6FB9B800222AEA /* LLViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLViewExtensions.swift; sourceTree = "<group>"; };
 		3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLCycleScrollView.bundle; sourceTree = "<group>"; };
 		3A097CC21F6FC08400222AEA /* s3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s3.jpg; sourceTree = "<group>"; };
+		3A110E941F756B61009989D6 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Pods/ReachabilitySwift/Reachability/Reachability.swift; sourceTree = SOURCE_ROOT; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
-		3A3C9C351F74EE150080DA70 /* TasksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasksCell.xib; sourceTree = "<group>"; };
 		3A839E771F6BDCAC0024B9B0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A839E781F6BDCAC0024B9B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A839E7C1F6BDCFA0024B9B0 /* ZBTabbarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBTabbarVC.swift; sourceTree = "<group>"; };
@@ -163,6 +163,38 @@
 			path = LLCycleScrollView;
 			sourceTree = "<group>";
 		};
+		3A110E901F755FC2009989D6 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				3A110E911F755FC2009989D6 /* Controller */,
+				3A110E921F755FC2009989D6 /* Model */,
+				3A110E931F755FC2009989D6 /* View */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		3A110E911F755FC2009989D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A097CA41F6FAE9F00222AEA /* QQLeftViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A110E921F755FC2009989D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A110E931F755FC2009989D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A826B1384D2DFE2F70F268B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +209,7 @@
 			children = (
 				3A839E721F6BDCAC0024B9B0 /* Main */,
 				3A839E791F6BDCAC0024B9B0 /* Tasking */,
+				3A110E901F755FC2009989D6 /* Me */,
 				3A839E761F6BDCAC0024B9B0 /* Others */,
 			);
 			path = Classes;
@@ -198,7 +231,6 @@
 				3A839E7C1F6BDCFA0024B9B0 /* ZBTabbarVC.swift */,
 				3A839E7F1F6BDD160024B9B0 /* MeVC.swift */,
 				3A839E811F6BDD160024B9B0 /* ZBNavVC.swift */,
-				3A097CA41F6FAE9F00222AEA /* QQLeftViewController.swift */,
 				3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */,
 				3A097CAF1F6FB33D00222AEA /* Draw */,
 			);
@@ -228,6 +260,7 @@
 				3A097CB01F6FB9B800222AEA /* Lib */,
 				3A839E771F6BDCAC0024B9B0 /* AppDelegate.swift */,
 				3AD3FBE41F6BE452007406E1 /* Const.swift */,
+				3A110E941F756B61009989D6 /* Reachability.swift */,
 				3A839E781F6BDCAC0024B9B0 /* Info.plist */,
 			);
 			path = Others;
@@ -266,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				3A3C9C331F74ED620080DA70 /* TasksCell.swift */,
-				3A3C9C351F74EE150080DA70 /* TasksCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,7 +376,6 @@
 			files = (
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A097CC31F6FC08400222AEA /* s3.jpg in Resources */,
-				3A3C9C361F74EE150080DA70 /* TasksCell.xib in Resources */,
 				3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */,
 				3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */,
 				3A839E7B1F6BDCAC0024B9B0 /* Info.plist in Resources */,
@@ -411,6 +442,7 @@
 				3A839E891F6BE2470024B9B0 /* NetworkTool.swift in Sources */,
 				3A097CBD1F6FB9B800222AEA /* LLSnakePageControl.swift in Sources */,
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
+				3A110E951F756B61009989D6 /* Reachability.swift in Sources */,
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
 				3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */,
 				3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */,

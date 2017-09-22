@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 import SwiftTheme
+import Alamofire
+
+import SVProgressHUD
 
 class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
@@ -23,51 +26,77 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 //        navigationController?.navigationBar.theme_barTintColor = "colors.homeNavBarTintColor"   //UIKit + Theme
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        let first = UserDefaults.standard.object(forKey: "firstOpen")
+        layoutDecisionByNetwork()
+     
         
-        if (first != nil) {
-            
-           //get_network_Page
-            
-            setupTableVie()
-            setRefresh()
-            
-        }else{
-            
-            //no_network_Page
-            let box = UIView()
-            
-            box.backgroundColor = UIColor.red
-            self.view.addSubview(box)
-            box.snp.makeConstraints { (make) -> Void in
-                make.edges.equalToSuperview()
-//                make.center.equalTo(self.view)
-            }
-            
-            let button:UIButton = UIButton(type:.custom)
-            button.setTitle("点击重试", for:.normal) //普通状态下的文字
-            button.titleLabel?.font = UIFont.systemFont(ofSize: 11)
-            button.setTitleColor(UIColor.blue, for: .normal) //普通状态下文字的颜色
-            button.addTarget(self, action: #selector(reConectNetForwork), for: .touchUpInside)
-            self.view.addSubview(button)
-            button.snp.makeConstraints { (make) in
-                make.width.height.equalTo(50)
-                make.center.equalTo(self.view)
-            }
-            
-            
-            UserDefaults.standard.set("firstOpen", forKey: "firstOpen")
-            
-        }
+//        let first = UserDefaults.standard.object(forKey: "network")
+//
+//        if ( first != nil ) {
+//
+//        }else{
+//            UserDefaults.standard.set("no_network", forKey: "network")
+//        }
         
          setupNavBar()
         addNotifications()
         
     
+    }
+    
+    
+    func layoutDecisionByNetwork(){
+        
+        let reachability = Reachability()  // 准备获取网络连接信息
+        
+        if (reachability?.isReachable)! { // 判断网络连接状态
+            //            print("网络连接：可用")
+            //            if (reachability?.isReachableViaWiFi)! { // 判断网络连接类型
+            //                print("连接类型：WiFi")
+            //                // strServerInternetAddrss = getHostAddress_WLAN() // 获取主机IP地址 192.168.31.2 小米路由器
+            //                // processClientSocket(strServerInternetAddrss)    // 初始化Socket并连接，还得恢复按钮可用
+            //            } else {
+            //                print("连接类型：移动网络")
+            //                // getHostAddrss_GPRS()  // 通过外网获取主机IP地址，并且初始化Socket并建立连接
+            //            }
+            
+            //get_network_Page
+            
+            setupTableVie()
+            setRefresh()
+            
+        } else {
+            //            print("网络连接：不可用")
+            //            DispatchQueue.main.async { // 不加这句导致界面还没初始化完成就打开警告框，这样不行
+            ////                self.alert_noNetwrok() // 警告框，提示没有网络
+            //            }
+            
+            
+            //no_network_Page
+            let box = UIView()
+            box.backgroundColor = UIColor.white
+            self.view.addSubview(box)
+            box.snp.makeConstraints { (make) -> Void in
+                make.edges.equalToSuperview()
+                
+            }
+            
+            let button:UIButton = UIButton(type:.custom)
+            button.setTitle("点击重试", for:.normal) //普通状态下的文字
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            button.setTitleColor(UIColor.black, for: .normal) //普通状态下文字的颜色
+            button.addTarget(self, action: #selector(reConectNetForwork), for: .touchUpInside)
+            self.view.addSubview(button)
+            button.snp.makeConstraints { (make) in
+                make.width.height.equalTo(150)
+                make.center.equalTo(self.view)
+            }
+        }
     }
     
     func addNotifications(){
@@ -78,8 +107,23 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     
     @objc  func   reConectNetForwork(){
-        setupTableVie()
-        setRefresh()
+        
+        
+        
+        let reachability = Reachability()  // 准备获取网络连接信息
+        if (reachability?.isReachable)! { // 判断网络连接状态
+         
+            setupTableVie()
+            setRefresh()
+            
+        } else {
+            
+            SVProgressHUD.showInfo(withStatus: "没有网")
+            SVProgressHUD.dismiss(withDelay: 1)
+        }
+        
+        
+        
         
     }
     

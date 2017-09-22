@@ -17,7 +17,9 @@ target 'task' do
     pod 'SVProgressHUD', '~> 2.1.2'     # 提示功能 https://github.com/SVProgressHUD/SVProgressHUD
     pod 'MJRefresh'                     # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
     
-    pod 'SwiftTheme'    
+    pod 'SwiftTheme'  
+ 	
+pod 'ReachabilitySwift'  
 
 
 

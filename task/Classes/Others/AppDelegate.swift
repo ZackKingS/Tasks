@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+  
+        let manager = NetworkReachabilityManager(host: "https://github.com/Alamofire/Alamofire.git")
         
+        manager!.listener = { status in
+            
+            
+            
+            switch status {
+            case .notReachable:
+                print("notReachable")
+                
+                UserDefaults.standard.set("a_notReachable_network", forKey: "network")
+
+            case .unknown:
+                print("unknown")
+                UserDefaults.standard.set("b_unknown_network", forKey: "network")
+
+            case .reachable(.ethernetOrWiFi):
+                print("ethernetOrWiFi")
+                
+                UserDefaults.standard.set("c_ethernetOrWiFi_network", forKey: "network")
+
+            case .reachable(.wwan):
+                print("wwan")
+                UserDefaults.standard.set("d_wwan_network", forKey: "network")
+
+                
+            }
+        }
+        manager!.startListening()
        
         
         window = UIWindow(frame: UIScreen.main.bounds)
