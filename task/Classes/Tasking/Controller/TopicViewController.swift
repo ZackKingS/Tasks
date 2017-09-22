@@ -31,15 +31,35 @@ class TopicViewController:  UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         
         
-        tableView = UITableView(frame:  CGRect(x: 0 , y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
-        tableView?.dataSource = self
-        tableView?.delegate = self
-        self.view.addSubview(tableView!)
-        self.tableView?.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
-        /// 设置上拉和下拉刷新
-        setRefreshh()
-        view.backgroundColor = UIColor.globalBackgroundColor()
-        automaticallyAdjustsScrollViewInsets = false
+        
+        let first = UserDefaults.standard.object(forKey: "firstOpen")
+        
+        if (first != nil) {
+            tableView = UITableView(frame:  CGRect(x: 0 , y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
+            tableView?.dataSource = self
+            tableView?.delegate = self
+            self.view.addSubview(tableView!)
+            self.tableView?.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
+            /// 设置上拉和下拉刷新
+            setRefreshh()
+            view.backgroundColor = UIColor.globalBackgroundColor()
+            automaticallyAdjustsScrollViewInsets = false
+        }else{
+            
+            UserDefaults.standard.set("first", forKey: "firstOpen")
+            
+        }
+        
+        
+//        tableView = UITableView(frame:  CGRect(x: 0 , y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
+//        tableView?.dataSource = self
+//        tableView?.delegate = self
+//        self.view.addSubview(tableView!)
+//        self.tableView?.register(UITableViewCell().classForCoder, forCellReuseIdentifier: "cell")
+//        /// 设置上拉和下拉刷新
+//        setRefreshh()
+//        view.backgroundColor = UIColor.globalBackgroundColor()
+//        automaticallyAdjustsScrollViewInsets = false
  
     }
     

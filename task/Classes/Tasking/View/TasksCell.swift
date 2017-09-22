@@ -51,20 +51,7 @@ class TasksCell: UITableViewCell {
     func setupUI()  {
         
         
-//        let backgroudView = UIView()
-////        backgroudView.backgroundColor = UIColor.gray
-//
-//
-//
-//        self.addSubview(grayView)
-//        backgroudView.snp.makeConstraints { (make) in
-//            make.top.equalTo(self).offset(5)
-//
-//            make.left.equalTo(self).offset(8)
-//            make.bottom.equalTo(self).offset(-20)
-//            make.width.equalTo(5)
-//        }
-        
+
    
 //        let grayView = UIView()
 //        grayView.backgroundColor = UIColor.gray
@@ -86,7 +73,7 @@ class TasksCell: UITableViewCell {
             make.top.equalTo(self).offset(5)
             make.left.equalTo(self).offset(20)
             make.width.equalTo(100)
-            make.height.equalTo(70)
+            make.height.equalTo(30)
         }
         
         
@@ -95,7 +82,9 @@ class TasksCell: UITableViewCell {
         priceL.font = UIFont.systemFont(ofSize: 20)
         self.addSubview(priceL)
         priceL.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(50)
+//            make.top.equalTo(self).offset(50)
+            
+            make.top.equalTo(taskNameL.snp.bottom).offset(15)
             make.left.equalTo(self).offset(20)
             make.width.equalTo(100)
             make.height.equalTo(70)

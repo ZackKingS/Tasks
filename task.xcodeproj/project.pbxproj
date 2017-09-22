@@ -137,7 +137,6 @@
 		3A097CAF1F6FB33D00222AEA /* Draw */ = {
 			isa = PBXGroup;
 			children = (
-				3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */,
 				3A097CA51F6FAE9F00222AEA /* QQMainViewController.swift */,
 				3A097CAE1F6FB08500222AEA /* sub */,
 			);
@@ -202,6 +201,7 @@
 				3A839E7F1F6BDD160024B9B0 /* MeVC.swift */,
 				3A839E811F6BDD160024B9B0 /* ZBNavVC.swift */,
 				3A097CA41F6FAE9F00222AEA /* QQLeftViewController.swift */,
+				3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */,
 				3A097CAF1F6FB33D00222AEA /* Draw */,
 			);
 			path = Controller;
@@ -248,10 +248,10 @@
 		3AD3FBDF1F6BE42A007406E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */,
 				3A839E7E1F6BDD160024B9B0 /* TasksViewController.swift */,
 				3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */,
 				3A097C9A1F6F55D200222AEA /* TaskingCell.swift */,
+				3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -553,6 +553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8E534K4D8Z;
 				INFOPLIST_FILE = task/Classes/Others/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fix.task;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -567,6 +568,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8E534K4D8Z;
 				INFOPLIST_FILE = task/Classes/Others/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fix.task;
 				PRODUCT_NAME = "$(TARGET_NAME)";

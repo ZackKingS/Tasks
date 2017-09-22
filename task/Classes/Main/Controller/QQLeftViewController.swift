@@ -11,7 +11,7 @@ import UIKit
 class QQLeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     var headerView: UIView{
-        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 260))
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: kMaxLeftOffset))
 //        view.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "scenery")!)
         
       view.backgroundColor =  UIColor.themeColor()
@@ -26,7 +26,7 @@ class QQLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableView = UITableView.init(frame: CGRect.init(x: 0, y: 200, width: headerView.bounds.width, height: UIScreen.main.bounds.height - 200), style: .plain)
+        let tableView = UITableView.init(frame: CGRect.init(x: 0, y: kMaxLeftOffset, width: headerView.bounds.width, height: UIScreen.main.bounds.height - 200), style: .plain)
         tableView.separatorStyle = .none
 //        tableView.backgroundColor = UIColor.init(patternImage: UIImage.init(named: "leftbg")!)
         tableView.backgroundColor = UIColor.themeColor()

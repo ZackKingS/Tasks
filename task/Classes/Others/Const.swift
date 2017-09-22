@@ -52,6 +52,10 @@ let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
 //let BASE_URL = "http://ib.snssdk.com"
 let BASE_URL = "https://is.snssdk.com/"
 
+
+
+// 抽屉效果最大值
+let kMaxLeftOffset:CGFloat = screenWidth * 0.64
 // 左右间距
 let kMargin:CGFloat = 15.0
 // 导航栏高度
