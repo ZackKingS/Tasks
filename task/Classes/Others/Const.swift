@@ -55,7 +55,7 @@ let BASE_URL = "https://is.snssdk.com/"
 
 
 // 抽屉效果最大值
-let kMaxLeftOffset:CGFloat = screenWidth * 0.64
+let kMaxLeftOffset:CGFloat = screenWidth * 0.618
 // 左右间距
 let kMargin:CGFloat = 15.0
 // 导航栏高度
@@ -76,6 +76,12 @@ var kConcernHeaderViewHieght: CGFloat = 330
 
 // banner 高度
 let kBannerHeight: CGFloat = 160.0
+
+
+
+
+
+
 
 /// iPhone 5
 let isIPhone5 = screenHeight == 568 ? true : false

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         window = UIWindow(frame: UIScreen.main.bounds)
         let nav  = ZBNavVC.init(rootViewController: TasksViewController())
-        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: QQLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
     
         return true

@@ -1,5 +1,5 @@
 //
-//  QQMainViewController.swift
+//  ZBMainViewController.swift
 //  QQDRAWER_SWIFT
 //
 //  Created by zzy on 2016/10/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QQMainViewController: UITabBarController {
+class ZBMainViewController: UITabBarController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class QQMainViewController: UITabBarController {
 
 //            childController.navigationItem.titleView = segmentedControl
             
-            childController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "run10"), style: .plain , target: self, action: (#selector(QQMainViewController.openDrawer)))
+            childController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "run10"), style: .plain , target: self, action: (#selector(ZBMainViewController.openDrawer)))
         }
         
     }

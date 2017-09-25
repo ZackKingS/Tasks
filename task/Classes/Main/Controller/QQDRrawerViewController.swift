@@ -13,7 +13,7 @@ class QQDRrawerViewController: UIViewController {
     //  创建单例
     static let sharedDrawerViewController = QQDRrawerViewController()
     
-    var leftViewController: QQLeftViewController?
+    var leftViewController: ZBLeftViewController?
 
     var mainViewController: ZBNavVC?
  
@@ -52,7 +52,7 @@ class QQDRrawerViewController: UIViewController {
     }
  
 
-    class func drawerWithViewController(_leftViewcontroller : QQLeftViewController,_mainViewController : ZBNavVC, DrawerMaxWithd: CGFloat) -> QQDRrawerViewController{
+    class func drawerWithViewController(_leftViewcontroller : ZBLeftViewController,_mainViewController : ZBNavVC, DrawerMaxWithd: CGFloat) -> QQDRrawerViewController{
         let drawerViewController = QQDRrawerViewController.sharedDrawerViewController
         
         drawerViewController.leftViewController = _leftViewcontroller
