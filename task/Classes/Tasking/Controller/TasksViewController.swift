@@ -95,6 +95,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             button.snp.makeConstraints { (make) in
                 make.width.height.equalTo(150)
                 make.center.equalTo(self.view)
+//                make.bottom.equalTo(self.view).offset(-50)
+//                make.centerX.equalTo(self.view.center)
             }
         }
     }

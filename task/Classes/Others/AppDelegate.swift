@@ -19,47 +19,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
   
+        networkStatusManage()
+       
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let nav  = ZBNavVC.init(rootViewController: TasksViewController())
+        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: QQLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+        self.window?.makeKeyAndVisible()
+    
+        return true
+    }
+
+    
+    func networkStatusManage(){
         let manager = NetworkReachabilityManager(host: "https://github.com/Alamofire/Alamofire.git")
         
         manager!.listener = { status in
-            
-            
-            
             switch status {
             case .notReachable:
                 print("notReachable")
                 
                 UserDefaults.standard.set("a_notReachable_network", forKey: "network")
-
+                
             case .unknown:
                 print("unknown")
                 UserDefaults.standard.set("b_unknown_network", forKey: "network")
-
+                
             case .reachable(.ethernetOrWiFi):
                 print("ethernetOrWiFi")
                 
                 UserDefaults.standard.set("c_ethernetOrWiFi_network", forKey: "network")
-
+                
             case .reachable(.wwan):
                 print("wwan")
                 UserDefaults.standard.set("d_wwan_network", forKey: "network")
-
+                
                 
             }
         }
         manager!.startListening()
-       
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-    
-        let nav  = ZBNavVC.init(rootViewController: TasksViewController())
-        self.window = UIWindow.init(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: QQLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
-        
-        self.window?.makeKeyAndVisible()
-        return true
     }
-
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
