@@ -44,7 +44,7 @@ class TasksCell: UITableViewCell {
    
         setupUI()
 
-        self.backgroundView = UIImageView.init(image: UIImage.init(named: "组-3"))
+
     }
     
     
@@ -53,16 +53,16 @@ class TasksCell: UITableViewCell {
         
 
    
-//        let grayView = UIView()
-//        grayView.backgroundColor = UIColor.gray
-//        self.addSubview(grayView)
-//        grayView.snp.makeConstraints { (make) in
-//            make.top.equalTo(self).offset(5)
-//           
-//            make.left.equalTo(self).offset(8)
-//            make.bottom.equalTo(self).offset(-20)
-//             make.width.equalTo(5)
-//        }
+        let grayView = UIImageView.init(image: UIImage.init(named: "组-2"))
+
+        addSubview(grayView)
+
+        grayView.snp.makeConstraints { (make) in
+            make.top.equalTo(self).offset(10)
+            make.left.equalTo(self).offset(15)
+            make.bottom.equalTo(self).offset(-5)
+            make.right.equalTo(self).offset(-15)
+        }
         
         
         let taskNameL = UILabel()
@@ -70,8 +70,8 @@ class TasksCell: UITableViewCell {
         taskNameL.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(taskNameL)
         taskNameL.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(5)
-            make.left.equalTo(self).offset(20)
+            make.top.equalTo(self).offset(17)
+            make.left.equalTo(self).offset(35)
             make.width.equalTo(100)
             make.height.equalTo(30)
         }
@@ -85,10 +85,41 @@ class TasksCell: UITableViewCell {
 //            make.top.equalTo(self).offset(50)
             
             make.top.equalTo(taskNameL.snp.bottom).offset(15)
-            make.left.equalTo(self).offset(20)
+            make.left.equalTo(self).offset(35)
             make.width.equalTo(100)
             make.height.equalTo(70)
         }
+        
+        
+        
+        let rightTopL = UILabel()
+        rightTopL.text = "可开始"
+        rightTopL.textAlignment = .center
+//        rightTopL.layer.cornerRadius = 3
+//        rightTopL.layer.masksToBounds = true
+
+        rightTopL.font = UIFont.systemFont(ofSize: 14)
+        rightTopL.textColor = UIColor.white
+        rightTopL.backgroundColor = UIColor.colorWithHexString(Color_Value: "508cee", alpha: 1)
+        addSubview(rightTopL)
+//        rightTopL.snp.makeConstraints { (make) in
+//
+//            make.top.equalTo(self).offset(19)
+//            make.right.equalTo(self).offset(-20)
+//            make.width.equalTo(54)
+//            make.height.equalTo(23)
+//
+//
+//        }
+        
+        rightTopL.frame = CGRect(x:screenWidth - 73, y:24, width:54,height : 24)
+        let   corner  :UIRectCorner = UIRectCorner(rawValue: UIRectCorner.RawValue(UInt8(UIRectCorner.topLeft.rawValue) |  UInt8(UIRectCorner.bottomLeft.rawValue)));//这只圆角位置
+        let  path = UIBezierPath.init(roundedRect: rightTopL.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width:5,height:5))
+        let masklayer = CAShapeLayer()
+        masklayer.frame = rightTopL.bounds;
+        masklayer.path = path.cgPath;//设置路径
+        rightTopL.layer.mask = masklayer
+        
         
         
         let dateL = UILabel()
@@ -97,7 +128,7 @@ class TasksCell: UITableViewCell {
         self.addSubview(dateL)
         dateL.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-15)
-            make.left.equalTo(self).offset(20)
+            make.left.equalTo(self).offset(35)
             make.width.equalTo(300)
             make.height.equalTo(15)
         }
@@ -105,14 +136,15 @@ class TasksCell: UITableViewCell {
         
 
         let button:UIButton = UIButton(type:.custom)
-        button.setTitle("查看详情>>", for:.normal) //普通状态下的文字
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 11)
-        button.setTitleColor(UIColor.blue, for: .normal) //普通状态下文字的颜色
+        button.setTitle("查看>>", for:.normal) //普通状态下的文字
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+//        button.setTitleColor(UIColor.blue, for: .normal) //普通状态下文字的颜色
+        button.setTitleColor(UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(push), for: .touchUpInside)
         self.addSubview(button)
         button.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-15)
-            make.right.equalTo(self).offset(-20)
+            make.right.equalTo(self).offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(40)
         }

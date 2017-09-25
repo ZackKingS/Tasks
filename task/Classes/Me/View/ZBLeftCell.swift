@@ -14,7 +14,32 @@ class ZBLeftCell: UITableViewCell {
     
     
 
-    var listName: UILabel?
+    var listName: String?{
+        
+        didSet{
+            jokeLabel.text = listName
+        }
+        
+    }
+    
+    
+    var rightListName: String?{
+        didSet{
+            rightJokeLabel.text = rightListName
+        }
+    }
+    var leftListName: String?{
+        didSet{
+            leftIcon.image = UIImage.init(named: leftListName!)
+        }
+    }
+    
+    
+    var jokeLabel: UILabel!
+    
+    var rightJokeLabel: UILabel!
+    
+     var leftIcon: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -52,38 +77,45 @@ class ZBLeftCell: UITableViewCell {
         }
         
         
-        let grayView = UIView()
-        grayView.backgroundColor = UIColor.gray
-        self.addSubview(grayView)
-        grayView.snp.makeConstraints { (make) in
-                make.top.equalTo(self).offset(20)
-                make.left.equalTo(self).offset(8)
-                make.bottom.equalTo(self).offset(-20)
-                make.width.equalTo(15)
+        let leftIconV = UIImageView()
+        leftIcon = leftIconV
+        self.addSubview(leftIconV)
+        leftIconV.snp.makeConstraints { (make) in
+            make.left.equalTo(self).offset(14)
+            make.centerY.equalTo(self.snp.centerY)
+            make.height.equalTo(15)
+            make.width.equalTo(15)
         }
         
         
         let taskNameL = UILabel()
+        jokeLabel = taskNameL
         taskNameL.text = "余额"
         taskNameL.textColor = UIColor.white
         taskNameL.font = UIFont.systemFont(ofSize: 17)
         self.addSubview(taskNameL)
         taskNameL.snp.makeConstraints { (make) in
 //            make.top.equalTo(self).offset(5)
-            make.left.equalTo(self).offset(33)
+            make.left.equalTo(self).offset(40)
             make.centerY.equalTo(self.snp.centerY)
             make.width.equalTo(100)
             make.height.equalTo(30)
         }
         
         let rightList = UILabel()
+        
+        rightJokeLabel = rightList
+        
         rightList.text = "51.4元"
         rightList.textColor = UIColor.white
         rightList.font = UIFont.systemFont(ofSize: 17)
+        rightList.textAlignment = .right
         self.addSubview(rightList)
         rightList.snp.makeConstraints { (make) in
             //            make.top.equalTo(self).offset(5)
-            make.left.equalTo(self).offset(kMaxLeftOffset - 55)
+//            make.left.equalTo(self).offset(kMaxLeftOffset - 55)
+            
+            make.right.equalTo(self).offset( -screenWidth / 4  - 70 )
             make.centerY.equalTo(self.snp.centerY)
             make.width.equalTo(100)
             make.height.equalTo(30)

@@ -21,7 +21,7 @@ extension UIColor {
     
     /// 背景灰色
     class func themeColor() -> UIColor {
-        return UIColor(r: 94, g: 94, b: 94, alpha: 1)
+        return UIColor(r: 67, g: 74, b: 89, alpha: 1)
     }
     
     /// 背景灰色

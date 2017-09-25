@@ -49,7 +49,7 @@ class ZBMainViewController: UITabBarController {
 
 //            childController.navigationItem.titleView = segmentedControl
             
-            childController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "run10"), style: .plain , target: self, action: (#selector(ZBMainViewController.openDrawer)))
+            childController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "形状-1"), style: .plain , target: self, action: (#selector(ZBMainViewController.openDrawer)))
         }
         
     }

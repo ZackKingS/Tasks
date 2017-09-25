@@ -28,6 +28,10 @@ class ZBNavVC: UINavigationController {
     /// 打开抽屉效果
     func openDrawer(){
         QQDRrawerViewController.sharedDrawerViewController.openDrawer(openDrawerWithDuration: 0.2)
+        
+        
+        NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "leftClicked")))
+        
     }
     
     /// 遮罩按钮手势的回调

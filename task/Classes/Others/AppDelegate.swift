@@ -29,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+//    - (UIStatusBarStyle)preferredStatusBarStyle {
+//    return UIStatusBarStyleLightContent;
+//    }
+
+    
+    
     
     func networkStatusManage(){
         let manager = NetworkReachabilityManager(host: "https://github.com/Alamofire/Alamofire.git")

@@ -12,10 +12,10 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
 
     
     // left header 高度
-    let kLeftheaderHeight: CGFloat = 210
+    let kLeftheaderHeight: CGFloat = 240
     
     // left tableview 高度
-    let kLeftTableViewHeight: CGFloat = screenHeight / 6
+    let kLeftTableViewHeight: CGFloat = 62 * 2
 
     let kUserHeaderHeight : CGFloat = 70
     
@@ -28,7 +28,6 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         
         //头像
-
         let userHeaderV = UIImageView.init(frame: CGRect.init(x: (kMaxLeftOffset - kUserHeaderHeight) / 2, y: 80 , width: kUserHeaderHeight, height:kUserHeaderHeight))
         userHeaderV.backgroundColor = UIColor.white
         userHeaderV.layer.cornerRadius = 35
@@ -70,6 +69,14 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         
         
+        
+        
+        //设置iocn
+        let settingV = UIImageView.init(frame:  CGRect.init(x: 17, y: screenHeight - kLeftheaderHeight - kLeftTableViewHeight - 50, width: 20, height: 20))
+        view.addSubview(settingV)
+        settingV.image = UIImage.init(named: "setting")
+        
+        
         //设置
         let settingBtn:UIButton = UIButton(type:.custom)
         settingBtn.setTitle("设置", for:.normal) //普通状态下的文字
@@ -90,6 +97,17 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return array as! [String]
     }
     
+    var rightDataArray:[String]{
+        let array = NSArray.init(objects: "22项","222.2元")
+        return array as! [String]
+    }
+    
+    
+    var leftDataArray:[String]{
+        let array = NSArray.init(objects: "mission","wallet")
+        return array as! [String]
+    }
+    
     func withDraw(){
         
         
@@ -106,12 +124,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
         view.addSubview(headerView)
-       
-        
-        
         footerView.backgroundColor = UIColor.red
         view.addSubview(footerView)
 
@@ -132,24 +145,14 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellIdentifier = "cellIdentifier"
-//
-//         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-//
-//        if !(cell != nil) {
-//            cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
-////            cell?.selectionStyle = .none
-//            cell?.backgroundColor = UIColor.clear
-//        }
-//
-//        cell!.textLabel?.text = dataArray[indexPath.row]
-//        cell!.textLabel?.textColor = UIColor.white
-//        return cell!
-        
+
         
         let identifier = "leftCell"
         let cell = ZBLeftCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
-       cell.textLabel?.text = dataArray[indexPath.row]
+        
+        cell.listName = dataArray[indexPath.row]
+        cell.rightListName = rightDataArray[indexPath.row]
+         cell.leftListName = leftDataArray[indexPath.row]
         
         return cell
     }

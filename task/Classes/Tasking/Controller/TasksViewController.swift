@@ -19,11 +19,12 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     fileprivate var array = [TopicTitle]()
     
     
+    var leftBtn :UIButton?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //         设置导航栏颜色
-//        navigationController?.navigationBar.theme_barTintColor = "colors.homeNavBarTintColor"   //UIKit + Theme
+
     }
     
 
@@ -34,15 +35,6 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         layoutDecisionByNetwork()
      
-        
-//        let first = UserDefaults.standard.object(forKey: "network")
-//
-//        if ( first != nil ) {
-//
-//        }else{
-//            UserDefaults.standard.set("no_network", forKey: "network")
-//        }
-        
          setupNavBar()
         addNotifications()
         
@@ -50,33 +42,21 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     
+    
+    
     func layoutDecisionByNetwork(){
         
         let reachability = Reachability()  // 准备获取网络连接信息
         
         if (reachability?.isReachable)! { // 判断网络连接状态
-            //            print("网络连接：可用")
-            //            if (reachability?.isReachableViaWiFi)! { // 判断网络连接类型
-            //                print("连接类型：WiFi")
-            //                // strServerInternetAddrss = getHostAddress_WLAN() // 获取主机IP地址 192.168.31.2 小米路由器
-            //                // processClientSocket(strServerInternetAddrss)    // 初始化Socket并连接，还得恢复按钮可用
-            //            } else {
-            //                print("连接类型：移动网络")
-            //                // getHostAddrss_GPRS()  // 通过外网获取主机IP地址，并且初始化Socket并建立连接
-            //            }
-            
-            //get_network_Page
-            
+     
+      
             setupTableVie()
             setRefresh()
             
         } else {
-            //            print("网络连接：不可用")
-            //            DispatchQueue.main.async { // 不加这句导致界面还没初始化完成就打开警告框，这样不行
-            ////                self.alert_noNetwrok() // 警告框，提示没有网络
-            //            }
-            
-            
+          
+        
             //no_network_Page
             let box = UIView()
             box.backgroundColor = UIColor.white
@@ -86,24 +66,65 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 
             }
             
+            
+            let errorV = UIImageView()
+            errorV.image = UIImage.init(named: "net_error")
+            box.addSubview(errorV)
+            errorV.snp.makeConstraints { (make) -> Void in
+                make.centerX.equalTo(box.snp.centerX)
+                make.centerY.equalTo(box.snp.centerY).offset(-screenHeight / 7)
+                make.width.equalTo(87.5)
+                make.height.equalTo(87.5)
+            }
+            
+            
+            let errorL = UILabel()
+            
+       
+            
+            errorL.text = "您的网络出现了故障，请检查网络哦~"
+            errorL.textColor = UIColor.colorWithHexString(Color_Value: "#999999", alpha: 1)
+            errorL.font = UIFont.systemFont(ofSize: 17)
+            box.addSubview(errorL)
+            errorL.snp.makeConstraints { (make) in
+           
+                make.centerX.equalTo(box.snp.centerX)
+                make.centerY.equalTo(box.snp.centerY)
+                make.width.equalTo(300)
+                make.height.equalTo(30)
+            }
+            
             let button:UIButton = UIButton(type:.custom)
-            button.setTitle("点击重试", for:.normal) //普通状态下的文字
+            button.setTitle("重新加载", for:.normal) //普通状态下的文字
+            button.backgroundColor = UIColor.colorWithHexString(Color_Value: "d9d9d9", alpha: 1)
+            
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-            button.setTitleColor(UIColor.black, for: .normal) //普通状态下文字的颜色
+            button.layer.cornerRadius = 4
+            button.layer.masksToBounds = true
+            button.setTitleColor(UIColor.colorWithHexString(Color_Value: "666666", alpha: 1), for: .normal) //普通状态下文字的颜色
             button.addTarget(self, action: #selector(reConectNetForwork), for: .touchUpInside)
             self.view.addSubview(button)
             button.snp.makeConstraints { (make) in
-                make.width.height.equalTo(150)
-                make.center.equalTo(self.view)
-//                make.bottom.equalTo(self.view).offset(-50)
-//                make.centerX.equalTo(self.view.center)
+                make.width.equalTo(100)
+                 make.height.equalTo(45)
+                make.centerX.equalTo(box.snp.centerX)
+                make.centerY.equalTo(box.snp.centerY).offset(screenHeight / 6)
+
             }
         }
     }
     
     func addNotifications(){
         
-            NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
+        
+
+        
+    }
+    
+    @objc  func   leftClicked(){
+        
+        
         
     }
     
@@ -120,8 +141,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             
         } else {
             
-            SVProgressHUD.showInfo(withStatus: "没有网")
-            SVProgressHUD.dismiss(withDelay: 1)
+
         }
         
         
@@ -145,58 +165,93 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func setupNavBar() {
 
         
-        let barColor = UIColor(red:94/255.0, green:94/255.0, blue:94/255.0, alpha:1)
-        self.navigationController?.navigationBar.barTintColor = barColor;
+        let barColor = UIColor.themeColor()
+        navigationController?.navigationBar.barTintColor = barColor;
         
-        
+        navigationController?.navigationBar.isTranslucent = false;
         
         navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont.systemFont(ofSize: 18)
             ] //UIFont(name: "Heiti SC", size: 24.0)!
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "个人", style: .plain, target: self, action: #selector(openDrawer))
-      navigationItem.leftBarButtonItem =   UIBarButtonItem.init(image: UIImage.init(named: "run10"), style: .plain , target: self, action: (#selector(ZBNavVC.openDrawer)))
+
+        
+        
+        let  m_shareImage = UIImageView.init(frame: CGRect(x:0,y:5,width:24 , height:24))
+        m_shareImage.image = UIImage.init(named: "形状-1")
+         m_shareImage.contentMode = .scaleAspectFit
+        let btShare = UIButton.init(type: .custom)
+        btShare.bounds = m_shareImage.bounds
+        btShare.addSubview(m_shareImage)
+        
+//        btShare.addTarget(self, action: (#selector(openDrawer)), for: .touchUpInside)
+        
+      btShare.addTarget(self, action:#selector(tapped(_:)), for:.touchUpInside)
+        
+        leftBtn = btShare
+        
+        navigationItem.leftBarButtonItem =  UIBarButtonItem.init(customView: btShare)
+        
+//      navigationItem.leftBarButtonItem =   UIBarButtonItem.init(image: UIImage.init(named: "形状-1"), style: .plain , target: self, action: (#selector(ZBNavVC.openDrawer)))
         
         
         navigationItem.title = "兼职任务宝";
         
     }
+    func tapped(_ button:UIButton){
 
+//        let  animation :CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
+//        animation.fromValue = NSNumber.init(floatLiteral: 0.0)
+//        animation.toValue = NSNumber.init(floatLiteral: .pi / 2)
+//        animation.duration  = 0.3;
+//        animation.autoreverses = false;
+//        animation.isRemovedOnCompletion = false;
+//        button.layer.add(animation, forKey: nil)
+//        DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute:
+//            {
+//                button.subviews.forEach{ (car) in
+//
+//                    if(car .isKind(of: UIImageView.self))
+//                    {
+//                        car.removeFromSuperview()
+//                         return
+//                    }
+//                }
+//                 button.setImage(UIImage.init(named: "形状-1_"), for: UIControlState.normal)
+//        })
+  
+        QQDRrawerViewController.sharedDrawerViewController.openDrawer(openDrawerWithDuration: 0.2)
+        
+        
+      
+    }
     /// 打开抽屉效果
     func openDrawer(){
         QQDRrawerViewController.sharedDrawerViewController.openDrawer(openDrawerWithDuration: 0.2)
+ 
     }
 
     /// 遮罩按钮手势的回调
     func panGestureRecognizer(pan: UIPanGestureRecognizer) {
         QQDRrawerViewController.sharedDrawerViewController.panGestureRecognizer(pan: pan)
+        
+     
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
- 
-    
-    
+
     func setupTableVie()   {
-        
-        
-        tableView = UITableView(frame:  CGRect(x: 0 , y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
+        tableView = UITableView(frame:  CGRect(x: 0 , y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
         tableView?.dataSource = self
         tableView?.delegate = self
-        
         tableView?.separatorStyle = .none
-        
         self.view.addSubview(tableView!)
-//        self.tableView?.register(TasksCell().classForCoder, forCellReuseIdentifier: "cell")
-//        self.tableView?.register(UINib.init(nibName: "TasksCell", bundle: nil), forCellReuseIdentifier: "cell")
         view.backgroundColor = UIColor.globalBackgroundColor()
-        automaticallyAdjustsScrollViewInsets = false
-        
-        
+//        automaticallyAdjustsScrollViewInsets = true
     }
     
     
@@ -211,14 +266,10 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+
         let identifier = "mainCell"
         let cell = TasksCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
-//        cell.textLabel!.text = array[indexPath.row].name
-//         cell.detailTextLabel!.text = array[indexPath.row].name
-//        cell.viewModel = viewModels[indexPath.row]
-        
+
         return cell
 
     }
