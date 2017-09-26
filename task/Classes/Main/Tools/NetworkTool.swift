@@ -19,6 +19,37 @@ protocol NetworkToolProtocol {
 }
 
 class NetworkTool: NetworkToolProtocol {
+    
+    //test
+    class func bbb(  url:String,   parameters : [String : AnyObject], completionHandler:@escaping (_ topTitles: Any?)->()) {
+        
+        print(parameters)
+        
+        Alamofire.request(url, parameters: parameters).responseJSON { (response) in
+        
+                completionHandler(response)
+        
+        }
+        
+
+    }
+    
+      //test
+    class func aaa( completionHandler:@escaping (_ topTitles: String)->()) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            let topTitles = "zzzz"
+            completionHandler(topTitles)
+        }
+    }
+    
+  
+    
+    
+    
+    
+    
+    
 
     /// -------------------------- 首 页 home -------------------------
     // MARK: - 获取首页顶部标题内容
@@ -28,6 +59,10 @@ class NetworkTool: NetworkToolProtocol {
         let params = ["device_id": device_id,
                       "aid": 13,
                       "iid": IID] as [String : AnyObject]
+        
+     
+        
+        
         Alamofire.request(url, parameters: params).responseJSON { (response) in
             
             

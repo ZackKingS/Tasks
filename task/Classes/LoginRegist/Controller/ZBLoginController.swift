@@ -54,12 +54,28 @@ class ZBLoginController: UIViewController {
         
         setConfig()
         
-        
-        
+       
 
+        
+        
+        let para =  ["a":"3","b":"4"]  as [String : AnyObject]
+        NetworkTool.bbb( url:"http://wweqweqw",   parameters : para ){ (topTitles) in
+
+            print(topTitles)
+
+        }
+   
+      
+      
     }
     
- 
+    typealias Tomato = (Int, Int) -> Int
+    
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        
+    }
+    
+  
     
     
     @IBOutlet weak var register: UIButton!

@@ -119,6 +119,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
         
 
+           NotificationCenter.default.addObserver(self, selector: #selector(closeTheDrawer), name: NSNotification.Name(rawValue: "closeTheDrawer"), object: nil)
         
     }
     
@@ -126,6 +127,18 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         
         
+    }
+    
+    @objc  func   closeTheDrawer(){
+        
+        QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
+        
+        
+      let setting =   UIStoryboard.init(name: "ZBSetingController", bundle: nil).instantiateInitialViewController()
+        
+        
+        
+        navigationController?.pushViewController(setting!, animated: true)
     }
     
     

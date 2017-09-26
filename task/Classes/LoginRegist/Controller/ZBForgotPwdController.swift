@@ -12,6 +12,11 @@ import UIKit
 class ZBForgotPwdController: UIViewController {
     
     
+    typealias Tomato = (Int, Int) -> Int
+
+    
+   
+    
     
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -32,6 +37,7 @@ class ZBForgotPwdController: UIViewController {
         
         setConfig()
         
+       
     }
     
     

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import Kingfisher
 class TasksCell: UITableViewCell {
     
     
@@ -54,9 +54,9 @@ class TasksCell: UITableViewCell {
 
    
         let grayView = UIImageView.init(image: UIImage.init(named: "mission_blue"))
-
         addSubview(grayView)
 
+        
         grayView.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(10)
             make.left.equalTo(self).offset(15)

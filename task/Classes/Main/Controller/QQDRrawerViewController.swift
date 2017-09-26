@@ -43,8 +43,12 @@ class QQDRrawerViewController: UIViewController {
         guard self.coverButton != nil else {
             //  创建遮罩按钮
             let coverButton = UIButton.init()
+            
+            coverButton.setBackgroundImage(UIImage.init(named: "bg"), for: .normal)
+            
+            coverButton.alpha = 0.4
             self.coverButton = coverButton
-            coverButton.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            coverButton.frame = CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             coverButton.addTarget(self, action: (#selector(QQDRrawerViewController.closeDrawer)), for: .touchUpInside)
             addPanGestureRecognizer(view: coverButton)
             return
@@ -107,7 +111,7 @@ class QQDRrawerViewController: UIViewController {
             self.leftViewController?.view.transform = CGAffineTransform.identity
             }) { (Bool) in
                 
-                self.setCoverButton()
+                self.setCoverButton()  /// 遮罩
                 
                 self.mainViewController?.view.addSubview(self.coverButton!)
         };
