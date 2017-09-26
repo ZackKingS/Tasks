@@ -94,8 +94,6 @@ class TasksCell: UITableViewCell {
         let rightTopL = UILabel()
         rightTopL.text = "可开始"
         rightTopL.textAlignment = .center
-//        rightTopL.layer.cornerRadius = 3
-//        rightTopL.layer.masksToBounds = true
 
         rightTopL.font = UIFont.systemFont(ofSize: 14)
         rightTopL.textColor = UIColor.white

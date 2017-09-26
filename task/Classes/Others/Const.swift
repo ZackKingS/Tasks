@@ -79,9 +79,12 @@ let kBannerHeight: CGFloat = 160.0
 
 
 
+//圆角
+let kLcornerRadius :CGFloat = 20
 
+let kMcornerRadius :CGFloat = 10
 
-
+let kScornerRadius :CGFloat = 5
 
 /// iPhone 5
 let isIPhone5 = screenHeight == 568 ? true : false

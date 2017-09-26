@@ -42,16 +42,11 @@ class ZBLoginController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-       navigationController?.navigationBar.subviews[0].removeFromSuperview()//去掉NavigationBar的背景和横线
-        
-        
+
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)  //会有黑线
         
          navigationController?.navigationBar.shadowImage = UIImage()
-        ////        UINavigationBar.c
-        //
-        //        let navBar = UINavigationBar.appearance()
-        //        navBar.barTintColor = UIColor.clear
+      
     }
     
     override func viewDidLoad() {
@@ -66,9 +61,7 @@ class ZBLoginController: UIViewController {
 
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        dismiss(animated: true, completion: nil)
-    }
+ 
     
     
     @IBOutlet weak var register: UIButton!
@@ -78,20 +71,38 @@ class ZBLoginController: UIViewController {
         
           navigationController?.pushViewController(ZBRegistViewController(), animated: true)
        
-       
+
+    }
+    
+    
+    @IBOutlet weak var forgetPwd: UIButton!
+    
+    
+    @IBAction func forgetPwd(_ sender: Any) {
         
+        navigationController?.pushViewController(ZBForgotPwdController(), animated: true)
         
     }
     
     
-    
     func setConfig(){
-        loginBtn.layer.cornerRadius = 20
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(autoLogin), name: NSNotification.Name(rawValue: "autoLogin"), object: nil)
+        
+        
+        loginBtn.layer.cornerRadius = kLcornerRadius
         loginBtn.layer.masksToBounds = true
         phoneTF.attributedPlaceholder = NSAttributedString.init(string:"手机号", attributes: [  NSForegroundColorAttributeName:UIColor.white])
         pwdTF.attributedPlaceholder = NSAttributedString.init(string:"密码", attributes: [  NSForegroundColorAttributeName:UIColor.white])
     }
     
+    
+    func autoLogin() {
+        
+        asd 
+        
+    }
     
     
 }

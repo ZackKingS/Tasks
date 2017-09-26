@@ -31,6 +31,10 @@
 		3A111C9F1F79F89900675991 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111C9E1F79F89900675991 /* UIButton+Extension.swift */; };
 		3A111CA11F79FB3400675991 /* ZBRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111CA01F79FB3400675991 /* ZBRegistViewController.swift */; };
 		3A111CA31F79FB3D00675991 /* ZBRegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CA21F79FB3D00675991 /* ZBRegistViewController.xib */; };
+		3A111CA51F7A0A6D00675991 /* ZBForgotPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111CA41F7A0A6D00675991 /* ZBForgotPwdController.swift */; };
+		3A111CA71F7A0A7600675991 /* ZBForgotPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */; };
+		3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */; };
+		3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */; };
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
 		3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A839E771F6BDCAC0024B9B0 /* AppDelegate.swift */; };
 		3A839E7B1F6BDCAC0024B9B0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A839E781F6BDCAC0024B9B0 /* Info.plist */; };
@@ -77,6 +81,10 @@
 		3A111C9E1F79F89900675991 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		3A111CA01F79FB3400675991 /* ZBRegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRegistViewController.swift; sourceTree = "<group>"; };
 		3A111CA21F79FB3D00675991 /* ZBRegistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRegistViewController.xib; sourceTree = "<group>"; };
+		3A111CA41F7A0A6D00675991 /* ZBForgotPwdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBForgotPwdController.swift; sourceTree = "<group>"; };
+		3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBForgotPwdController.xib; sourceTree = "<group>"; };
+		3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetPwdController.swift; sourceTree = "<group>"; };
+		3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSetPwdController.xib; sourceTree = "<group>"; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A839E771F6BDCAC0024B9B0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A839E781F6BDCAC0024B9B0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -238,6 +246,10 @@
 				3A111C9A1F79E94D00675991 /* ZBLoginController.xib */,
 				3A111CA01F79FB3400675991 /* ZBRegistViewController.swift */,
 				3A111CA21F79FB3D00675991 /* ZBRegistViewController.xib */,
+				3A111CA41F7A0A6D00675991 /* ZBForgotPwdController.swift */,
+				3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */,
+				3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */,
+				3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -439,12 +451,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */,
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A097CC31F6FC08400222AEA /* s3.jpg in Resources */,
 				3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */,
 				3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */,
 				3A111CA31F79FB3D00675991 /* ZBRegistViewController.xib in Resources */,
 				3A839E7B1F6BDCAC0024B9B0 /* Info.plist in Resources */,
+				3A111CA71F7A0A7600675991 /* ZBForgotPwdController.xib in Resources */,
 				3A111C9B1F79E94D00675991 /* ZBLoginController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +529,8 @@
 				3A110E951F756B61009989D6 /* Reachability.swift in Sources */,
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
 				3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */,
+				3A111CA51F7A0A6D00675991 /* ZBForgotPwdController.swift in Sources */,
+				3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */,
 				3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */,
 				3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */,
 				3A1110BC1F78C14F009989D6 /* ZBLeftCell.swift in Sources */,

@@ -26,6 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
     
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+5, execute:
+            {
+                
+                print("123")
+                
+        })
+
+   
+     
+        
         return true
     }
 

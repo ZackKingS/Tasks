@@ -30,7 +30,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         //头像
         let userHeaderV = UIImageView.init(frame: CGRect.init(x: (kMaxLeftOffset - kUserHeaderHeight) / 2, y: 80 , width: kUserHeaderHeight, height:kUserHeaderHeight))
         userHeaderV.backgroundColor = UIColor.white
-        userHeaderV.layer.cornerRadius = 35
+        userHeaderV.layer.cornerRadius = userHeaderV.bounds.width / 2
         userHeaderV.layer.masksToBounds  = true
         view.addSubview(userHeaderV)
         userHeaderV.image = UIImage.init(named: "header")
@@ -60,7 +60,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         withDrawBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         withDrawBtn.setTitleColor(UIColor.white, for: .normal) //普通状态下文字的颜色
         withDrawBtn.addTarget(self, action: #selector(withDraw), for: .touchUpInside)
-        withDrawBtn.layer.cornerRadius = 6
+        withDrawBtn.layer.cornerRadius = kScornerRadius
         withDrawBtn.layer.masksToBounds = true
         withDrawBtn.backgroundColor = UIColor.colorWithHexString(Color_Value: "#e6761c", alpha: 1.0)
         view.addSubview(withDrawBtn)
@@ -83,7 +83,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         settingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         settingBtn.setTitleColor(UIColor.white, for: .normal) //普通状态下文字的颜色
         settingBtn.addTarget(self, action: #selector(withDraw), for: .touchUpInside)
-        settingBtn.layer.cornerRadius = 6
+        settingBtn.layer.cornerRadius = kScornerRadius
         settingBtn.layer.masksToBounds = true
         view.addSubview(settingBtn)
         settingBtn.frame = CGRect.init(x: 35, y: screenHeight - kLeftheaderHeight - kLeftTableViewHeight - 60, width: 70, height: 40)

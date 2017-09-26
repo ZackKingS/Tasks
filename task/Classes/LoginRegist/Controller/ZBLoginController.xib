@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBLoginController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="close" destination="eZR-2e-1nO" id="SjF-Tw-ke3"/>
+                <outlet property="forgetPwd" destination="IDb-VH-qxk" id="qNk-iX-krc"/>
                 <outlet property="loginBtn" destination="9CX-Vq-2gP" id="SGf-KD-OSg"/>
                 <outlet property="phoneTF" destination="Tj7-15-HDS" id="W6A-AI-9Rr"/>
                 <outlet property="pwdTF" destination="01g-HM-X4S" id="qx9-bU-KzI"/>
@@ -28,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZR-2e-1nO">
-                    <rect key="frame" x="16" y="40" width="34" height="25"/>
+                    <rect key="frame" x="40" y="60" width="34" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="aQt-oP-rjQ"/>
                         <constraint firstAttribute="height" constant="25" id="jUO-q1-8yB"/>
@@ -135,6 +136,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="忘记密码？"/>
+                            <connections>
+                                <action selector="forgetPwd:" destination="-1" eventType="touchUpInside" id="25j-lq-hjQ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -199,9 +203,9 @@
                 <constraint firstAttribute="trailing" secondItem="mlP-mF-yOw" secondAttribute="trailing" constant="40" id="OKy-eM-sTs"/>
                 <constraint firstAttribute="bottom" secondItem="Omk-Bp-WgC" secondAttribute="bottom" constant="25" id="SFW-Yk-jIX"/>
                 <constraint firstItem="mlP-mF-yOw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="259" id="Z6K-Kq-Rhw"/>
-                <constraint firstItem="eZR-2e-1nO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="j1y-ub-LWd"/>
+                <constraint firstItem="eZR-2e-1nO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="j1y-ub-LWd"/>
                 <constraint firstItem="mlP-mF-yOw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="lU8-RW-Bmq"/>
-                <constraint firstItem="eZR-2e-1nO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="sVa-0D-TRh"/>
+                <constraint firstItem="eZR-2e-1nO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="sVa-0D-TRh"/>
                 <constraint firstItem="ddd-EF-IrI" firstAttribute="top" secondItem="9CX-Vq-2gP" secondAttribute="bottom" constant="8" id="sVh-rW-XMX"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>

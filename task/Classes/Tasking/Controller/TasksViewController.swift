@@ -99,7 +99,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             button.backgroundColor = UIColor.colorWithHexString(Color_Value: "d9d9d9", alpha: 1)
             
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-            button.layer.cornerRadius = 4
+            button.layer.cornerRadius = kScornerRadius
             button.layer.masksToBounds = true
             button.setTitleColor(UIColor.colorWithHexString(Color_Value: "666666", alpha: 1), for: .normal) //普通状态下文字的颜色
             button.addTarget(self, action: #selector(reConectNetForwork), for: .touchUpInside)
