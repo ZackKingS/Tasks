@@ -25,9 +25,7 @@ class ZBLoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-        
-        
-        
+      dismiss(animated: true, completion: nil)
         
     }
     
@@ -100,7 +98,9 @@ class ZBLoginController: UIViewController {
     
     func autoLogin() {
         
-        asd 
+        dismiss(animated: true, completion: nil)
+        
+        
         
     }
     

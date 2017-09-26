@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBRegistViewController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="nextBtn" destination="nI2-qs-260" id="SfH-65-4yL"/>
+                <outlet property="sentSMS" destination="C8S-a7-a29" id="t2z-f9-XQ1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="dV1-wM-yK3"/>
             </connections>
         </placeholder>
@@ -110,6 +111,20 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-a7-a29">
+                            <rect key="frame" x="221" y="62" width="89" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="89" id="fNr-IE-tsU"/>
+                                <constraint firstAttribute="height" constant="30" id="lvL-Az-W7n"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="请输入验证码">
+                                <color key="titleColor" red="0.90196078431372551" green="0.46274509803921571" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="sentSMS:" destination="-1" eventType="touchUpInside" id="Ej3-B2-GkW"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -122,8 +137,10 @@
                         <constraint firstItem="HvA-zc-8Nj" firstAttribute="leading" secondItem="enK-SU-TDA" secondAttribute="trailing" constant="18" id="Der-OB-RQ5"/>
                         <constraint firstAttribute="height" constant="230" id="Dk2-fc-1JH"/>
                         <constraint firstItem="zSc-i0-0hX" firstAttribute="leading" secondItem="Xrs-Of-Klk" secondAttribute="trailing" constant="10" id="GqL-Wk-W7N"/>
+                        <constraint firstItem="C8S-a7-a29" firstAttribute="centerY" secondItem="HvA-zc-8Nj" secondAttribute="centerY" id="Kh9-fh-Bkp"/>
                         <constraint firstItem="6ne-g9-tcZ" firstAttribute="leading" secondItem="utR-8U-zzb" secondAttribute="leading" constant="23" id="MtC-HZ-mLT"/>
                         <constraint firstItem="Xrs-Of-Klk" firstAttribute="centerY" secondItem="pij-Y7-0wx" secondAttribute="centerY" id="O6i-NA-9cq"/>
+                        <constraint firstAttribute="trailing" secondItem="C8S-a7-a29" secondAttribute="trailing" constant="30" id="Pe5-FN-6Kq"/>
                         <constraint firstItem="enK-SU-TDA" firstAttribute="leading" secondItem="utR-8U-zzb" secondAttribute="leading" constant="23" id="QQK-dQ-V9M"/>
                         <constraint firstItem="pij-Y7-0wx" firstAttribute="leading" secondItem="utR-8U-zzb" secondAttribute="leading" constant="23" id="YvO-NR-Lms"/>
                         <constraint firstItem="Xrs-Of-Klk" firstAttribute="leading" secondItem="pij-Y7-0wx" secondAttribute="trailing" constant="8" id="ZTn-PN-pbv"/>

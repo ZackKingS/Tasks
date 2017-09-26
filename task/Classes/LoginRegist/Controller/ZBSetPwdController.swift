@@ -12,6 +12,9 @@ import UIKit
 import SVProgressHUD
 class ZBSetPwdController: UIViewController {
     
+     var typecase : Int = 0
+
+    
     @IBOutlet weak var commitBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,19 @@ class ZBSetPwdController: UIViewController {
     
     
     @IBAction func commit(_ sender: Any) {
+        
+        
+        switch typecase {
+        case 1: 
+            print("reg")
+            
+        case 2:
+            print("forgetpwd")
+        default:
+            print("xxx")
+        }
+        
+        
         
         SVProgressHUD.show()
         

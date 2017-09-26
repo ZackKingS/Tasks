@@ -82,7 +82,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         settingBtn.setTitle("设置", for:.normal) //普通状态下的文字
         settingBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         settingBtn.setTitleColor(UIColor.white, for: .normal) //普通状态下文字的颜色
-        settingBtn.addTarget(self, action: #selector(withDraw), for: .touchUpInside)
+        settingBtn.addTarget(self, action: #selector(setting), for: .touchUpInside)
         settingBtn.layer.cornerRadius = kScornerRadius
         settingBtn.layer.masksToBounds = true
         view.addSubview(settingBtn)
@@ -91,6 +91,15 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         return view
     }
+    
+    
+    func setting(){
+        
+    
+        navigationController?.pushViewController(ZBSetPwdController(), animated: true)
+        
+    }
+    
     
     var dataArray:[String]{
         let array = NSArray.init(objects: "完成任务","用户余额")

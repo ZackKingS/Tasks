@@ -32,9 +32,23 @@ class ZBRegistViewController: UIViewController {
     }
     
     
+
+    @IBOutlet weak var sentSMS: UIButton!
+    
+    
+    @IBAction func sentSMS(_ sender: Any) {
+        
+        
+        
+    }
+    
+    
     @IBAction func next(_ sender: Any) {
         
-        navigationController?.pushViewController(ZBSetPwdController(), animated: true)
+        
+        let pwd = ZBSetPwdController()
+        pwd.typecase = 1
+        navigationController?.pushViewController(pwd, animated: true)
         
     }
     
@@ -49,7 +63,6 @@ class ZBRegistViewController: UIViewController {
         
         nextBtn.layer.cornerRadius = kLcornerRadius
         nextBtn.layer.masksToBounds = true
-//        phoneTF.attributedPlaceholder = NSAttributedString.init(string:"手机号", attributes: [  NSForegroundColorAttributeName:UIColor.white])
-//        pwdTF.attributedPlaceholder = NSAttributedString.init(string:"密码", attributes: [  NSForegroundColorAttributeName:UIColor.white])
+
     }
 }
