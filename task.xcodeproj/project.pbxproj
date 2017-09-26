@@ -35,8 +35,6 @@
 		3A111CA71F7A0A7600675991 /* ZBForgotPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */; };
 		3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */; };
 		3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */; };
-		3A184E771F7A6F1100334EF8 /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A184E761F7A6F1100334EF8 /* A.swift */; };
-		3A184E791F7A6F1A00334EF8 /* B.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A184E781F7A6F1A00334EF8 /* B.swift */; };
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
 		3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */; };
@@ -90,8 +88,6 @@
 		3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBForgotPwdController.xib; sourceTree = "<group>"; };
 		3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetPwdController.swift; sourceTree = "<group>"; };
 		3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSetPwdController.xib; sourceTree = "<group>"; };
-		3A184E761F7A6F1100334EF8 /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
-		3A184E781F7A6F1A00334EF8 /* B.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = B.swift; sourceTree = "<group>"; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetingController.swift; sourceTree = "<group>"; };
 		3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBSetingController.storyboard; sourceTree = "<group>"; };
@@ -262,8 +258,6 @@
 				3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */,
 				3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */,
 				3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */,
-				3A184E761F7A6F1100334EF8 /* A.swift */,
-				3A184E781F7A6F1A00334EF8 /* B.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -534,7 +528,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A184E771F7A6F1100334EF8 /* A.swift in Sources */,
 				3A111CA11F79FB3400675991 /* ZBRegistViewController.swift in Sources */,
 				3A111C9F1F79F89900675991 /* UIButton+Extension.swift in Sources */,
 				3A111C991F79E43D00675991 /* ZBLoginController.swift in Sources */,
@@ -544,7 +537,6 @@
 				3A097CBD1F6FB9B800222AEA /* LLSnakePageControl.swift in Sources */,
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
 				3A110E951F756B61009989D6 /* Reachability.swift in Sources */,
-				3A184E791F7A6F1A00334EF8 /* B.swift in Sources */,
 				3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */,
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
 				3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */,
