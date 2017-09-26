@@ -15,7 +15,7 @@ class ZBNavVC: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBar = UINavigationBar.appearance()
-        navBar.barTintColor = UIColor.white
+        navBar.barTintColor = UIColor.themeColor()
         navBar.tintColor =  UIColor.red// UIColor(r: 94, g: 94, b: 94, alpha: 1)
         navBar.titleTextAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 17)]
         // 创建全局手势
@@ -51,7 +51,7 @@ class ZBNavVC: UINavigationController {
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if viewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "dropdown_018"), style: .plain, target: self, action: #selector(navigationBack))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(navigationBack))
         }
         super.pushViewController(viewController, animated: true)
     }

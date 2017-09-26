@@ -12,12 +12,35 @@ class ZBTabbarVC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tabBar = UITabBar.appearance()
-        tabBar.tintColor = UIColor(red: 245 / 255, green: 90 / 255, blue: 93 / 255, alpha: 1/0)
+       
+        
+        
+     
         
             addChildViewControllers()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
+        if let views = tabBarController?.tabBar.subviews {
+            views[views.count - 1].removeFromSuperview()   //去掉TabBar中的横线
+            views[0].removeFromSuperview()                 //去掉TabBar中的背景
+        }
+////        UINavigationBar.c
+//
+//        let navBar = UINavigationBar.appearance()
+//        navBar.barTintColor = UIColor.clear
+    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(true)
+//
+//
+//        let navBar = UINavigationBar.appearance()
+//        navBar.barTintColor = UIColor.themeColor()
+//    }
 
     
     

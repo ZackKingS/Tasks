@@ -286,8 +286,16 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
-          navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
+//          navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+        
+        
+        let nav = ZBNavVC.init(rootViewController: ZBLoginController())
+        
+        present(nav, animated: true, completion: nil)
+        
+        
+        
     }
 }
 

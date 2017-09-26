@@ -53,7 +53,7 @@ class TasksCell: UITableViewCell {
         
 
    
-        let grayView = UIImageView.init(image: UIImage.init(named: "组-2"))
+        let grayView = UIImageView.init(image: UIImage.init(named: "mission_blue"))
 
         addSubview(grayView)
 
@@ -82,9 +82,8 @@ class TasksCell: UITableViewCell {
         priceL.font = UIFont.systemFont(ofSize: 20)
         self.addSubview(priceL)
         priceL.snp.makeConstraints { (make) in
-//            make.top.equalTo(self).offset(50)
-            
-            make.top.equalTo(taskNameL.snp.bottom).offset(15)
+
+            make.top.equalTo(taskNameL.snp.bottom).offset(2)
             make.left.equalTo(self).offset(35)
             make.width.equalTo(100)
             make.height.equalTo(70)
@@ -136,18 +135,40 @@ class TasksCell: UITableViewCell {
         
 
         let button:UIButton = UIButton(type:.custom)
-        button.setTitle("查看>>", for:.normal) //普通状态下的文字
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-//        button.setTitleColor(UIColor.blue, for: .normal) //普通状态下文字的颜色
+        button.setTitle("查看", for:.normal) //普通状态下的文字
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(push), for: .touchUpInside)
         self.addSubview(button)
         button.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-15)
-            make.right.equalTo(self).offset(-10)
-            make.width.equalTo(100)
-            make.height.equalTo(40)
+            make.right.equalTo(self).offset(-35)
+            make.width.equalTo(43)
+            make.height.equalTo(30)
         }
+        
+        
+        
+        
+        let checkView = UIImageView.init(image: UIImage.init(named: "right_arr"))
+        
+        addSubview(checkView)
+        
+        checkView.snp.makeConstraints { (make) in
+            make.leading.equalTo(button.snp.trailing).offset(-1)
+            make.centerY.equalTo(button.snp.centerY)
+            make.width.equalTo(10)
+            make.height.equalTo(10)
+//            make.bottom.equalTo(self).offset(-5)
+//            make.right.equalTo(self).offset(-15)
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     func push(){
         
