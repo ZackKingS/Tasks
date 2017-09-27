@@ -58,12 +58,12 @@ class ZBLoginController: UIViewController {
 
         
         
-        let para =  ["a":"3","b":"4"]  as [String : AnyObject]
-        NetworkTool.bbb( url:"https://httpbin.org/get",   parameters : para ){ (result) in
-
-            print(result ?? "213")
-
-        }
+//        let para =  ["a":"3","b":"4"]  as [String : AnyObject]
+//        NetworkTool.bbb( url:"https://httpbin.org/get",   parameters : para ){ (result) in
+//
+//            print(result ?? "213")
+//
+//        }
    
       
       

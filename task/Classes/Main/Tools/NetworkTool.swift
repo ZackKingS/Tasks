@@ -21,43 +21,30 @@ protocol NetworkToolProtocol {
 class NetworkTool: NetworkToolProtocol {
     
     //test
-    class func bbb(  url:String,   parameters : [String : AnyObject], completionHandler:@escaping (_ topTitles: Any?)->()) {
+    class func bbb(  url:String,   parameters : [String : AnyObject], completionHandler:@escaping (_ value: Any?)->()) {
         
         print(parameters)
         
         Alamofire.request(url, parameters: nil).responseJSON { (response) in
-        
-//                completionHandler(response)
-            
-            
             //判断是否成功
             guard response.result.isSuccess else {
                 return
             }
-            
-            
             if let value = response.result.value {
                 let json = JSON(value)
-               
-                    completionHandler(json)
+                completionHandler(json)
             }
-        
         }
-        
-
     }
     
       //test
     class func aaa( completionHandler:@escaping (_ topTitles: String)->()) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            let topTitles = "zzzz"
-            completionHandler(topTitles)
+          
+            completionHandler("zzzz")
         }
-        
-        
-        
-      
+
     }
     
   

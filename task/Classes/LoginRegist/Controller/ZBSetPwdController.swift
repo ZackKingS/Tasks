@@ -30,25 +30,31 @@ class ZBSetPwdController: UIViewController {
         case 1: 
             print("reg")
             
+            SVProgressHUD.show()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                
+                SVProgressHUD.dismiss()
+                self.navigationController?.popToRootViewController(animated: true)
+                
+                
+                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
+                
+            }
+            
         case 2:
             print("forgetpwd")
+            
+            navigationController?.pushViewController(ZBGetPwdBackedController(), animated: true)
+            
+            
         default:
             print("xxx")
         }
         
         
         
-        SVProgressHUD.show()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            
-            SVProgressHUD.dismiss()
-            self.navigationController?.popToRootViewController(animated: true)
-            
-        
-              NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
-            
-        }
+      
         
       
         

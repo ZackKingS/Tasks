@@ -139,6 +139,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="500" height="800"/>
                     <connections>
+                        <outlet property="logoutBtn" destination="4t3-Nb-cfJ" id="mQe-gv-I5L"/>
                         <outlet property="sizeBtn" destination="ZCw-T4-Dkz" id="gzR-Cb-wJk"/>
                     </connections>
                 </tableViewController>

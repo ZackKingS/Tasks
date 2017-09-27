@@ -86,6 +86,15 @@ class ZBSetingController: UITableViewController {
         self.tableView.sectionFooterHeight = 0;
         self.tableView.sectionHeaderHeight = screenHeight / 3;
         
+        
+        logoutBtn.layer.cornerRadius = kScornerRadius
+        logoutBtn.layer.masksToBounds = true
+        
+        
+        ZBCleanTool.fileSizeOfCachingg(completionHandler: { (size) in
+            
+            self.sizeBtn.setTitle((size  ), for: .normal)
+        })
     
     }
     
@@ -94,13 +103,13 @@ class ZBSetingController: UITableViewController {
         
         if indexPath.row == 0 {
 
-//            ZBCleanTool.clearCache()
-            
-            print("0000")
+
         }else if indexPath.row == 1{
           print("1111")
         }
         
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
 }
