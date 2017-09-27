@@ -45,6 +45,8 @@
 		3A3E6AB01F7B7C680025E63B /* ZBTaskUnderReviewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6AAF1F7B7C680025E63B /* ZBTaskUnderReviewController.xib */; };
 		3A3E6AB21F7B7FE20025E63B /* ZBTaskSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB11F7B7FE20025E63B /* ZBTaskSuccessController.swift */; };
 		3A3E6AB41F7B80140025E63B /* ZBTaskSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB31F7B80140025E63B /* ZBTaskSuccessController.xib */; };
+		3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB51F7B859C0025E63B /* ZBTaskFailController.swift */; };
+		3A3E6AB81F7B85E00025E63B /* ZBTaskFailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB71F7B85E00025E63B /* ZBTaskFailController.xib */; };
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
 		3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */; };
 		3A506E831F7A53E0004DF7C3 /* ZBCleanTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */; };
@@ -107,6 +109,8 @@
 		3A3E6AAF1F7B7C680025E63B /* ZBTaskUnderReviewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBTaskUnderReviewController.xib; sourceTree = "<group>"; };
 		3A3E6AB11F7B7FE20025E63B /* ZBTaskSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBTaskSuccessController.swift; sourceTree = "<group>"; };
 		3A3E6AB31F7B80140025E63B /* ZBTaskSuccessController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBTaskSuccessController.xib; sourceTree = "<group>"; };
+		3A3E6AB51F7B859C0025E63B /* ZBTaskFailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBTaskFailController.swift; sourceTree = "<group>"; };
+		3A3E6AB71F7B85E00025E63B /* ZBTaskFailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBTaskFailController.xib; sourceTree = "<group>"; };
 		3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetingController.swift; sourceTree = "<group>"; };
 		3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBSetingController.storyboard; sourceTree = "<group>"; };
 		3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBCleanTool.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 				3A3E6AAF1F7B7C680025E63B /* ZBTaskUnderReviewController.xib */,
 				3A3E6AB11F7B7FE20025E63B /* ZBTaskSuccessController.swift */,
 				3A3E6AB31F7B80140025E63B /* ZBTaskSuccessController.xib */,
+				3A3E6AB51F7B859C0025E63B /* ZBTaskFailController.swift */,
+				3A3E6AB71F7B85E00025E63B /* ZBTaskFailController.xib */,
 				3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */,
 			);
 			path = Controller;
@@ -495,6 +501,7 @@
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */,
 				3A097CC31F6FC08400222AEA /* s3.jpg in Resources */,
+				3A3E6AB81F7B85E00025E63B /* ZBTaskFailController.xib in Resources */,
 				3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */,
 				3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */,
 				3A3E6AB01F7B7C680025E63B /* ZBTaskUnderReviewController.xib in Resources */,
@@ -594,6 +601,7 @@
 				3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */,
 				3AD3FBE71F6BE543007406E1 /* TopicViewController.swift in Sources */,
 				3A097CBC1F6FB9B800222AEA /* LLPillPageControl.swift in Sources */,
+				3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */,
 				3A097CBB1F6FB9B800222AEA /* LLFilledPageControl.swift in Sources */,
 				3A097CBE1F6FB9B800222AEA /* LLViewExtensions.swift in Sources */,
 				3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */,

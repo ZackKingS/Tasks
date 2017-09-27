@@ -299,7 +299,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let str = "donesuccess"
+        let str = "donefail"
          tableView.deselectRow(at: indexPath, animated: true)
         
         if  str.contains("login")    { //已经登录 做任务
@@ -310,8 +310,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         }else if  str.contains("done")     {  //已做
             if   str.contains("success")  {  //审核通过
                   navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-            }else {    //审核未通过
-//                  navigationController?.pushViewController( , animated: true)
+            }else  if str.contains("fail"){    //审核未通过
+                  navigationController?.pushViewController(ZBTaskFailController() , animated: true)
             }
 
         }
