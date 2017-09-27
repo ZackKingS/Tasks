@@ -38,6 +38,9 @@
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
 		3A3E6A9A1F7B39FA0025E63B /* ZBGetPwdBackedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */; };
 		3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */; };
+		3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6A9F1F7B4F120025E63B /* TaskDetailViewController.xib */; };
+		3A3E6AAA1F7B731E0025E63B /* ZBStartTaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6AA91F7B731E0025E63B /* ZBStartTaskController.swift */; };
+		3A3E6AAC1F7B73280025E63B /* ZBStartTaskController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6AAB1F7B73280025E63B /* ZBStartTaskController.xib */; };
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
 		3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */; };
 		3A506E831F7A53E0004DF7C3 /* ZBCleanTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */; };
@@ -93,6 +96,9 @@
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBGetPwdBackedController.swift; sourceTree = "<group>"; };
 		3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBGetPwdBackedController.xib; sourceTree = "<group>"; };
+		3A3E6A9F1F7B4F120025E63B /* TaskDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
+		3A3E6AA91F7B731E0025E63B /* ZBStartTaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBStartTaskController.swift; sourceTree = "<group>"; };
+		3A3E6AAB1F7B73280025E63B /* ZBStartTaskController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBStartTaskController.xib; sourceTree = "<group>"; };
 		3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetingController.swift; sourceTree = "<group>"; };
 		3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBSetingController.storyboard; sourceTree = "<group>"; };
 		3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBCleanTool.swift; sourceTree = "<group>"; };
@@ -373,6 +379,9 @@
 			children = (
 				3A839E7E1F6BDD160024B9B0 /* TasksViewController.swift */,
 				3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */,
+				3A3E6A9F1F7B4F120025E63B /* TaskDetailViewController.xib */,
+				3A3E6AA91F7B731E0025E63B /* ZBStartTaskController.swift */,
+				3A3E6AAB1F7B73280025E63B /* ZBStartTaskController.xib */,
 				3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */,
 			);
 			path = Controller;
@@ -466,8 +475,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3E6AAC1F7B73280025E63B /* ZBStartTaskController.xib in Resources */,
 				3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */,
 				3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */,
+				3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */,
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */,
 				3A097CC31F6FC08400222AEA /* s3.jpg in Resources */,
@@ -558,6 +569,7 @@
 				3A839E871F6BDE390024B9B0 /* UIColor+Extension.swift in Sources */,
 				3A839E821F6BDD160024B9B0 /* TasksViewController.swift in Sources */,
 				3A097CA71F6FAE9F00222AEA /* QQDRrawerViewController.swift in Sources */,
+				3A3E6AAA1F7B731E0025E63B /* ZBStartTaskController.swift in Sources */,
 				3A097CBA1F6FB9B800222AEA /* LLCycleScrollViewCell.swift in Sources */,
 				3A097CA81F6FAE9F00222AEA /* QQDynamicViewController.swift in Sources */,
 				3A839E851F6BDD170024B9B0 /* ZBNavVC.swift in Sources */,

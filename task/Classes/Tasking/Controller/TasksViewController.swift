@@ -299,14 +299,25 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        tableView.deselectRow(at: indexPath, animated: true)
-//          navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+        let str = "abc"
+        
+        if  str.contains("a")    { //已经登录
+            tableView.deselectRow(at: indexPath, animated: true)
+            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+            
+            
+            
+        }else{
+
+            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
+
+            present(nav, animated: true, completion: nil)
+
+        }
         
         
-        let nav = ZBNavVC.init(rootViewController: ZBLoginController())
         
-        present(nav, animated: true, completion: nil)
-        
+      
         
         
     }
