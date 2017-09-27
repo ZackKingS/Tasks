@@ -297,11 +297,12 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         NotificationCenter.default.removeObserver(self)
     }
     
+    
+    // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let str = "donefail"
+        let str = "donesuccess"
          tableView.deselectRow(at: indexPath, animated: true)
-        
         if  str.contains("login")    { //已经登录 做任务
             navigationController?.pushViewController(TaskDetailViewController(), animated: true)
         }else if  str.contains("unlogin")     {  //未登录 去登陆
@@ -313,7 +314,6 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }else  if str.contains("fail"){    //审核未通过
                   navigationController?.pushViewController(ZBTaskFailController() , animated: true)
             }
-
         }
         
         
