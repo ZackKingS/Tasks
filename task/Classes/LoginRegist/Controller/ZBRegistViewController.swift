@@ -8,9 +8,17 @@
 
 import Foundation
 import UIKit
-
+import SVProgressHUD
 class ZBRegistViewController: UIViewController {
     
+    
+    
+    
+    @IBOutlet weak var phoneNumL: UITextField!
+    
+    @IBOutlet weak var smsTF: UITextField!
+    
+    @IBOutlet weak var nickTF: UITextField!
     
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -39,6 +47,22 @@ class ZBRegistViewController: UIViewController {
     @IBAction func sentSMS(_ sender: Any) {
         
         
+     
+     
+        
+      // todo  手机号正则过滤
+        
+        let str = API_GETSMS_URL + "?tel=\(phoneNumL.text!)&action=0"
+        NetworkTool.getMesa( url: str  ){ (result) in
+
+            SVProgressHUD.showSuccess(withStatus: "")
+            SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+            
+            print(result ?? "213")
+
+        }
+
+        
         
     }
     
@@ -46,8 +70,16 @@ class ZBRegistViewController: UIViewController {
     @IBAction func next(_ sender: Any) {
         
         
+        
+       
+        
+        
         let pwd = ZBSetPwdController()
         pwd.typecase = 1
+        pwd.phone =  phoneNumL.text
+          pwd.sms =  smsTF.text
+          pwd.nickName =  nickTF.text
+        
         navigationController?.pushViewController(pwd, animated: true)
         
     }

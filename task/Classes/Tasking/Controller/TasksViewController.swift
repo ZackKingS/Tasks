@@ -301,9 +301,9 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let str = "donesuccess"
+        let str = "unlogin"
          tableView.deselectRow(at: indexPath, animated: true)
-        if  str.contains("login")    { //已经登录 做任务
+        if  str.contains("qwe")    { //已经登录 做任务
             navigationController?.pushViewController(TaskDetailViewController(), animated: true)
         }else if  str.contains("unlogin")     {  //未登录 去登陆
             let nav = ZBNavVC.init(rootViewController: ZBLoginController())

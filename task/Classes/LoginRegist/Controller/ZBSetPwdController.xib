@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBSetPwdController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="commitBtn" destination="me6-gt-kcj" id="WQB-Hx-ENC"/>
+                <outlet property="pwd_f" destination="F30-HG-MmM" id="cLM-Pr-2Kv"/>
+                <outlet property="pwd_s" destination="SYI-ZR-PUf" id="8O3-q4-cjQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Atf-08-Rzc"/>
             </connections>
         </placeholder>
@@ -51,23 +53,23 @@
                                 <constraint firstAttribute="width" constant="20" id="rJs-gH-E0J"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYI-ZR-PUf">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请再次输密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SYI-ZR-PUf">
                             <rect key="frame" x="61" y="60.5" width="244" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="Bmy-vo-snY"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F30-HG-MmM">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F30-HG-MmM">
                             <rect key="frame" x="61" y="5" width="254" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="LY0-Ey-csV"/>
                             </constraints>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

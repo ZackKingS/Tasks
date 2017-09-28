@@ -15,6 +15,15 @@ class ZBSetPwdController: UIViewController {
      var typecase : Int = 0
 
     
+    
+    var phone: String?
+    var sms: String?
+    var nickName: String?
+    
+    @IBOutlet weak var pwd_f: UITextField!
+    
+    @IBOutlet weak var pwd_s: UITextField!
+    
     @IBOutlet weak var commitBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +32,54 @@ class ZBSetPwdController: UIViewController {
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        pwd_s.resignFirstResponder()
+        pwd_f.resignFirstResponder()
+    }
+    
     @IBAction func commit(_ sender: Any) {
+        
+        
+        let str1 = pwd_s.text as! String
+        let str2 = pwd_f.text as! String
+        if    !(str1 == str2 ) {
+            SVProgressHUD.showError(withStatus: "两次输入密码不同")
+            SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+            return
+        }
+        
         
         
         switch typecase {
         case 1: 
-            print("reg")
+            print("reg")  //注册
             
-            SVProgressHUD.show()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+              SVProgressHUD.show()
+            let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!]  as [String : AnyObject]
+          
+            NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (result) in
+                print(result ?? "213")
+                
+                
+              
                 
                 SVProgressHUD.dismiss()
                 self.navigationController?.popToRootViewController(animated: true)
+//                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
+                
+//                NotificationCenter.default.post(Notification.init(name:  "autoLogin", object: nil, userInfo: nil)))
                 
                 
-                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
+                
+                  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "autoLogin"), object: self, userInfo: nil)
                 
             }
+            
+            
+            
+            
+            
+          
             
         case 2:
             print("forgetpwd")

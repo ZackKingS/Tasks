@@ -21,11 +21,51 @@ protocol NetworkToolProtocol {
 class NetworkTool: NetworkToolProtocol {
     
     //test
-    class func bbb(  url:String,   parameters : [String : AnyObject], completionHandler:@escaping (_ value: Any?)->()) {
+    class func postMesa(  url:String,   parameters : [String : AnyObject], completionHandler:@escaping (_ json: Any?)->()) {
         
         print(parameters)
         
-        Alamofire.request(url, parameters: nil).responseJSON { (response) in
+        Alamofire.request( url,method : .post, parameters :parameters ).responseJSON { (response) in
+            //判断是否成功
+            guard response.result.isSuccess else {
+                return
+            }
+            if let value = response.result.value {
+                let json = JSON(value)
+                
+                  print(json)
+
+//
+//                if !(json["message"].string?.contains("success"))! { //"message" : "success"
+//                    SVProgressHUD.showError(withStatus: "请稍后再试")
+//                    return
+//                }
+//let json = JSON(value)
+//                let dataDict = json["data"].dictionary
+
+                
+                completionHandler(value)
+
+                
+                
+            }
+            
+   
+            
+            
+        }
+
+     
+    }
+    
+    
+    
+    //test
+    class func getMesa(  url:String, completionHandler:@escaping (_ value: Any?)->()) {
+        
+       
+        
+        Alamofire.request(url, parameters: nil ).responseJSON { (response) in
             //判断是否成功
             guard response.result.isSuccess else {
                 return
@@ -37,6 +77,7 @@ class NetworkTool: NetworkToolProtocol {
         }
     }
     
+    
       //test
     class func aaa( completionHandler:@escaping (_ topTitles: String)->()) {
         
@@ -47,13 +88,7 @@ class NetworkTool: NetworkToolProtocol {
 
     }
     
-  
-    
-    
-    
-    
-    
-    
+
 
     /// -------------------------- 首 页 home -------------------------
     // MARK: - 获取首页顶部标题内容
@@ -65,8 +100,6 @@ class NetworkTool: NetworkToolProtocol {
                       "iid": IID] as [String : AnyObject]
         
      
-        
-        
         Alamofire.request(url, parameters: params).responseJSON { (response) in
             
             

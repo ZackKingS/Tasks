@@ -12,7 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBRegistViewController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="nextBtn" destination="nI2-qs-260" id="SfH-65-4yL"/>
+                <outlet property="nickTF" destination="fVL-ll-FHV" id="2jK-LA-gR0"/>
+                <outlet property="phoneNumL" destination="Klt-xt-9zz" id="wDF-Qr-Arn"/>
                 <outlet property="sentSMS" destination="C8S-a7-a29" id="t2z-f9-XQ1"/>
+                <outlet property="smsTF" destination="HvA-zc-8Nj" id="hK1-XY-hle"/>
                 <outlet property="view" destination="iN0-l3-epB" id="dV1-wM-yK3"/>
             </connections>
         </placeholder>
@@ -21,10 +24,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0kx-2e-M2V">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utR-8U-zzb" userLabel="patton">
                     <rect key="frame" x="15" y="30" width="340" height="230"/>
                     <subviews>
@@ -118,7 +117,7 @@
                                 <constraint firstAttribute="height" constant="30" id="lvL-Az-W7n"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="请输入验证码">
+                            <state key="normal" title="发送验证码">
                                 <color key="titleColor" red="0.90196078431372551" green="0.46274509803921571" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -177,12 +176,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="nI2-qs-260" secondAttribute="bottom" constant="130" id="1AD-uc-gtG"/>
                 <constraint firstItem="utR-8U-zzb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="AWz-G7-sYU"/>
-                <constraint firstItem="0kx-2e-M2V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BPx-7W-YPy"/>
-                <constraint firstItem="0kx-2e-M2V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="M0L-jD-iEf"/>
                 <constraint firstAttribute="trailing" secondItem="utR-8U-zzb" secondAttribute="trailing" constant="20" id="UVD-l0-gUZ"/>
                 <constraint firstItem="utR-8U-zzb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="feU-hv-SnK"/>
-                <constraint firstAttribute="trailing" secondItem="0kx-2e-M2V" secondAttribute="trailing" id="iqK-vg-aLK"/>
-                <constraint firstAttribute="bottom" secondItem="0kx-2e-M2V" secondAttribute="bottom" id="neh-nu-i8j"/>
                 <constraint firstItem="nI2-qs-260" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xbF-Je-ITM"/>
             </constraints>
             <point key="canvasLocation" x="115.5" y="54.5"/>

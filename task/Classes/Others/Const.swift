@@ -97,6 +97,15 @@ let isNight = "isNight"
 
 let TabBarDidSelectedNotification = "TabBarDidSelectedNotification"
 
+//MARK: 测试接口
+let BaseURL = "http://taskbao.dev.cnfol.wh/"
+//短信
+let API_GETSMS_URL = BaseURL + "v1/user/smsverify"
+//注册
+let API_REGISTE_URL = BaseURL + "v1/user/Register"
+//登录
+let API_LOGIN_URL = BaseURL + "v1/user/login"
 
 
 
+//MARK: 正式接口

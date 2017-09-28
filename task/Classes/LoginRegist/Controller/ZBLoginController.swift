@@ -56,15 +56,7 @@ class ZBLoginController: UIViewController {
         
        
 
-        
-        
-//        let para =  ["a":"3","b":"4"]  as [String : AnyObject]
-//        NetworkTool.bbb( url:"https://httpbin.org/get",   parameters : para ){ (result) in
-//
-//            print(result ?? "213")
-//
-//        }
-   
+
       
       
     }
@@ -102,7 +94,7 @@ class ZBLoginController: UIViewController {
     func setConfig(){
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(autoLogin), name: NSNotification.Name(rawValue: "autoLogin"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(autoLogin(notification:)), name: NSNotification.Name(rawValue: "autoLogin"), object: nil)
         
         
         loginBtn.layer.cornerRadius = kLcornerRadius
@@ -112,11 +104,26 @@ class ZBLoginController: UIViewController {
     }
     
     
-    func autoLogin() {
+    func autoLogin(notification: Notification) {
         
         dismiss(animated: true, completion: nil)
         
         
+        
+//        SVProgressHUD.show()
+//        let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!]  as [String : AnyObject]
+//
+//        NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (result) in
+//            print(result ?? "213")
+//
+//            SVProgressHUD.dismiss()
+//            self.navigationController?.popToRootViewController(animated: true)
+//            NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
+//
+//
+//
+//
+//        }
         
     }
     

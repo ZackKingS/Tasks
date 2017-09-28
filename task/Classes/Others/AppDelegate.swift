@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import SwiftyJSON
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,40 +17,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-  
-        
-         
-        
+
         networkStatusManage()
        
         window = UIWindow(frame: UIScreen.main.bounds)
         let nav  = ZBNavVC.init(rootViewController: TasksViewController())
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
-    
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+5, execute:
-            {
-                
-                print("123")
-                
-        })
 
-   
+        
+        
+        let para = ["tel":"17386014224","password":"111111"] as [String : AnyObject]
+        
+        NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para ) { (value) in
+
+            
+            let json = JSON(value ?? "123")
+            let dataDict   = json["data"].dictionaryValue //as NSDictionary
+  
+            
+//            let user : User = User.init(dict: dataDict as [String : AnyObject])
+            
+//             UserDefaults.standard.set(dataDict, forKey: "USER")
+            
+            let tel  = dataDict["tel"]?.stringValue
+            
+            UserDefaults.standard.set(tel, forKey: "tel")
+ 
+            let sandbox  =    UserDefaults.standard.object(forKey: "tel") as! String
+            
+                print(sandbox)
+
+
+        }
+        
+        
+    
      
+        
         
         return true
     }
 
-//    - (UIStatusBarStyle)preferredStatusBarStyle {
-//    return UIStatusBarStyleLightContent;
-//    }
 
-    
-    
-    
     func networkStatusManage(){
         let manager = NetworkReachabilityManager(host: "https://github.com/Alamofire/Alamofire.git")
         
@@ -58,16 +67,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch status {
             case .notReachable:
                 print("notReachable")
-                
                 UserDefaults.standard.set("a_notReachable_network", forKey: "network")
                 
             case .unknown:
                 print("unknown")
                 UserDefaults.standard.set("b_unknown_network", forKey: "network")
-                
             case .reachable(.ethernetOrWiFi):
                 print("ethernetOrWiFi")
-                
                 UserDefaults.standard.set("c_ethernetOrWiFi_network", forKey: "network")
                 
             case .reachable(.wwan):
