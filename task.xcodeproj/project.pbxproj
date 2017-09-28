@@ -10,11 +10,7 @@
 		3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A0935AA1F6BD99100C1BA5A /* Assets.xcassets */; };
 		3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A0935AC1F6BD99100C1BA5A /* LaunchScreen.storyboard */; };
 		3A097CA71F6FAE9F00222AEA /* QQDRrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */; };
-		3A097CA81F6FAE9F00222AEA /* QQDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA11F6FAE9F00222AEA /* QQDynamicViewController.swift */; };
-		3A097CA91F6FAE9F00222AEA /* QQFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA21F6FAE9F00222AEA /* QQFriendViewController.swift */; };
 		3A097CAB1F6FAE9F00222AEA /* ZBLeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA41F6FAE9F00222AEA /* ZBLeftViewController.swift */; };
-		3A097CAC1F6FAE9F00222AEA /* ZBMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA51F6FAE9F00222AEA /* ZBMainViewController.swift */; };
-		3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CA61F6FAE9F00222AEA /* QQMessageViewController.swift */; };
 		3A097CB91F6FB9B800222AEA /* LLCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB21F6FB9B800222AEA /* LLCycleScrollView.swift */; };
 		3A097CBA1F6FB9B800222AEA /* LLCycleScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB31F6FB9B800222AEA /* LLCycleScrollViewCell.swift */; };
 		3A097CBB1F6FB9B800222AEA /* LLFilledPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB41F6FB9B800222AEA /* LLFilledPageControl.swift */; };
@@ -22,7 +18,6 @@
 		3A097CBD1F6FB9B800222AEA /* LLSnakePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB61F6FB9B800222AEA /* LLSnakePageControl.swift */; };
 		3A097CBE1F6FB9B800222AEA /* LLViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A097CB71F6FB9B800222AEA /* LLViewExtensions.swift */; };
 		3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */; };
-		3A097CC31F6FC08400222AEA /* s3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A097CC21F6FC08400222AEA /* s3.jpg */; };
 		3A110E951F756B61009989D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A110E941F756B61009989D6 /* Reachability.swift */; };
 		3A1110BC1F78C14F009989D6 /* ZBLeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1110BB1F78C14F009989D6 /* ZBLeftCell.swift */; };
 		3A111C991F79E43D00675991 /* ZBLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111C981F79E43D00675991 /* ZBLoginController.swift */; };
@@ -72,11 +67,7 @@
 		3A0935AA1F6BD99100C1BA5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A0935AD1F6BD99100C1BA5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQDRrawerViewController.swift; sourceTree = "<group>"; };
-		3A097CA11F6FAE9F00222AEA /* QQDynamicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQDynamicViewController.swift; sourceTree = "<group>"; };
-		3A097CA21F6FAE9F00222AEA /* QQFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQFriendViewController.swift; sourceTree = "<group>"; };
 		3A097CA41F6FAE9F00222AEA /* ZBLeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBLeftViewController.swift; sourceTree = "<group>"; };
-		3A097CA51F6FAE9F00222AEA /* ZBMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZBMainViewController.swift; sourceTree = "<group>"; };
-		3A097CA61F6FAE9F00222AEA /* QQMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QQMessageViewController.swift; sourceTree = "<group>"; };
 		3A097CB21F6FB9B800222AEA /* LLCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollView.swift; sourceTree = "<group>"; };
 		3A097CB31F6FB9B800222AEA /* LLCycleScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollViewCell.swift; sourceTree = "<group>"; };
 		3A097CB41F6FB9B800222AEA /* LLFilledPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFilledPageControl.swift; sourceTree = "<group>"; };
@@ -84,7 +75,6 @@
 		3A097CB61F6FB9B800222AEA /* LLSnakePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLSnakePageControl.swift; sourceTree = "<group>"; };
 		3A097CB71F6FB9B800222AEA /* LLViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLViewExtensions.swift; sourceTree = "<group>"; };
 		3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLCycleScrollView.bundle; sourceTree = "<group>"; };
-		3A097CC21F6FC08400222AEA /* s3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = s3.jpg; sourceTree = "<group>"; };
 		3A110E941F756B61009989D6 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Pods/ReachabilitySwift/Reachability/Reachability.swift; sourceTree = SOURCE_ROOT; };
 		3A1110BB1F78C14F009989D6 /* ZBLeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBLeftCell.swift; sourceTree = "<group>"; };
 		3A1110BE1F78DA6D009989D6 /* default_theme.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = default_theme.plist; sourceTree = "<group>"; };
@@ -171,26 +161,6 @@
 				3A0935AC1F6BD99100C1BA5A /* LaunchScreen.storyboard */,
 			);
 			path = task;
-			sourceTree = "<group>";
-		};
-		3A097CAE1F6FB08500222AEA /* sub */ = {
-			isa = PBXGroup;
-			children = (
-				3A097CC21F6FC08400222AEA /* s3.jpg */,
-				3A097CA21F6FAE9F00222AEA /* QQFriendViewController.swift */,
-				3A097CA11F6FAE9F00222AEA /* QQDynamicViewController.swift */,
-				3A097CA61F6FAE9F00222AEA /* QQMessageViewController.swift */,
-			);
-			name = sub;
-			sourceTree = "<group>";
-		};
-		3A097CAF1F6FB33D00222AEA /* Draw */ = {
-			isa = PBXGroup;
-			children = (
-				3A097CA51F6FAE9F00222AEA /* ZBMainViewController.swift */,
-				3A097CAE1F6FB08500222AEA /* sub */,
-			);
-			name = Draw;
 			sourceTree = "<group>";
 		};
 		3A097CB01F6FB9B800222AEA /* Lib */ = {
@@ -338,7 +308,6 @@
 				3A839E7F1F6BDD160024B9B0 /* MeVC.swift */,
 				3A839E811F6BDD160024B9B0 /* ZBNavVC.swift */,
 				3A097CA01F6FAE9F00222AEA /* QQDRrawerViewController.swift */,
-				3A097CAF1F6FB33D00222AEA /* Draw */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,7 +469,6 @@
 				3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */,
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */,
-				3A097CC31F6FC08400222AEA /* s3.jpg in Resources */,
 				3A3E6AB81F7B85E00025E63B /* ZBTaskFailController.xib in Resources */,
 				3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */,
 				3A097CBF1F6FB9B800222AEA /* LLCycleScrollView.bundle in Resources */,
@@ -581,20 +549,17 @@
 				3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */,
 				3A3E6AB21F7B7FE20025E63B /* ZBTaskSuccessController.swift in Sources */,
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
-				3A097CAD1F6FAE9F00222AEA /* QQMessageViewController.swift in Sources */,
 				3A111CA51F7A0A6D00675991 /* ZBForgotPwdController.swift in Sources */,
 				3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */,
 				3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */,
 				3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */,
 				3A1110BC1F78C14F009989D6 /* ZBLeftCell.swift in Sources */,
-				3A097CA91F6FAE9F00222AEA /* QQFriendViewController.swift in Sources */,
 				3AB9D1E91F751AFD00BB3A68 /* Tasks.swift in Sources */,
 				3A839E871F6BDE390024B9B0 /* UIColor+Extension.swift in Sources */,
 				3A839E821F6BDD160024B9B0 /* TasksViewController.swift in Sources */,
 				3A097CA71F6FAE9F00222AEA /* QQDRrawerViewController.swift in Sources */,
 				3A3E6AAA1F7B731E0025E63B /* ZBStartTaskController.swift in Sources */,
 				3A097CBA1F6FB9B800222AEA /* LLCycleScrollViewCell.swift in Sources */,
-				3A097CA81F6FAE9F00222AEA /* QQDynamicViewController.swift in Sources */,
 				3A839E851F6BDD170024B9B0 /* ZBNavVC.swift in Sources */,
 				3A506E831F7A53E0004DF7C3 /* ZBCleanTool.swift in Sources */,
 				3A097CAB1F6FAE9F00222AEA /* ZBLeftViewController.swift in Sources */,
@@ -607,7 +572,6 @@
 				3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */,
 				3A111C9D1F79F4B400675991 /* UIImage+Extension.swift in Sources */,
 				3A097CB91F6FB9B800222AEA /* LLCycleScrollView.swift in Sources */,
-				3A097CAC1F6FAE9F00222AEA /* ZBMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

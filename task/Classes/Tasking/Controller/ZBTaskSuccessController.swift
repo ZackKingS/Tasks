@@ -22,12 +22,6 @@ class ZBTaskSuccessController: UIViewController {
     func setConfig(){
         
         
-    
-        
-        
-        
-        
-        
         navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont.systemFont(ofSize: 18)
