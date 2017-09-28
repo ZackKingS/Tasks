@@ -10,6 +10,43 @@ import Foundation
 class User : NSObject, NSCoding {
    
     
+    var  avatar : String?
+    var  alipay : String?
+    var  credit_card : String?
+    var  id : String?
+    var  nickname : String?
+    var  account : String?
+    var  finished : String?
+    var  username : String?
+    var  email : String?
+    var  tel : String?
+    var  usersig : String?
+    
+    
+    // MARK:- 自定义构造函数  KVC实现字典转模型
+    init(dict : [String : AnyObject]) {
+        super.init()
+        
+        //        setValuesForKeys(dict)
+        
+        avatar = dict["avatar"]! as? String
+        alipay = dict["alipay"]! as? String
+        finished = dict["finished"]! as? String
+        
+        
+        nickname = dict["nickname"]! as? String
+        id = dict["id"]! as? String
+        
+        tel = dict["tel"]! as? String
+        
+        
+        
+        
+    }
+    
+    
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
+    
     
     struct PropertyKey {
         static let id = "id"
@@ -19,18 +56,7 @@ class User : NSObject, NSCoding {
        
     }
     
-//    init?() {
-//        super.init()
-//
-////        if let u = weiboUser {
-////            userId = u.userID
-////            accessToken = u.accessToken
-////            expirationDate = u.expirationDate
-////            refreshToken = u.refreshToken
-////        } else {
-////            return nil
-////        }
-//    }
+
 
     required init?(coder aDecoder: NSCoder) {
         id = aDecoder.decodeObject(forKey: PropertyKey.id) as? String
@@ -51,45 +77,8 @@ class User : NSObject, NSCoding {
     }
 
    
-    
-    var  avatar : String?
-    var  alipay : String?
-    var  credit_card : String?
-    var  id : String?
-    var  nickname : String?
-    var  account : String?
-    var  finished : String?
-    var  username : String?
-    var  email : String?
-    var  tel : String?
-    var  usersig : String?
-    
-  
-    
-  
-    // MARK:- 自定义构造函数  KVC实现字典转模型
-    init(dict : [String : AnyObject]) {
-        super.init()
-        
-//        setValuesForKeys(dict)
-        
-        avatar = dict["avatar"]! as? String
-        alipay = dict["alipay"]! as? String
-        finished = dict["finished"]! as? String
-        
-    
-         nickname = dict["nickname"]! as? String
-        id = dict["id"]! as? String
-       
-        tel = dict["tel"]! as? String
-        
 
     
-        
-    }
-    
- 
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
-    
+  
     
 }
