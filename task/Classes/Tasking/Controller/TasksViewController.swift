@@ -319,17 +319,20 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         let str = "unlogin"
          tableView.deselectRow(at: indexPath, animated: true)
-        if  str.contains("qwe")    { //已经登录 做任务
-            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
-        }else if  str.contains("unlogin")     {  //未登录 去登陆
+        
+        if ZBLOGINED_FLAG   { //已经登录 做任务
+            
+            
+            if  str.contains("DONE"){
+                 navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
+            }else   {
+                
+                 navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+            }
+            
+        }else     {  //未登录 去登陆
             let nav = ZBNavVC.init(rootViewController: ZBLoginController())
             present(nav, animated: true, completion: nil)
-        }else if  str.contains("done")     {  //已做
-            if   str.contains("success")  {  //审核通过
-                  navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-            }else  if str.contains("fail"){    //审核未通过
-                  navigationController?.pushViewController(ZBTaskFailController() , animated: true)
-            }
         }
         
         

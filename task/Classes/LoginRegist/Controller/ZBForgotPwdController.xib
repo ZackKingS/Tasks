@@ -12,6 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBForgotPwdController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="nextBtn" destination="lrH-NK-XAD" id="QDA-aD-GUL"/>
+                <outlet property="phoneL" destination="ZYB-l3-pn5" id="pmZ-tw-q70"/>
+                <outlet property="sentSMS" destination="D4J-Ma-EnB" id="Yri-hy-GgZ"/>
+                <outlet property="smsL" destination="ZXU-bu-d0g" id="p8H-2N-X68"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Myv-YC-chz"/>
             </connections>
         </placeholder>
@@ -90,9 +93,12 @@
                                 <constraint firstAttribute="height" constant="30" id="aHl-rJ-x1w"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="请输入验证码">
+                            <state key="normal" title="发送验证码">
                                 <color key="titleColor" red="0.90196078430000004" green="0.46274509800000002" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
+                            <connections>
+                                <action selector="sentSMS:" destination="-1" eventType="touchUpInside" id="aQG-vX-KrS"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

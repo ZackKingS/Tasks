@@ -109,6 +109,8 @@ let API_GETSMS_URL = BaseURL + "v1/user/smsverify"
 let API_REGISTE_URL = BaseURL + "v1/user/Register"
 //登录
 let API_LOGIN_URL = BaseURL + "v1/user/login"
+//找回
+let API_GETPWDBACK_URL = BaseURL + "v1/user/resetpwd"
 
 
 

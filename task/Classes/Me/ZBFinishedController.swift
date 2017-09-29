@@ -132,51 +132,50 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 80))
-//        view.backgroundColor = UIColor.red
-        
-        
+        let inview = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 80))
+
         
         let bordView = UIView()
-        view.addSubview(bordView)
+        inview.addSubview(bordView)
         bordView.layer.cornerRadius = 6
         bordView.layer.borderColor = UIColor.gray.cgColor
         bordView.layer.borderWidth = 1
         bordView.layer.masksToBounds = true
         
         bordView.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(10)
-            make.left.equalTo(view).offset(20)
-            make.bottom.equalTo(view).offset(-5)
-            make.right.equalTo(view).offset(-15)
+            make.top.equalTo(inview).offset(10)
+            make.left.equalTo(inview).offset(20)
+            make.bottom.equalTo(inview).offset(-5)
+            make.right.equalTo(inview).offset(-15)
         }
         
 
         let finiTasskL = UILabel()
         finiTasskL.text = "你共完成任务"
-        finiTasskL.font = UIFont.systemFont(ofSize: 19)
-        view.addSubview(finiTasskL)
+        finiTasskL.font = UIFont.systemFont(ofSize: 18)
+        inview.addSubview(finiTasskL)
         finiTasskL.snp.makeConstraints { (make) in
-            make.centerY.equalTo(view.snp.centerY)
-            make.left.equalTo(view).offset(35)
-            make.width.equalTo(300)
+            make.centerY.equalTo(inview.snp.centerY)
+            make.left.equalTo(inview).offset(35)
+            make.width.equalTo(200)
             make.height.equalTo(15)
         }
         
         let taskcountL = UILabel()
         taskcountL.text = "22项"
-        taskcountL.font = UIFont.systemFont(ofSize: 19)
-        view.addSubview(taskcountL)
+        taskcountL.textAlignment =  .right
+        taskcountL.font = UIFont.systemFont(ofSize: 18)
+        inview.addSubview(taskcountL)
         taskcountL.snp.makeConstraints { (make) in
-            make.centerY.equalTo(view.snp.centerY)
-            make.right.equalTo(view).offset(-35)
-            make.width.equalTo(300)
+            make.centerY.equalTo(inview.snp.centerY)
+            make.right.equalTo(inview).offset(-35)
+            make.width.equalTo(100)
             make.height.equalTo(15)
         }
         
         
         
-        return view
+        return inview
         
     }
     

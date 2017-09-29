@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SVProgressHUD
 
 class ZBForgotPwdController: UIViewController {
     
@@ -15,8 +16,10 @@ class ZBForgotPwdController: UIViewController {
     typealias Tomato = (Int, Int) -> Int
 
     
-   
+    @IBOutlet weak var phoneL: UITextField!
     
+    
+    @IBOutlet weak var smsL: UITextField!
     
     @IBOutlet weak var nextBtn: UIButton!
     
@@ -41,12 +44,35 @@ class ZBForgotPwdController: UIViewController {
     }
     
     
+    @IBOutlet weak var sentSMS: UIButton!
+    
+    
+    @IBAction func sentSMS(_ sender: Any) {
+        
+        
+        // todo  手机号正则过滤
+        
+        let str = API_GETSMS_URL + "?tel=\(phoneL.text!)&action=1"
+        NetworkTool.getMesa( url: str  ){ (result) in
+            
+            SVProgressHUD.showSuccess(withStatus: "")
+            SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+            
+            print(result ?? "213")
+            
+        }
+
+        
+    }
+    
     
     @IBAction func next(_ sender: Any) {
         
         
         let pwd = ZBSetPwdController()
         pwd.typecase = 2
+        pwd.phone = phoneL.text!
+        pwd.sms = smsL.text!
         navigationController?.pushViewController(pwd, animated: true)
         
     }

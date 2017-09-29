@@ -92,7 +92,26 @@ class ZBSetPwdController: UIViewController {
         case 2:
             print("forgetpwd")
             
-            navigationController?.pushViewController(ZBGetPwdBackedController(), animated: true)
+            
+            SVProgressHUD.show()
+            let para =  ["tel":phone!,"verifycode":sms! ,"password":pwd_s.text!]  as [String : AnyObject]
+            
+            NetworkTool.postMesa(url: API_GETPWDBACK_URL, parameters: para) { (value) in
+                
+                let json = JSON(value ?? "123")
+                 SVProgressHUD.dismiss()
+                let dataDict   = json["data"].dictionaryValue
+                let user : User = User.init(dict: (dataDict as [String : JSON] ))
+                let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
+                UserDefaults.standard.set(data, forKey: "user")
+                UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
+
+               self.navigationController?.pushViewController(ZBGetPwdBackedController(), animated: true)
+                
+            }
+            
+            
+         
             
             
         default:
