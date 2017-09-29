@@ -102,6 +102,7 @@ let ZBLOGIN_KEY = "login" as String
 let ZBLOGINED_FLAG  :Bool = UserDefaults.standard.object(forKey: ZBLOGIN_KEY) as! Bool
 
 //MARK: 测试接口
+//----------------   用户接口---------------------------
 let BaseURL = "http://taskbao.dev.cnfol.wh/"
 //短信
 let API_GETSMS_URL = BaseURL + "v1/user/smsverify"
@@ -112,6 +113,10 @@ let API_LOGIN_URL = BaseURL + "v1/user/login"
 //找回
 let API_GETPWDBACK_URL = BaseURL + "v1/user/resetpwd"
 
+//----------------   任务接口---------------------------
+
+//上传图片
+let API_UPLOADIMAGE_URL = BaseURL + "v1/task/donetask"
 
 
 //MARK: 正式接口

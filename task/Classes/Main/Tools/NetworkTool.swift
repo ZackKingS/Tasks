@@ -31,24 +31,11 @@ class NetworkTool: NetworkToolProtocol {
                 return
             }
             if let value = response.result.value {
-                let json = JSON(value)
-                
-                  print(json)
+//                let json = JSON(value)
 
-
-                
                 completionHandler(value)
-
-                
-                
             }
-            
-   
-            
-            
         }
-
-     
     }
     
     
@@ -71,15 +58,23 @@ class NetworkTool: NetworkToolProtocol {
     }
     
     
-      //test
-    class func aaa( completionHandler:@escaping (_ topTitles: String)->()) {
+    
+    //上传图片
+    class func uploadImage(  url:String,   image : UIImage, completionHandler:@escaping (_ json: Any?)->()) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-          
-            completionHandler("zzzz")
+        
+        let imageData = UIImagePNGRepresentation(image)!
+        
+        Alamofire.upload(imageData, to: API_UPLOADIMAGE_URL).responseJSON { response in
+            debugPrint(response)
         }
+        
 
     }
+    
+    
+    
+
     
 
 

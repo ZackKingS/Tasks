@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="bottomView" destination="a1L-YA-vI8" id="r2m-f3-czC"/>
                 <outlet property="nextBtn" destination="fiR-ZH-PVs" id="g9R-hd-xUh"/>
+                <outlet property="picV" destination="uuh-6T-txv" id="o3s-ao-Uz2"/>
+                <outlet property="takeCame" destination="1AV-vF-nk6" id="ayf-y9-nt3"/>
                 <outlet property="topView" destination="5AZ-Rm-v8c" id="AXJ-zb-xSY"/>
                 <outlet property="view" destination="Krf-W1-klG" id="H0j-Qq-jk9"/>
             </connections>
@@ -168,6 +170,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1L-YA-vI8">
                     <rect key="frame" x="15" y="360" width="345" height="170"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-6T-txv">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="170"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AV-vF-nk6">
                             <rect key="frame" x="145" y="41" width="54" height="54"/>
                             <constraints>
@@ -175,6 +180,9 @@
                                 <constraint firstAttribute="width" constant="54" id="yWa-aW-n87"/>
                             </constraints>
                             <state key="normal" image="camera"/>
+                            <connections>
+                                <action selector="photoComeIn:" destination="-1" eventType="touchUpInside" id="aH1-Xn-lfZ"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请上传任务完成照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bz0-gV-i1M">
                             <rect key="frame" x="107.5" y="109" width="129" height="17"/>
@@ -186,9 +194,13 @@
                     <color key="backgroundColor" red="0.98028594255447388" green="0.98045331239700317" blue="0.98027533292770386" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="170" id="DQu-zQ-NYh"/>
+                        <constraint firstItem="uuh-6T-txv" firstAttribute="top" secondItem="a1L-YA-vI8" secondAttribute="top" id="HQQ-zY-q33"/>
                         <constraint firstItem="Bz0-gV-i1M" firstAttribute="top" secondItem="1AV-vF-nk6" secondAttribute="bottom" constant="14" id="Je6-sK-8Jd"/>
                         <constraint firstItem="1AV-vF-nk6" firstAttribute="centerX" secondItem="a1L-YA-vI8" secondAttribute="centerX" id="NrE-aB-jcQ"/>
                         <constraint firstItem="Bz0-gV-i1M" firstAttribute="centerX" secondItem="1AV-vF-nk6" secondAttribute="centerX" id="S89-uz-bf9"/>
+                        <constraint firstAttribute="bottom" secondItem="uuh-6T-txv" secondAttribute="bottom" id="esc-qw-cPX"/>
+                        <constraint firstAttribute="trailing" secondItem="uuh-6T-txv" secondAttribute="trailing" id="ocG-Yy-x3i"/>
+                        <constraint firstItem="uuh-6T-txv" firstAttribute="leading" secondItem="a1L-YA-vI8" secondAttribute="leading" id="r2p-kv-jwf"/>
                         <constraint firstItem="1AV-vF-nk6" firstAttribute="centerY" secondItem="a1L-YA-vI8" secondAttribute="centerY" constant="-17" id="uvn-0e-gFu"/>
                     </constraints>
                 </view>
