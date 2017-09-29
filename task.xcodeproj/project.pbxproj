@@ -91,6 +91,25 @@
 		3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBForgotPwdController.xib; sourceTree = "<group>"; };
 		3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetPwdController.swift; sourceTree = "<group>"; };
 		3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBSetPwdController.xib; sourceTree = "<group>"; };
+		3A27D7EB1F7DFB67003AD58A /* AlbumToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumToolbarView.swift; sourceTree = "<group>"; };
+		3A27D7EC1F7DFB67003AD58A /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		3A27D7ED1F7DFB67003AD58A /* PhotoAlbumsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumsTableViewController.swift; sourceTree = "<group>"; };
+		3A27D7EE1F7DFB67003AD58A /* PhotoAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumTableViewCell.swift; sourceTree = "<group>"; };
+		3A27D7EF1F7DFB67003AD58A /* PhotoAlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoAlbumTableViewCell.xib; sourceTree = "<group>"; };
+		3A27D7F01F7DFB67003AD58A /* photoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A27D7F11F7DFB67003AD58A /* photoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = photoCollectionViewCell.xib; sourceTree = "<group>"; };
+		3A27D7F21F7DFB67003AD58A /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		3A27D7F31F7DFB67003AD58A /* PhotoFetchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFetchOptions.swift; sourceTree = "<group>"; };
+		3A27D7F41F7DFB67003AD58A /* PhotoImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImage.swift; sourceTree = "<group>"; };
+		3A27D7F51F7DFB67003AD58A /* PhotoImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImageManager.swift; sourceTree = "<group>"; };
+		3A27D7F61F7DFB67003AD58A /* PhotoPickerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerConfig.swift; sourceTree = "<group>"; };
+		3A27D7F71F7DFB67003AD58A /* PhotoPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerController.swift; sourceTree = "<group>"; };
+		3A27D7F81F7DFB67003AD58A /* PhotoPreviewBottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewBottomBarView.swift; sourceTree = "<group>"; };
+		3A27D7F91F7DFB67003AD58A /* PhotoPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewCell.swift; sourceTree = "<group>"; };
+		3A27D7FA1F7DFB67003AD58A /* PhotoPreviewToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewToolbarView.swift; sourceTree = "<group>"; };
+		3A27D7FB1F7DFB67003AD58A /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		3A27D7FC1F7DFB67003AD58A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		3A27D7FD1F7DFB67003AD58A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBGetPwdBackedController.swift; sourceTree = "<group>"; };
 		3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBGetPwdBackedController.xib; sourceTree = "<group>"; };
@@ -170,6 +189,7 @@
 		3A097CB01F6FB9B800222AEA /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				3A27D7EA1F7DFB67003AD58A /* TakePhoto */,
 				3A097CB11F6FB9B800222AEA /* LLCycleScrollView */,
 				3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */,
 			);
@@ -274,6 +294,32 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3A27D7EA1F7DFB67003AD58A /* TakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				3A27D7EB1F7DFB67003AD58A /* AlbumToolbarView.swift */,
+				3A27D7EC1F7DFB67003AD58A /* ImageModel.swift */,
+				3A27D7ED1F7DFB67003AD58A /* PhotoAlbumsTableViewController.swift */,
+				3A27D7EE1F7DFB67003AD58A /* PhotoAlbumTableViewCell.swift */,
+				3A27D7EF1F7DFB67003AD58A /* PhotoAlbumTableViewCell.xib */,
+				3A27D7F01F7DFB67003AD58A /* photoCollectionViewCell.swift */,
+				3A27D7F11F7DFB67003AD58A /* photoCollectionViewCell.xib */,
+				3A27D7F21F7DFB67003AD58A /* PhotoCollectionViewController.swift */,
+				3A27D7F31F7DFB67003AD58A /* PhotoFetchOptions.swift */,
+				3A27D7F41F7DFB67003AD58A /* PhotoImage.swift */,
+				3A27D7F51F7DFB67003AD58A /* PhotoImageManager.swift */,
+				3A27D7F61F7DFB67003AD58A /* PhotoPickerConfig.swift */,
+				3A27D7F71F7DFB67003AD58A /* PhotoPickerController.swift */,
+				3A27D7F81F7DFB67003AD58A /* PhotoPreviewBottomBarView.swift */,
+				3A27D7F91F7DFB67003AD58A /* PhotoPreviewCell.swift */,
+				3A27D7FA1F7DFB67003AD58A /* PhotoPreviewToolbarView.swift */,
+				3A27D7FB1F7DFB67003AD58A /* PhotoPreviewViewController.swift */,
+				3A27D7FC1F7DFB67003AD58A /* UICollectionView+Extension.swift */,
+				3A27D7FD1F7DFB67003AD58A /* UIImage+Extension.swift */,
+			);
+			path = TakePhoto;
 			sourceTree = "<group>";
 		};
 		3A826B1384D2DFE2F70F268B /* Pods */ = {
