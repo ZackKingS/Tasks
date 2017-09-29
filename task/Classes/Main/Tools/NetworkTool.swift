@@ -51,7 +51,35 @@ class NetworkTool: NetworkToolProtocol {
                 return
             }
             if let value = response.result.value {
+                
+                print(value)
+                
                 let json = JSON(value)
+                
+                  print(json)
+                completionHandler(json)
+            }
+        }
+    }
+    
+    
+    
+    //getTaskList
+    class func getTaskList(  url:String, completionHandler:@escaping (_ value: JSON)->()) {
+        
+        
+        
+        Alamofire.request(url, parameters: nil ).responseJSON { (response) in
+            //判断是否成功
+            guard response.result.isSuccess else {
+                return
+            }
+            if let value = response.result.value {
+                
+              
+                let json = JSON(value)
+                
+              
                 completionHandler(json)
             }
         }
@@ -74,7 +102,7 @@ class NetworkTool: NetworkToolProtocol {
     
     
     
-
+   
     
 
 
@@ -82,15 +110,24 @@ class NetworkTool: NetworkToolProtocol {
     // MARK: - 获取首页顶部标题内容
     /// 获取首页顶部标题内容
     class func loadHomeTitlesData(fromViewController: String, completionHandler:@escaping (_ topTitles: [TopicTitle], _ homeTopicVCs: [TopicViewController])->()) {
+        
+        
+        
+        
+        
+        
+        
+        
+        
         let url = BASE_URL + "article/category/get_subscribed/v1/?"
         let params = ["device_id": device_id,
                       "aid": 13,
                       "iid": IID] as [String : AnyObject]
-        
-     
+
+
         Alamofire.request(url, parameters: params).responseJSON { (response) in
-            
-            
+
+
             guard response.result.isSuccess else {
                 return
             }

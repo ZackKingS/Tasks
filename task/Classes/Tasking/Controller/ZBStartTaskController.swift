@@ -156,10 +156,6 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
         
   
         let data = UIImageJPEGRepresentation( ZBStartTaskController.picImage!, 0.5)!
-//          let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
-//        let user : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data   )  as! User
-        
-        
         
         let para = ["userid":User.GetUser().id,"taskid":"6"]
         upLoadImageRequest(urlString: API_UPLOADIMAGE_URL, params: para as! [String : String], data:data, name: ["result"], success: { (dic ) in
@@ -177,8 +173,6 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
 
     func upLoadImageRequest(urlString : String, params:[String:String], data: Data, name: [String],success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()){
         
-
-        
         let headers = ["content-type":"multipart/form-data"]
         Alamofire.upload(
             multipartFormData: { multipartFormData in
@@ -193,12 +187,9 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(let upload, _, _):
-                    
-                    
-                    
-                    self.navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-                    
-                    
+         
+                    self.navigationController?.pushViewController(ZBTaskUnderReviewController(), animated: true)
+                
                     upload.responseJSON { response in
                         debugPrint(response)
                         

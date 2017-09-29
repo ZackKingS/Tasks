@@ -8,7 +8,7 @@
 
 
 import UIKit
-
+import SwiftyJSON
 class Tasks:   NSObject {
     
     // MARK:- 属性
@@ -16,7 +16,7 @@ class Tasks:   NSObject {
     var price : String?                    // 微博来源
     var beginDate : String?                      // 微博的正文
    var expitarionDate : String?
-    var status : Int = 0
+    var status : String?
     var introText : String?
     var introPic : String?
     var taskPic : String?
@@ -30,18 +30,16 @@ class Tasks:   NSObject {
 
     }
     
-//    init(dict: [String: AnyObject]) {
-//         super.init()
-//
-//        concern_id = dict["concern_id"] as? String
-//        category = dict["category"] as? String
-//        tip_new = dict["tip_new"] as? Int
-//        web_url = dict["web_url"] as? String
-//        icon_url = dict["icon_url"] as? String
-//        flags = dict["flags"] as? Int
-//        type = dict["type"] as? Int
-//        name = dict["name"] as? String
-//    }
+    init(dict: [String: JSON]) {
+         super.init()
+
+      
+        id =  dict["id"]?.stringValue as String!
+        nictitlekname =  dict["title"]?.stringValue as String!
+        id =  dict["id"]?.stringValue as String!
+        account =  dict["account"]?.stringValue as String!
+        finished =  dict["finished"]?.stringValue as String!
+    }
 
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
 }

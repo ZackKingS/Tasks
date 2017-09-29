@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SwiftTheme
 import Alamofire
+import SwiftyJSON
 
 import SVProgressHUD
 
@@ -21,6 +22,10 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var leftBtn :UIButton?
     
+    
+    
+    
+       fileprivate var dataArray = [Tasks]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,46 +219,23 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         btShare.bounds = m_shareImage.bounds
         btShare.addSubview(m_shareImage)
         
-//        btShare.addTarget(self, action: (#selector(openDrawer)), for: .touchUpInside)
-        
+
       btShare.addTarget(self, action:#selector(tapped(_:)), for:.touchUpInside)
         
         leftBtn = btShare
         
         navigationItem.leftBarButtonItem =  UIBarButtonItem.init(customView: btShare)
         
-//      navigationItem.leftBarButtonItem =   UIBarButtonItem.init(image: UIImage.init(named: "形状-1"), style: .plain , target: self, action: (#selector(ZBNavVC.openDrawer)))
-        
+
         
         navigationItem.title = "兼职任务宝";
         
     }
     func tapped(_ button:UIButton){
 
-//        let  animation :CABasicAnimation = CABasicAnimation.init(keyPath: "transform.rotation.z")
-//        animation.fromValue = NSNumber.init(floatLiteral: 0.0)
-//        animation.toValue = NSNumber.init(floatLiteral: .pi / 2)
-//        animation.duration  = 0.3;
-//        animation.autoreverses = false;
-//        animation.isRemovedOnCompletion = false;
-//        button.layer.add(animation, forKey: nil)
-//        DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute:
-//            {
-//                button.subviews.forEach{ (car) in
-//
-//                    if(car .isKind(of: UIImageView.self))
-//                    {
-//                        car.removeFromSuperview()
-//                         return
-//                    }
-//                }
-//                 button.setImage(UIImage.init(named: "形状-1_"), for: UIControlState.normal)
-//        })
-  
         QQDRrawerViewController.sharedDrawerViewController.openDrawer(openDrawerWithDuration: 0.2)
         
-        
-      
+ 
     }
     /// 打开抽屉效果
     func openDrawer(){
@@ -353,12 +335,63 @@ extension TasksViewController {
         
         let header = RefreshHeder(refreshingBlock: { [weak self] in  //自定义的header
             // 获取标题数据
-            NetworkTool.loadHomeTitlesData(fromViewController: String(describing: TasksViewController.self)) { (topTitles, homeTopicVCs) in
+//            NetworkTool.loadHomeTitlesData(fromViewController: String(describing: TasksViewController.self)) { (topTitles, homeTopicVCs) in
+//
+//                self!.tableView?.mj_header.endRefreshing()
+//                self!.array = topTitles
+//                self!.tableView?.reloadData()
+//            }
+            
+            
+            
+            let str = API_GETTASKLIST_URL
+            NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+                
+        
+//
+                 print(json)
+//              
+                let dataArr  = json["data"].arrayObject
+                    print(dataArr!)
+                
+//                if let data = dataDict["data"]!.arrayObject {
+//                    var tasks = [Tasks]()
+                   
+                    
+                for  dict in dataArr! {
+                        
+                        
+                        print(dict)
+                    }
+                    // 添加推荐标题
+                  
+//                    let recommend = TopicTitle(dict: recommendDict as [String : AnyObject])
+//                    titles.append(recommend)
+//                    //                    // 添加控制器
+//                    let firstVC = TopicViewController()
+//                    firstVC.topicTitle = recommend
+//                    homeTopicVCs.append(firstVC)
+//                    for dict in data {
+//                        let topicTitle = TopicTitle(dict: dict as! [String: AnyObject])
+//                        titles.append(topicTitle)
+//                        let homeTopicVC = TopicViewController()
+//                        homeTopicVC.topicTitle = topicTitle
+//                        homeTopicVCs.append(homeTopicVC)
+//                    }
+//                    completionHandler(titles, homeTopicVCs)
+//                }
+                
+                
+             
                 
                 self!.tableView?.mj_header.endRefreshing()
-                self!.array = topTitles
+//                self!.array = topTitles
                 self!.tableView?.reloadData()
-            }
+                
+            })
+            
+            
+            
         })
         
         header?.isAutomaticallyChangeAlpha = true
