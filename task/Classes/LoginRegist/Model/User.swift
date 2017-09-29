@@ -42,6 +42,16 @@ class User : NSObject, NSCoding {
         
     }
     
+   
+    
+   
+    class  func   GetUser() -> User {
+      let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
+      let user : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data   )  as! User
+    
+      return user
+    
+    }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}
     

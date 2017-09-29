@@ -14,7 +14,7 @@ import Alamofire
 import SwiftyJSON
 class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    
+       //MARK:======================  属性  ============================
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var nextBtn: UIButton!
@@ -56,21 +56,6 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
             
             ZBStartTaskController.picImage = image
             
-//            let data = UIImageJPEGRepresentation(UIImage.init(named: "pwd_lock")!, 0.5)!
-//
-////            let user : User = NSKeyedUnarchiver.unarchiveObject(with: data as! Data  )  as! User
-//
-//            let para = ["userid":"123","taskid":"1"]
-//            upLoadImageRequest(urlString: API_UPLOADIMAGE_URL, params: para as! [String : String], data:data, name: ["result"], success: { (dic ) in
-//                print(dic)
-//            }, failture: { (error) in
-//
-//                print(error)
-//
-//            })
-            
-            
-          
 
         }
     }
@@ -78,15 +63,7 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     
 
   
-    
-    func up(){
-        
-        
-//        Alamofire.uploa
-        
-        
-    }
-    
+    //MARK:=============================  拍照   ============================
     
     @IBAction func photoComeIn(_ sender: Any) {
         
@@ -172,17 +149,19 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
 
     
     
+    
+    
+       //MARK:=============================  上传图片 ===========================
     @IBAction func next(_ sender: Any) {
         
   
         let data = UIImageJPEGRepresentation( ZBStartTaskController.picImage!, 0.5)!
-
+//          let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
+//        let user : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data   )  as! User
         
-//        let data = UIImageJPEGRepresentation( UIImage.init(named: "sucess")!, 0.5)!
-          let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
-        let user : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data   )  as! User
         
-        let para = ["userid":user.id,"taskid":"5"]
+        
+        let para = ["userid":User.GetUser().id,"taskid":"6"]
         upLoadImageRequest(urlString: API_UPLOADIMAGE_URL, params: para as! [String : String], data:data, name: ["result"], success: { (dic ) in
             print(dic)
         }, failture: { (error) in
@@ -235,55 +214,7 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     
     
     
-    func FileUpload(File: Data,FileName: String) {
-        
-        print("文件大小为：\(Double(File.count)/1000000.0) MB")
-        
-        
-        var uploadTask : URLSessionUploadTask!
-        //进度
-//        let timer = Timer.new(every: 0.01.second) {
-//
-//            let x:CGFloat = (CGFloat)(uploadTask.countOfBytesSent)
-//            let y:CGFloat = (CGFloat)(uploadTask.countOfBytesExpectedToSend)
-//
-//            self.progressView.progress = Float(x/y)
-//        }
-        
-        
-        
-//        +  "userid=100071&taskid=1"
-        //上传地址
-        let url = URL(string:   API_UPLOADIMAGE_URL  )
-        //请求
-        var request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData)
-        request.httpMethod = "POST"
-        
-        let session = URLSession.shared
-        
-        
-        uploadTask = session.uploadTask(with: request, from: File) {
-            (data:Data?, response:URLResponse?, error:Error?) -> Void in
-            //上传完毕后
-            if error != nil{
-                print(error!)
-            }else{
-                
-                let str = String(data: data!, encoding: String.Encoding.utf8)
-                print("上传完毕：\(str!)")
-//                timer.invalidate()
-                
-            }
-        }
-        
-        //使用resume方法启动任务
-        uploadTask.resume()
-        
-//        timer.start()
-        
-        
-    }
-    
+     //MARK:============================= 配置 ============================
     
     func setConfig(){
         
