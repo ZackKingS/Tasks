@@ -97,6 +97,10 @@ let isNight = "isNight"
 
 let TabBarDidSelectedNotification = "TabBarDidSelectedNotification"
 
+let ZBLOGIN_KEY = "login" as String
+
+let ZBLOGINED_FLAG  :Bool = UserDefaults.standard.object(forKey: ZBLOGIN_KEY) as! Bool
+
 //MARK: 测试接口
 let BaseURL = "http://taskbao.dev.cnfol.wh/"
 //短信

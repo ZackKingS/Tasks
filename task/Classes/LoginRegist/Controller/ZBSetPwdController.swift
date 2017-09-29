@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 import UIKit
 import SVProgressHUD
 class ZBSetPwdController: UIViewController {
@@ -57,19 +57,27 @@ class ZBSetPwdController: UIViewController {
               SVProgressHUD.show()
             let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!]  as [String : AnyObject]
           
-            NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (result) in
-                print(result ?? "213")
-                
-                
+            NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (value) in
               
+                let json = JSON(value ?? "123")
+                let dataDict   = json["data"].dictionaryValue
+                
+                
+                
+                let user : User = User.init(dict: (dataDict as [String : JSON] ))
+                print(user.tel!)
+                
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
+                UserDefaults.standard.set(data, forKey: "user")
+
+                
+                UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
+                
                 
                 SVProgressHUD.dismiss()
                 self.navigationController?.popToRootViewController(animated: true)
-//                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "autoLogin")))
-                
-//                NotificationCenter.default.post(Notification.init(name:  "autoLogin", object: nil, userInfo: nil)))
-                
-                
+
                 
                   NotificationCenter.default.post(name: NSNotification.Name(rawValue: "autoLogin"), object: self, userInfo: nil)
                 

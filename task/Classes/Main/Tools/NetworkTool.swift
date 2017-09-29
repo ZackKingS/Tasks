@@ -35,13 +35,6 @@ class NetworkTool: NetworkToolProtocol {
                 
                   print(json)
 
-//
-//                if !(json["message"].string?.contains("success"))! { //"message" : "success"
-//                    SVProgressHUD.showError(withStatus: "请稍后再试")
-//                    return
-//                }
-//let json = JSON(value)
-//                let dataDict = json["data"].dictionary
 
                 
                 completionHandler(value)

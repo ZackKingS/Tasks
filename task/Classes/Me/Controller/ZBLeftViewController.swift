@@ -99,9 +99,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func setting(){
         
-    
-        NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "closeTheDrawer")))
-
+         NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "closeTheDrawer")))
         
     }
     
@@ -171,6 +169,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 62
     }
@@ -185,6 +184,16 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        
+        if indexPath.row == 0 {
+            //已经完成的任务
+           
+        
+                   NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinish")))
+            
+        }else if   indexPath.row == 1{
+            
+        }
     }
     
     

@@ -56,6 +56,7 @@
 		3A839E891F6BE2470024B9B0 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A839E881F6BE2470024B9B0 /* NetworkTool.swift */; };
 		3AB9D1E91F751AFD00BB3A68 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9D1E81F751AFD00BB3A68 /* Tasks.swift */; };
 		3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */; };
+		3ACE8AD41F7DE62C003BF779 /* ZBFinishedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */; };
 		3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE11F6BE42A007406E1 /* TopicTitle.swift */; };
 		3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE41F6BE452007406E1 /* Const.swift */; };
 		3AD3FBE71F6BE543007406E1 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */; };
@@ -116,6 +117,7 @@
 		3A839E881F6BE2470024B9B0 /* NetworkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		3AB9D1E81F751AFD00BB3A68 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZBFinishedController.swift; path = task/Classes/Me/ZBFinishedController.swift; sourceTree = SOURCE_ROOT; };
 		3AD3FBE11F6BE42A007406E1 /* TopicTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTitle.swift; sourceTree = "<group>"; };
 		3AD3FBE41F6BE452007406E1 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				3A097CA41F6FAE9F00222AEA /* ZBLeftViewController.swift */,
 				3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */,
 				3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */,
+				3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACE8AD41F7DE62C003BF779 /* ZBFinishedController.swift in Sources */,
 				3A111CA11F79FB3400675991 /* ZBRegistViewController.swift in Sources */,
 				3A111C9F1F79F89900675991 /* UIButton+Extension.swift in Sources */,
 				3A3E6AAE1F7B7C120025E63B /* ZBTaskUnderReviewController.swift in Sources */,

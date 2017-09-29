@@ -25,47 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
 
-        
-        
-        let para = ["tel":"17386014224","password":"111111"] as [String : AnyObject]
-        
-        NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para ) { (value) in
-
-            
-            let json = JSON(value ?? "123")
-            let dataDict   = json["data"].dictionaryValue
-  
-            
-        
-            
-//            let tel  :String = (dataDict["tel"]?.stringValue)!
-         
-            
-            let user : User = User.init(dict: (dataDict as [String : JSON] ))
-            print(user.tel!)
-
-   
-            let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
-            UserDefaults.standard.set(data, forKey: "user")
-      
-            let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
-
-            let userrrr : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data  )  as! User
-  
-            print( userrrr)
-            
-            print(userrrr.tel!)
-
-
-
-
-        }
-        
-        
-    
      
-        
-        
         return true
     }
 

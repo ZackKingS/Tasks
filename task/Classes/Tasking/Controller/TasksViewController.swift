@@ -21,14 +21,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var leftBtn :UIButton?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//         设置导航栏颜色
-
-    }
-    
-
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -121,23 +114,46 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
            NotificationCenter.default.addObserver(self, selector: #selector(closeTheDrawer), name: NSNotification.Name(rawValue: "closeTheDrawer"), object: nil)
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(pushfinish), name: NSNotification.Name(rawValue: "pushfinish"), object: nil)
+        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(pushsetting), name: NSNotification.Name(rawValue: "pushsetting"), object: nil)
+        
+        
+        
+        
     }
     
-    @objc  func   leftClicked(){
+    
+    @objc  func   pushsetting(){
         
         
+        //1 close
+        QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
+        //2.push
+        navigationController?.pushViewController(ZBSetingController(), animated: true)
         
     }
+    
+    
+    @objc  func   pushfinish(){
+        
+        
+         //1 close
+        QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
+        //2.push
+        navigationController?.pushViewController(ZBFinishedController(), animated: true)
+        
+    }
+    
+
     
     @objc  func   closeTheDrawer(){
-        
+        //1 close
         QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
-        
-        
-      let setting =   UIStoryboard.init(name: "ZBSetingController", bundle: nil).instantiateInitialViewController()
-        
-        
-        
+      let setting =  UIStoryboard.init(name: "ZBSetingController", bundle: nil).instantiateInitialViewController()
+        //2.push
         navigationController?.pushViewController(setting!, animated: true)
     }
     

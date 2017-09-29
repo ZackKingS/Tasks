@@ -31,27 +31,15 @@ class User : NSObject, NSCoding {
         let rrrr  :String = (dict["tel"]?.stringValue)!
         print(rrrr)
         
-//        let tel  :String = (dataDict["tel"]?.stringValue)!
-//        print(tel)
-//                setValuesForKeys(dict)
 
-
-//        print(   dict.)x
-
-        
-        
-//        print(   dict["tel"] as! String!)
-
-//        avatar = dict["avatar"]!
-//        alipay = dict["alipay"]!
-//        finished = dict["finished"]!
 
          tel =  dict["tel"]?.stringValue as String!
-//        nickname = dict["tel"]?.stringValue
-//        id = dict["id"]!as? String
-
-
-        print(tel!)
+        nickname =  dict["nickname"]?.stringValue as String!
+        id =  dict["id"]?.stringValue as String!
+        account =  dict["account"]?.stringValue as String!
+        finished =  dict["finished"]?.stringValue as String!
+        
+        
     }
     
     
@@ -61,8 +49,9 @@ class User : NSObject, NSCoding {
     struct PropertyKey {
         static let id = "id"
         static let nickname = "nickname"
-        static let username = "username"
+        static let account = "account"
         static let tel = "tel"
+       static let finished = "finished"
        
     }
     
@@ -72,6 +61,8 @@ class User : NSObject, NSCoding {
         id = aDecoder.decodeObject(forKey: PropertyKey.id) as? String
         nickname = aDecoder.decodeObject(forKey: PropertyKey.nickname) as? String
         tel = aDecoder.decodeObject(forKey: PropertyKey.tel) as? String
+        account = aDecoder.decodeObject(forKey: PropertyKey.account) as? String
+        finished = aDecoder.decodeObject(forKey: PropertyKey.finished) as? String
 
     }
 
@@ -81,8 +72,8 @@ class User : NSObject, NSCoding {
         aCoder.encode(id, forKey: PropertyKey.id)
         aCoder.encode(nickname, forKey: PropertyKey.nickname)
         aCoder.encode(tel, forKey: PropertyKey.tel)
-
-
+        aCoder.encode(finished, forKey: PropertyKey.finished)
+        aCoder.encode(account, forKey: PropertyKey.account)
 
     }
 
