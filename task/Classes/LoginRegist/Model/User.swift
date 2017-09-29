@@ -6,6 +6,7 @@
 //  Copyright © 2017年 柏超曾. All rights reserved.
 //
 
+import SwiftyJSON
 import Foundation
 class User : NSObject, NSCoding {
    
@@ -24,24 +25,33 @@ class User : NSObject, NSCoding {
     
     
     // MARK:- 自定义构造函数  KVC实现字典转模型
-    init(dict : [String : AnyObject]) {
+    init(dict : [String : JSON]) {
         super.init()
+
+        let rrrr  :String = (dict["tel"]?.stringValue)!
+        print(rrrr)
         
-        //        setValuesForKeys(dict)
-        
-        avatar = dict["avatar"]! as? String
-        alipay = dict["alipay"]! as? String
-        finished = dict["finished"]! as? String
-        
-        
-        nickname = dict["nickname"]! as? String
-        id = dict["id"]! as? String
-        
-        tel = dict["tel"]! as? String
-        
+//        let tel  :String = (dataDict["tel"]?.stringValue)!
+//        print(tel)
+//                setValuesForKeys(dict)
+
+
+//        print(   dict.)x
+
         
         
-        
+//        print(   dict["tel"] as! String!)
+
+//        avatar = dict["avatar"]!
+//        alipay = dict["alipay"]!
+//        finished = dict["finished"]!
+
+         tel =  dict["tel"]?.stringValue as String!
+//        nickname = dict["tel"]?.stringValue
+//        id = dict["id"]!as? String
+
+
+        print(tel!)
     }
     
     

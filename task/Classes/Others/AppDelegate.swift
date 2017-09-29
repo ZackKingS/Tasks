@@ -33,35 +33,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             
             let json = JSON(value ?? "123")
-            let dataDict   = json["data"].dictionaryValue //as NSDictionary
+            let dataDict   = json["data"].dictionaryValue
   
             
-            let user : User = User.init(dict: dataDict as [String : AnyObject])
+        
             
+//            let tel  :String = (dataDict["tel"]?.stringValue)!
+         
+            
+            let user : User = User.init(dict: (dataDict as [String : JSON] ))
+            print(user.tel!)
 
+   
             let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
-            
-            
             UserDefaults.standard.set(data, forKey: "user")
+      
+            let dataa =     UserDefaults.standard.object(forKey: "user") as! NSData
+
+            let userrrr : User = NSKeyedUnarchiver.unarchiveObject(with: dataa as Data  )  as! User
+  
+            print( userrrr)
             
-            
-            
-            
-//
-            
-//            let
-            
-//             UserDefaults.standard.set(data, forKey: "USER")
-            
-            
-            
-//            let tel  = dataDict["tel"]?.stringValue
-//
-//            UserDefaults.standard.set(tel, forKey: "tel")
-//
-//            let sandbox  =    UserDefaults.standard.object(forKey: "tel") as! String
-//
-//                print(sandbox)
+            print(userrrr.tel!)
+
+
 
 
         }
