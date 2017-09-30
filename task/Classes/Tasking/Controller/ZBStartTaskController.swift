@@ -12,6 +12,8 @@ import Photos
 import MobileCoreServices
 import Alamofire
 import SwiftyJSON
+
+import  SVProgressHUD
 class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
        //MARK:======================  属性  ============================
@@ -26,6 +28,7 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     
     @IBOutlet weak var takeCame: UIButton!
     
+    var taskid :String?
     
     static  var picImage :UIImage?
     
@@ -155,9 +158,11 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     @IBAction func next(_ sender: Any) {
         
   
+        SVProgressHUD.show()
+        
         let data = UIImageJPEGRepresentation( ZBStartTaskController.picImage!, 0.5)!
         
-        let para = ["userid":User.GetUser().id,"taskid":"6"]
+        let para = ["userid":User.GetUser().id,"taskid":taskid]
         upLoadImageRequest(urlString: API_UPLOADIMAGE_URL, params: para as! [String : String], data:data, name: ["result"], success: { (dic ) in
             print(dic)
         }, failture: { (error) in
@@ -187,15 +192,28 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(let upload, _, _):
-         
-                    self.navigationController?.pushViewController(ZBTaskUnderReviewController(), animated: true)
-                
+                    
+                    
                     upload.responseJSON { response in
                         debugPrint(response)
                         
                     }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        SVProgressHUD.dismiss()
+                        
+                        
+                        let  under = ZBTaskUnderReviewController()
+                        under.taskid = self.taskid
+                        self.navigationController?.pushViewController(under , animated: true)
+                        
+                    }
+         
+               
+                   
                 case .failure(let encodingError):
                     print(encodingError)
+                    
+                    SVProgressHUD.showError(withStatus: "上传失败")
                 }
         }
         )

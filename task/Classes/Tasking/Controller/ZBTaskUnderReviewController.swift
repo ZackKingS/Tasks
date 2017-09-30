@@ -14,12 +14,31 @@ class ZBTaskUnderReviewController: UIViewController {
     
     @IBOutlet weak var backBtn: UIButton!
     
+    var taskid :String?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        
+        
+        if  taskid != nil{
+            
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)  //会有黑线
+            
+            navigationController?.navigationBar.shadowImage = UIImage()
+        }
+        
+    }
+    
+    
     @IBAction func back(_ sender: Any) {
         
         
       
+        navigationController?.popToRootViewController(animated: true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refresh"), object: self, userInfo:nil)
         
-        
+
     }
     
     override func viewDidLoad() {

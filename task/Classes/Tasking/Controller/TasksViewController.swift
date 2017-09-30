@@ -27,6 +27,11 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
        fileprivate var dataArray = [Tasks]()
   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -126,10 +131,18 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         NotificationCenter.default.addObserver(self, selector: #selector(pushsetting), name: NSNotification.Name(rawValue: "pushsetting"), object: nil)
         
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
+        
         
         
     }
     
+    
+    @objc  func   refresh(){
+        
+        setRefresh()
+        
+    }
     
     @objc  func   pushsetting(){
         
@@ -301,20 +314,28 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let str = "unlogin"
+    
          tableView.deselectRow(at: indexPath, animated: true)
         
         if ZBLOGINED_FLAG   { //已经登录 做任务
             
             
-            if  str.contains("DONE"){
-                 navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-            }else   {
+            if    dataArray[indexPath.row].status == "-1"  {  //任务可开始
+               
                 
+             
+                let taskDetailController = ViewController()
+                taskDetailController.taskid =  dataArray[indexPath.row].id
+                taskDetailController.taskName =  dataArray[indexPath.row].title
+                self.navigationController?.pushViewController(taskDetailController, animated: true)
                 
-                let taskDetailController = TaskDetailViewController()
-                taskDetailController.id =  dataArray[indexPath.row].id
-                 navigationController?.pushViewController(taskDetailController, animated: true)
+            }else if    dataArray[indexPath.row].status == "0"  { //任务审核中
+                 self.navigationController?.pushViewController(ZBTaskUnderReviewController(), animated: true)
+
+     
+            }else if    dataArray[indexPath.row].status == "1"  { //任务失败
+                self.navigationController?.pushViewController(ZBTaskFailController(), animated: true)
+                
                 
                 
             }
@@ -342,7 +363,15 @@ extension TasksViewController {
         
         let header = RefreshHeder(refreshingBlock: { [weak self] in  //自定义的header
        
-            let str = API_GETTASKLIST_URL
+            var str = ""
+            
+            if !ZBLOGINED_FLAG   {
+                  str = API_GETTASKLIST_URL
+            }else{
+                str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
+            }
+            
+            
             NetworkTool.getTaskList(url: str, completionHandler: { (json) in
                 /*
                 "status" : -1,
@@ -359,15 +388,9 @@ extension TasksViewController {
                 for dict    in dataArr{
                     print(dict)
                     let task    = Tasks.init(dictt: (dict.dictionaryValue  ))
-//                    print(task.title ?? "123")
-                    
                     temparr.append(task)
-                    
-                    print(temparr.count)
                 }
-                
-
-                
+   
                 self!.tableView?.mj_header.endRefreshing()
                 self!.dataArray = temparr
                 self!.tableView?.reloadData()
