@@ -28,8 +28,10 @@ class User : NSObject, NSCoding {
     init(dict : [String : JSON]) {
         super.init()
 
-        let rrrr  :String = (dict["tel"]?.stringValue)!
-        print(rrrr)
+        print(dict)
+        
+//        let rrrr  :String = (dict["tel"]?.stringValue)!
+//        print(rrrr)
         
 
 

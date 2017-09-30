@@ -68,6 +68,7 @@
 		3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE41F6BE452007406E1 /* Const.swift */; };
 		3AD3FBE71F6BE543007406E1 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */; };
 		3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */; };
+		3AF7D17D1F7F836500A152A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7D17C1F7F836500A152A7 /* String+Extension.swift */; };
 		D289EE37943C4D1ED477CDDD /* Pods_task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4E7B06A151AEEB75F059F /* Pods_task.framework */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,7 @@
 		3AD3FBE41F6BE452007406E1 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeder.swift; sourceTree = "<group>"; };
+		3AF7D17C1F7F836500A152A7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		61BC022906E73D074FB189EA /* Pods-task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.release.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.release.xcconfig"; sourceTree = "<group>"; };
 		B0DE5DFBAA50C332D2A53C01 /* Pods-task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.debug.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.debug.xcconfig"; sourceTree = "<group>"; };
 		C0C4E7B06A151AEEB75F059F /* Pods_task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +408,7 @@
 				3A839E861F6BDE390024B9B0 /* UIColor+Extension.swift */,
 				3A111C9C1F79F4B400675991 /* UIImage+Extension.swift */,
 				3A111C9E1F79F89900675991 /* UIButton+Extension.swift */,
+				3AF7D17C1F7F836500A152A7 /* String+Extension.swift */,
 				3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */,
 				3A839E881F6BE2470024B9B0 /* NetworkTool.swift */,
 			);
@@ -640,6 +643,7 @@
 				3A097CBD1F6FB9B800222AEA /* LLSnakePageControl.swift in Sources */,
 				3A5CD3181F7F457600B706CB /* TaskInfoView.swift in Sources */,
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
+				3AF7D17D1F7F836500A152A7 /* String+Extension.swift in Sources */,
 				3A110E951F756B61009989D6 /* Reachability.swift in Sources */,
 				3A3E6A9A1F7B39FA0025E63B /* ZBGetPwdBackedController.swift in Sources */,
 				3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */,

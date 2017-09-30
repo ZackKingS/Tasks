@@ -47,7 +47,11 @@ class ZBRegistViewController: UIViewController {
     @IBAction func sentSMS(_ sender: Any) {
         
         
-     
+        if phoneNumL.text!.characters.count == 0{
+            
+            SVProgressHUD.showError(withStatus: "请输入手机号")
+            return
+        }
      
         
       // todo  手机号正则过滤

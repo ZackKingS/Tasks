@@ -55,7 +55,7 @@ class ZBSetPwdController: UIViewController {
             print("reg")  //注册
             
               SVProgressHUD.show()
-            let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!]  as [String : AnyObject]
+            let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!.MD5]  as [String : AnyObject]
           
             NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (value) in
               

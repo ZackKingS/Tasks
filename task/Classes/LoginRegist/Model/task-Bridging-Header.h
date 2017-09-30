@@ -8,3 +8,4 @@
 #import "ViewController.h"
 //#import "User-Swift.h"
 
+#import <CommonCrypto/CommonDigest.h>

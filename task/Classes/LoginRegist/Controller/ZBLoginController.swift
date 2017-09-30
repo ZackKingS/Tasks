@@ -28,10 +28,36 @@ class ZBLoginController: UIViewController {
     SVProgressHUD.show()
         
         
-        let para = ["tel":phoneTF.text,"password":pwdTF.text] as [String : AnyObject]
+        let para = ["tel":phoneTF.text,"password":pwdTF.text?.MD5] as [String : AnyObject]
 
+//        let para = ["tel":"17386014224","password":"111111"] as [String : AnyObject]
+        
         NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para) { (value) in
             let json = JSON(value ?? "123")
+            
+            
+            print(json)
+            
+    
+            
+            let errorStr   = json["errorno"].stringValue
+            
+            if errorStr ==  "20032" {
+                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+                return
+            }else if errorStr ==  "20031" {
+                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+                return
+            }else if errorStr ==  "20032" {
+                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+                return
+            }
+            
+          
+            
             let dataDict   = json["data"].dictionaryValue
             let user : User = User.init(dict: (dataDict as [String : JSON] ))
             let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData

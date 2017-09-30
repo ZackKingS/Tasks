@@ -40,7 +40,7 @@ class NetworkTool: NetworkToolProtocol {
     
     
     
-    //test
+    //get
     class func getMesa(  url:String, completionHandler:@escaping (_ value: Any?)->()) {
         
        
@@ -56,8 +56,17 @@ class NetworkTool: NetworkToolProtocol {
                 
                 let json = JSON(value)
                 
-                  print(json)
-                completionHandler(json)
+                let str = json["message"].stringValue
+                
+                if str ==  "success"{
+                    
+                    print(json)
+                    completionHandler(json)
+                  }else{
+                    SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                }
+                
+               
             }
         }
     }
