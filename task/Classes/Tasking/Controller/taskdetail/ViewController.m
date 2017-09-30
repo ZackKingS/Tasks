@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "TCPagesView.h"
 #import "TableViewController.h"
-#import "task-Bridging-Header.h"
+//#import "task-Bridging-Header.h"
 #import  "task-Swift.h"
 @interface ViewController ()<TcPageDelegate>
 
@@ -43,11 +43,23 @@
     
    
     [self initUI];
+    
+    
+    NSData * imageData = [[NSUserDefaults standardUserDefaults]objectForKey:self.taskid];//图片缓存
+    
+    if (imageData) {
+          UIImage *image = [UIImage imageWithData:imageData];
+         self.taskImageV.image = image;
+    }else{
+        [self getTaskInfo];
+    }
 
-    [self getTaskInfo];
 }
 
 -(void)getTaskInfo{
+    
+    
+    
     
     
     //发送请求
@@ -62,20 +74,26 @@
         NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
-           
-            
+
              NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+     
+            //1.确定URL
+            NSURL *url = [NSURL URLWithString:dict[@"data"][@"image"]];
+            
+    
+            //2.根据url下载图片二进制数据到本地
+            NSData *imageData = [NSData dataWithContentsOfURL:url];
             
             
-              NSLog(@"%@",dict[@"data"]);
-            NSLog(@"%@",dict[@"data"][@"image"]);
+            [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
             
             //回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
+                //3.转换图片格式
+                UIImage *image = [UIImage imageWithData:imageData];
                 
-                
-                [self download1:dict[@"data"][@"image"]];
-                
+                //4.显示UI
+                self.taskImageV.image = image;
             });
             
         }];
@@ -84,28 +102,34 @@
     });
 }
 
--(void)download1:(NSString *)str
-{
-    //0.000018
-    //0.166099
-    
-    //1.确定URL
-    NSURL *url = [NSURL URLWithString:str];
-    
-    NSDate *start = [NSDate date];  //获得当前的时间
-    
-    //2.根据url下载图片二进制数据到本地
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
-    
-    NSDate *end = [NSDate date];  //获得当前的时间
-    NSLog(@"%f",[end timeIntervalSinceDate:start]);
-    
-    //3.转换图片格式
-    UIImage *image = [UIImage imageWithData:imageData];
-    
-    //4.显示UI
-    self.taskImageV.image = image;
-}
+//-(void)download1:(NSString *)str
+//{
+//    //0.000018
+//    //0.166099
+//
+//
+//
+//
+//
+//
+//    //发送请求
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//
+//
+//            //回到主线程
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//
+//                NSDate *end = [NSDate date];  //获得当前的时间
+//                NSLog(@"%f",[end timeIntervalSinceDate:start]);
+//
+//
+//            });
+//
+//
+//    });
+//
+//}
 
 - (void)initUI
 {
@@ -135,12 +159,7 @@
     view.delegate = self;
     
 
-    
-//    _navBgView = [[UIView alloc] initWithFrame:_navgationView.frame];
-//    _navBgView.backgroundColor = [UIColor whiteColor];
-//    _navBgView.alpha = 0;
-//    [_navgationView addSubview:_navBgView];
-    
+
 
     UIView * bottomV = [[UIView alloc] initWithFrame:CGRectMake(0, screenHeight -  60 -64, screenWidth, 60)];
     bottomV.backgroundColor = [UIColor whiteColor];

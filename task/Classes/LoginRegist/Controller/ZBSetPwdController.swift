@@ -103,7 +103,7 @@ class ZBSetPwdController: UIViewController {
                 let dataDict   = json["data"].dictionaryValue
                 let user : User = User.init(dict: (dataDict as [String : JSON] ))
                 let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
-                UserDefaults.standard.set(data, forKey: "user")
+                UserDefaults.standard.set(data, forKey: USER)
                 UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
 
                self.navigationController?.pushViewController(ZBGetPwdBackedController(), animated: true)
@@ -111,21 +111,13 @@ class ZBSetPwdController: UIViewController {
             }
             
             
-         
-            
-            
+       
         default:
             print("xxx")
         }
         
         
-        
-      
-        
-      
-        
      
-        
         
     }
     func setConfig(){

@@ -25,6 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
 
+        
+        
+        if  (UserDefaults.standard.object(forKey: "everLaunched") == nil)  { //第一次启动
+            UserDefaults.standard.set("YES", forKey: "everLaunched")
+            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
+        }
+        
+        
+        
+        
+        
      
         return true
     }

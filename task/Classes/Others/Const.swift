@@ -97,9 +97,12 @@ let isNight = "isNight"
 
 let TabBarDidSelectedNotification = "TabBarDidSelectedNotification"
 
-let ZBLOGIN_KEY = "login" as String
+let ZBLOGIN_KEY = "login" as String 
 
 let ZBLOGINED_FLAG  :Bool = UserDefaults.standard.object(forKey: ZBLOGIN_KEY) as! Bool
+
+
+let USER = "user"
 
 //MARK: 测试接口
 //----------------   用户接口---------------------------

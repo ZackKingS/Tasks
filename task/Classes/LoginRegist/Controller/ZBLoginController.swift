@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
+import SwiftyJSON
 import UIKit
-
+import SVProgressHUD
 class ZBLoginController: UIViewController {
     
     @IBOutlet weak var phoneTF: UITextField!
@@ -25,9 +25,35 @@ class ZBLoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-      dismiss(animated: true, completion: nil)
+    SVProgressHUD.show()
+        
+        
+        let para = ["tel":phoneTF.text,"password":pwdTF.text] as [String : AnyObject]
+
+        NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para) { (value) in
+            let json = JSON(value ?? "123")
+            let dataDict   = json["data"].dictionaryValue
+            let user : User = User.init(dict: (dataDict as [String : JSON] ))
+            let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
+            UserDefaults.standard.set(data, forKey: USER)
+            
+
+            SVProgressHUD.dismiss()
+              self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        
         
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        phoneTF.resignFirstResponder()
+        pwdTF.resignFirstResponder()
+    }
+    
     
     
     @IBAction func close(_ sender: Any) {

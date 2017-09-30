@@ -364,11 +364,11 @@ extension TasksViewController {
         let header = RefreshHeder(refreshingBlock: { [weak self] in  //自定义的header
        
             var str = ""
-            
-            if !ZBLOGINED_FLAG   {
-                  str = API_GETTASKLIST_URL
+    
+            if ZBLOGINED_FLAG    {
+                  str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
             }else{
-                str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
+               str = API_GETTASKLIST_URL
             }
             
             

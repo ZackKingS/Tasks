@@ -46,7 +46,7 @@
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
 		3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */; };
 		3A506E831F7A53E0004DF7C3 /* ZBCleanTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */; };
-		3A5CD30F1F7F374500B706CB /*  .m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CD3061F7F374300B706CB /*  .m */; };
+		3A5CD30F1F7F374500B706CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CD3061F7F374300B706CB /* ViewController.m */; };
 		3A5CD3101F7F374500B706CB /* TCPagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CD3081F7F374300B706CB /* TCPagesView.m */; };
 		3A5CD3111F7F374500B706CB /* TcPrgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CD30B1F7F374400B706CB /* TcPrgressView.m */; };
 		3A5CD3121F7F374500B706CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5CD30C1F7F374400B706CB /* TableViewController.m */; };
@@ -134,7 +134,7 @@
 		3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBSetingController.storyboard; sourceTree = "<group>"; };
 		3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBCleanTool.swift; sourceTree = "<group>"; };
 		3A5CD3021F7F371600B706CB /* task-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "task-Bridging-Header.h"; sourceTree = "<group>"; };
-		3A5CD3061F7F374300B706CB /*  .m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = " .m"; sourceTree = "<group>"; };
+		3A5CD3061F7F374300B706CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3A5CD3071F7F374300B706CB /* TCPagesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPagesView.h; sourceTree = "<group>"; };
 		3A5CD3081F7F374300B706CB /* TCPagesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPagesView.m; sourceTree = "<group>"; };
 		3A5CD3091F7F374400B706CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 				3A5CD30E1F7F374500B706CB /* TcPrgressView.h */,
 				3A5CD30B1F7F374400B706CB /* TcPrgressView.m */,
 				3A5CD3091F7F374400B706CB /* ViewController.h */,
-				3A5CD3061F7F374300B706CB /*  .m */,
+				3A5CD3061F7F374300B706CB /* ViewController.m */,
 			);
 			path = taskdetail;
 			sourceTree = "<group>";
@@ -667,7 +667,7 @@
 				3A5CD3101F7F374500B706CB /* TCPagesView.m in Sources */,
 				3A097CBC1F6FB9B800222AEA /* LLPillPageControl.swift in Sources */,
 				3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */,
-				3A5CD30F1F7F374500B706CB /*  .m in Sources */,
+				3A5CD30F1F7F374500B706CB /* ViewController.m in Sources */,
 				3A097CBB1F6FB9B800222AEA /* LLFilledPageControl.swift in Sources */,
 				3A097CBE1F6FB9B800222AEA /* LLViewExtensions.swift in Sources */,
 				3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */,
