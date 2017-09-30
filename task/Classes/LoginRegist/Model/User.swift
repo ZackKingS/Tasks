@@ -30,9 +30,6 @@ class User : NSObject, NSCoding {
 
         print(dict)
         
-//        let rrrr  :String = (dict["tel"]?.stringValue)!
-//        print(rrrr)
-        
 
 
          tel =  dict["tel"]?.stringValue as String!

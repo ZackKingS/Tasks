@@ -365,9 +365,9 @@ extension TasksViewController {
        
             var str = ""
     
-            if ZBLOGINED_FLAG    {
+            if ZBLOGINED_FLAG    { //已经登录
                   str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
-            }else{
+            }else{                //未登录
                str = API_GETTASKLIST_URL
             }
             

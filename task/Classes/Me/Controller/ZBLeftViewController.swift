@@ -39,8 +39,9 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         
        //昵称
-        let nickName = UILabel.init(frame: CGRect.init(x: (kMaxLeftOffset - 140) / 2, y: 70 + kUserHeaderHeight  , width: 170, height:70))
-        nickName.text = "用户名不超过七字"
+        let nickName = UILabel.init(frame: CGRect.init(x: (kMaxLeftOffset - 100) / 2, y: 70 + kUserHeaderHeight  , width: 100, height:70))
+        nickName.text = "请登录"
+        nickName.textAlignment = .center
         nickName.textColor = UIColor.white
         view.addSubview(nickName)
         return view

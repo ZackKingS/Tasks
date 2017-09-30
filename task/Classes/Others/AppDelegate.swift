@@ -25,7 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
 
+     
+        config()
         
+     
+        return true
+    }
+
+    func config(){
+        
+        let nowDate = NSDate(timeIntervalSinceNow: 0)
+        // 时间戳的值
+        let timeStamp:CLong  = CLong(nowDate.timeIntervalSince1970)
+        print(timeStamp)
         
         if  (UserDefaults.standard.object(forKey: "everLaunched") == nil)  { //第一次启动
             UserDefaults.standard.set("YES", forKey: "everLaunched")
@@ -33,16 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        
-        
-        
-     
-        return true
     }
 
-
     func networkStatusManage(){
-        let manager = NetworkReachabilityManager(host: "https://github.com/Alamofire/Alamofire.git")
+        let manager = NetworkReachabilityManager(host: "https://www.baidu.com")
         
         manager!.listener = { status in
             switch status {

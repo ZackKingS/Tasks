@@ -84,8 +84,11 @@
             //2.根据url下载图片二进制数据到本地
             NSData *imageData = [NSData dataWithContentsOfURL:url];
             
+            if (imageData != nil ) {
+                    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
+            }
             
-            [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
+        
             
             //回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
