@@ -41,6 +41,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
          setupNavBar()
         addNotifications()
         
+   
     
     }
     
@@ -211,6 +212,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func setupNavBar() {
 
+        
+        tableView?.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: kNavBarHeight, right: 0);
         
         let barColor = UIColor.themeColor()
         navigationController?.navigationBar.barTintColor = barColor;

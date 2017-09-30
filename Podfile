@@ -18,6 +18,8 @@ target 'task' do
     pod 'MJRefresh'                     # 上拉和下拉刷新框架 https://github.com/CoderMJLee/MJRefresh
     
     pod 'SwiftTheme'  
+
+	pod 'SDWebImage'
  	
 pod 'ReachabilitySwift'  
 

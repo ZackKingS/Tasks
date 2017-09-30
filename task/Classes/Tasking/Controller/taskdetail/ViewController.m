@@ -11,6 +11,9 @@
 #import "TableViewController.h"
 //#import "task-Bridging-Header.h"
 #import  "task-Swift.h"
+#import <Kingfisher/Kingfisher.h>
+//#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface ViewController ()<TcPageDelegate>
 
 @property (nonatomic, strong) UIView * navgationView;
@@ -45,14 +48,20 @@
     [self initUI];
     
     
-    NSData * imageData = [[NSUserDefaults standardUserDefaults]objectForKey:self.taskid];//图片缓存
     
-    if (imageData) {
-          UIImage *image = [UIImage imageWithData:imageData];
-         self.taskImageV.image = image;
-    }else{
+   
+    
+//    NSData * imageData = [[NSUserDefaults standardUserDefaults]objectForKey:self.taskid];//图片缓存
+//
+//    if (imageData) {
+//          UIImage *image = [UIImage imageWithData:imageData];
+//         self.taskImageV.image = image;
+//
+////        self.taskid.
+//
+//    }else{
         [self getTaskInfo];
-    }
+//    }
 
 }
 
@@ -81,22 +90,25 @@
             NSURL *url = [NSURL URLWithString:dict[@"data"][@"image"]];
             
     
-            //2.根据url下载图片二进制数据到本地
-            NSData *imageData = [NSData dataWithContentsOfURL:url];
-            
-            if (imageData != nil ) {
-                    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
-            }
+//            //2.根据url下载图片二进制数据到本地
+//            NSData *imageData = [NSData dataWithContentsOfURL:url];
+//
+//            if (imageData != nil ) {
+//                    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
+//            }
             
         
             
             //回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
                 //3.转换图片格式
-                UIImage *image = [UIImage imageWithData:imageData];
+//                UIImage *image = [UIImage imageWithData:imageData];
                 
                 //4.显示UI
-                self.taskImageV.image = image;
+//                self.taskImageV.image = image;
+                
+                
+                [self.taskImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defaut_task"]];
             });
             
         }];
