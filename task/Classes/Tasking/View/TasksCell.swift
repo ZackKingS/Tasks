@@ -13,6 +13,14 @@ class TasksCell: UITableViewCell {
     
     
     
+    var task_NameL :UILabel?
+    
+    var price_L :UILabel?
+    
+        var rightTop_L :UILabel?
+    
+     var date_L :UILabel?
+    
     // MARK:- 自定义属性
     var viewModel : Tasks? {
         didSet {
@@ -21,11 +29,25 @@ class TasksCell: UITableViewCell {
                 return
             }
             
-//            // 2.设置头像
-//            iconView.sd_setImageWithURL(viewModel.profileURL, placeholderImage: UIImage(named: "avatar_default_small"))
 
-//            // 4.昵称
-//            screenNameLabel.text = viewModel.screen_name
+            task_NameL?.text = viewModel.title
+            
+            price_L?.text = viewModel.price
+  
+            
+            date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
+            
+            
+            
+            if viewModel.status == "-1" {
+                rightTop_L?.text = "可开始"
+            }else if viewModel.status == "0"  {
+                 rightTop_L?.text = "进行中"
+            }else if viewModel.status == "1"  {
+                rightTop_L?.text = "进行中"
+                
+            }
+
         }
         
         
@@ -66,6 +88,8 @@ class TasksCell: UITableViewCell {
         
         
         let taskNameL = UILabel()
+        
+        task_NameL = taskNameL
         taskNameL.text = "恒泰开户"
         taskNameL.font = UIFont.systemFont(ofSize: 14)
         self.addSubview(taskNameL)
@@ -78,6 +102,7 @@ class TasksCell: UITableViewCell {
         
         
         let priceL = UILabel()
+        price_L = priceL
         priceL.text = "¥ 20"
         priceL.font = UIFont.systemFont(ofSize: 20)
         self.addSubview(priceL)
@@ -92,6 +117,9 @@ class TasksCell: UITableViewCell {
         
         
         let rightTopL = UILabel()
+        
+        rightTop_L = rightTopL
+        
         rightTopL.text = "可开始"
         rightTopL.textAlignment = .center
 
@@ -120,8 +148,11 @@ class TasksCell: UITableViewCell {
         
         
         let dateL = UILabel()
+        
+        date_L = dateL
+        
         dateL.text = "2017.09.13 - 2017.03.30"
-        dateL.font = UIFont.systemFont(ofSize: 14)
+        dateL.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(dateL)
         dateL.snp.makeConstraints { (make) in
             make.bottom.equalTo(self).offset(-15)

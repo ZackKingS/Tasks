@@ -12,33 +12,41 @@ import SwiftyJSON
 class Tasks:   NSObject {
     
     // MARK:- 属性
-    var taskName : String?                // 微博创建时间
+    var title : String?                // 微博创建时间
     var price : String?                    // 微博来源
-    var beginDate : String?                      // 微博的正文
-   var expitarionDate : String?
-    var status : String?
-    var introText : String?
-    var introPic : String?
-    var taskPic : String?
+    var start_time : String?                      // 微博的正文
+   var deadline : String?
+    var id : String?
+     var status : String?
     
     // MARK:- 自定义构造函数
     init(dict : [String : AnyObject]) {
         super.init()
 
         setValuesForKeys(dict)
-        
+
 
     }
     
-    init(dict: [String: JSON]) {
+    
+    
+    
+    init(dictt: [String: JSON]) {
+        
          super.init()
 
       
-        id =  dict["id"]?.stringValue as String!
-        nictitlekname =  dict["title"]?.stringValue as String!
-        id =  dict["id"]?.stringValue as String!
-        account =  dict["account"]?.stringValue as String!
-        finished =  dict["finished"]?.stringValue as String!
+        print(dictt["id"]?.stringValue as String!)
+        
+        id =  dictt["id"]?.stringValue as String!
+        
+        print(id)
+        
+        title =  dictt["title"]?.stringValue as String!
+        price =  dictt["price"]?.stringValue as String!
+        status =  dictt["status"]?.stringValue as String!
+        start_time =  dictt["start_time"]?.stringValue as String!
+        deadline =  dictt["deadline"]?.stringValue as String!
     }
 
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}

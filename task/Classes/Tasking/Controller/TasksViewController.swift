@@ -271,7 +271,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     //每一块有多少行
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  array.count
+        return  dataArray.count
     }
     
 
@@ -281,6 +281,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let identifier = "mainCell"
         let cell = TasksCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
 
+        cell.viewModel = dataArray[indexPath.row]
+        
         return cell
 
     }
@@ -334,64 +336,39 @@ extension TasksViewController {
       
         
         let header = RefreshHeder(refreshingBlock: { [weak self] in  //自定义的header
-            // 获取标题数据
-//            NetworkTool.loadHomeTitlesData(fromViewController: String(describing: TasksViewController.self)) { (topTitles, homeTopicVCs) in
-//
-//                self!.tableView?.mj_header.endRefreshing()
-//                self!.array = topTitles
-//                self!.tableView?.reloadData()
-//            }
-            
-            
-            
+       
             let str = API_GETTASKLIST_URL
             NetworkTool.getTaskList(url: str, completionHandler: { (json) in
-                
-        
-//
-                 print(json)
-//              
-                let dataArr  = json["data"].arrayObject
-                    print(dataArr!)
-                
-//                if let data = dataDict["data"]!.arrayObject {
-//                    var tasks = [Tasks]()
-                   
+                /*
+                "status" : -1,
+                "id" : 26,
+                "title" : "天值基金开户",
+                "deadline" : "2017-10-20 10:33:26",
+                "price" : "6.00",
+                "start_time" : "2017-09-29 10:33:26"
+                 */
+               
+                let dataArr  = json["data"].arrayValue
+
+                var temparr = [Tasks]()
+                for dict    in dataArr{
+                    print(dict)
+                    let task    = Tasks.init(dictt: (dict.dictionaryValue  ))
+//                    print(task.title ?? "123")
                     
-                for  dict in dataArr! {
-                        
-                        
-                        print(dict)
-                    }
-                    // 添加推荐标题
-                  
-//                    let recommend = TopicTitle(dict: recommendDict as [String : AnyObject])
-//                    titles.append(recommend)
-//                    //                    // 添加控制器
-//                    let firstVC = TopicViewController()
-//                    firstVC.topicTitle = recommend
-//                    homeTopicVCs.append(firstVC)
-//                    for dict in data {
-//                        let topicTitle = TopicTitle(dict: dict as! [String: AnyObject])
-//                        titles.append(topicTitle)
-//                        let homeTopicVC = TopicViewController()
-//                        homeTopicVC.topicTitle = topicTitle
-//                        homeTopicVCs.append(homeTopicVC)
-//                    }
-//                    completionHandler(titles, homeTopicVCs)
-//                }
+                    temparr.append(task)
+                    
+                    print(temparr.count)
+                }
                 
-                
-             
+
                 
                 self!.tableView?.mj_header.endRefreshing()
-//                self!.array = topTitles
+                self!.dataArray = temparr
                 self!.tableView?.reloadData()
                 
             })
-            
-            
-            
+   
         })
         
         header?.isAutomaticallyChangeAlpha = true
