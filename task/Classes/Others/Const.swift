@@ -116,7 +116,8 @@ let API_GETPWDBACK_URL = BaseURL + "v1/user/resetpwd"
 //----------------   任务接口---------------------------
 //获取任务列表
 let API_GETTASKLIST_URL = BaseURL + "v1/task/list"
-
+//获取单条任务详情
+let API_GETTASKDETAIL_URL = BaseURL + "v1/task/one"
 //上传图片
 let API_UPLOADIMAGE_URL = BaseURL + "v1/task/donetask"
 

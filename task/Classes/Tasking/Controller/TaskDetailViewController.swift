@@ -15,11 +15,44 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var startBtn: UIButton!
     
 
+    var id :String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          setConfig()
 
-      view.backgroundColor = UIColor.white
+    
+        
+        
+        let str  = API_GETTASKDETAIL_URL +  "?id=\(id!)&userid=\(User.GetUser().id!)"
+        
+        NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+            /*
+             {
+             "errorno" : 0,
+             "data" : {
+             "status" : -1,
+             "id" : 35,
+             "price" : "5.00",
+             "title" : "仙人掌股票开户",
+             "image" : "http:\/\/pic2.ooopic.com\/11\/70\/93\/49bOOOPIC85_1024.jpg",
+             "start_time" : "2017-09-29 10:45:14",
+             "deadline" : "2017-10-26 10:45:14",
+             "description" : "仙人掌股票开户"
+             },
+             "message" : "success"
+             }
+             */
+  
+            let dataDict   = json["data"].dictionaryValue
+            print(dataDict["status"]!.stringValue)
+            print(dataDict["image"]!.stringValue)
+             print(dataDict["image"]!.stringValue)
+
+            
+            
+        
+        })
     }
 
   
@@ -33,7 +66,7 @@ class TaskDetailViewController: UIViewController {
     
 
     func setConfig(){
-
+  view.backgroundColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont.systemFont(ofSize: 18)

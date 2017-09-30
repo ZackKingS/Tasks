@@ -311,7 +311,12 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                  navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
             }else   {
                 
-                 navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+                
+                let taskDetailController = TaskDetailViewController()
+                taskDetailController.id =  dataArray[indexPath.row].id
+                 navigationController?.pushViewController(taskDetailController, animated: true)
+                
+                
             }
             
         }else     {  //未登录 去登陆
