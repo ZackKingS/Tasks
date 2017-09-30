@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.rowHeight = 60;
+    self.tableView.rowHeight = 250;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -39,7 +39,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 40;
+    return 1;
 }
 
 
@@ -50,8 +50,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
-    cell.textLabel.textColor = [UIColor redColor];
+    cell.textLabel.text =   self.taskinfo;  //[NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
+    cell.textLabel.textColor = [UIColor blackColor];
     return cell;
 }
 

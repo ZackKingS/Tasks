@@ -117,34 +117,7 @@
     });
 }
 
-//-(void)download1:(NSString *)str
-//{
-//    //0.000018
-//    //0.166099
-//
-//
-//
-//
-//
-//
-//    //发送请求
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//
-//
-//
-//            //回到主线程
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//
-//                NSDate *end = [NSDate date];  //获得当前的时间
-//                NSLog(@"%f",[end timeIntervalSinceDate:start]);
-//
-//
-//            });
-//
-//
-//    });
-//
-//}
+
 
 - (void)initUI
 {
@@ -164,6 +137,7 @@
         
         
         TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+        vc.taskinfo = self.taskName;
         [array addObject:vc];
     }
     

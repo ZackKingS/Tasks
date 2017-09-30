@@ -226,8 +226,6 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             ] //UIFont(name: "Heiti SC", size: 24.0)!
         
 
-        
-        
         let  m_shareImage = UIImageView.init(frame: CGRect(x:0,y:5,width:24 , height:24))
         m_shareImage.image = UIImage.init(named: "形状-1")
          m_shareImage.contentMode = .scaleAspectFit
@@ -237,13 +235,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
 
       btShare.addTarget(self, action:#selector(tapped(_:)), for:.touchUpInside)
-        
         leftBtn = btShare
-        
         navigationItem.leftBarButtonItem =  UIBarButtonItem.init(customView: btShare)
-        
-
-        
         navigationItem.title = "兼职任务宝";
         
     }

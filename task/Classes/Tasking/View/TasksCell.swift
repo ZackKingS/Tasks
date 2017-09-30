@@ -21,6 +21,8 @@ class TasksCell: UITableViewCell {
     
      var date_L :UILabel?
     
+     var bgV :UIImageView?
+    
     // MARK:- 自定义属性
     var viewModel : Tasks? {
         didSet {
@@ -42,9 +44,12 @@ class TasksCell: UITableViewCell {
             if viewModel.status == "-1" {
                 rightTop_L?.text = "可开始"
                 rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "508cee", alpha: 1)
+                bgV?.image = UIImage.init(named: "mission_blue")
             }else   {
                  rightTop_L?.text = "进行中"
                  rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "fc7979", alpha: 1)
+                
+                bgV?.image = UIImage.init(named: "mission_red")
             }
 
         }
@@ -76,6 +81,8 @@ class TasksCell: UITableViewCell {
    
         let grayView = UIImageView.init(image: UIImage.init(named: "mission_blue"))
         addSubview(grayView)
+        
+        bgV = grayView
 
         
         grayView.snp.makeConstraints { (make) in
