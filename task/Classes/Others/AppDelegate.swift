@@ -25,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
 
+        
+        let str = "abcd"
+        print(str.MD5)
+        
+        
      
         config()
         
