@@ -124,5 +124,8 @@ let API_GETTASKDETAIL_URL = BaseURL + "v1/task/one"
 //上传图片
 let API_UPLOADIMAGE_URL = BaseURL + "v1/task/donetask"
 
+//已完成任务
+let API_DONETASK_URL = BaseURL + "v1/task/donelist"
+
 
 //MARK: 正式接口

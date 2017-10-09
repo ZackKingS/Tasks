@@ -18,6 +18,8 @@ class Tasks:   NSObject {
    var deadline : String?
     var id : String?
      var status : String?
+    var create_time : String?
+    
     
     // MARK:- 自定义构造函数
     init(dict : [String : AnyObject]) {
@@ -36,17 +38,17 @@ class Tasks:   NSObject {
          super.init()
 
       
-        print(dictt["id"]?.stringValue as String!)
         
         id =  dictt["id"]?.stringValue as String!
-        
-        print(id)
+      
         
         title =  dictt["title"]?.stringValue as String!
         price =  dictt["price"]?.stringValue as String!
         status =  dictt["status"]?.stringValue as String!
         start_time =  dictt["start_time"]?.stringValue as String!
         deadline =  dictt["deadline"]?.stringValue as String!
+        
+         create_time =  dictt["create_time"]?.stringValue as String!
     }
 
     override func setValue(_ value: Any?, forUndefinedKey key: String) {}

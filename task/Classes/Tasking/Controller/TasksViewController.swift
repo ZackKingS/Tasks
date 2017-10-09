@@ -30,6 +30,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setRefresh()
     }
     
     override func viewDidLoad() {
@@ -128,6 +129,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         NotificationCenter.default.addObserver(self, selector: #selector(pushfinish), name: NSNotification.Name(rawValue: "pushfinish"), object: nil)
         
+               NotificationCenter.default.addObserver(self, selector: #selector(pushfinishhh), name: NSNotification.Name(rawValue: "pushfinishhh"), object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(pushsetting), name: NSNotification.Name(rawValue: "pushsetting"), object: nil)
         
@@ -163,6 +165,16 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
         //2.push
         navigationController?.pushViewController(ZBFinishedController(), animated: true)
+        
+    }
+    
+    @objc  func   pushfinishhh(){
+        
+        
+        //1 close
+        QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
+        //2.push
+        navigationController?.pushViewController(ZBBanlanceController(), animated: true)
         
     }
     
@@ -290,8 +302,9 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let identifier = "mainCell"
         let cell = TasksCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
 
+         cell.type = "1"
         cell.viewModel = dataArray[indexPath.row]
-        
+       
         return cell
 
     }
@@ -313,7 +326,9 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
          tableView.deselectRow(at: indexPath, animated: true)
         
-        if ZBLOGINED_FLAG   { //已经登录 做任务
+        
+       
+        if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
             
             
             if    dataArray[indexPath.row].status == "-1"  {  //任务可开始
@@ -361,7 +376,7 @@ extension TasksViewController {
        
             var str = ""
     
-            if ZBLOGINED_FLAG    { //已经登录
+            if ZBLOGINED_FLAG   { //已经登录
                   str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
                str = API_GETTASKLIST_URL

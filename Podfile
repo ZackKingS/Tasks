@@ -19,6 +19,8 @@ target 'task' do
     
     pod 'SwiftTheme'  
 
+#pod 'Reveal-SDK', :configurations => ['Debug']
+
 	pod 'SDWebImage'
  	
 pod 'ReachabilitySwift'  

@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.5.1)
   - Kingfisher (3.10.4)
-  - MJRefresh (3.1.12)
+  - MJRefresh (3.1.13)
   - ReachabilitySwift (3)
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
@@ -30,7 +30,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MJRefresh: 56a28aa628c9895e97a518dabaecf70b18f92f32
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
@@ -40,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftTheme: 85f84747a48749b5b3df7c3e96fc0b1d45677d30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: cd6eb26d9b7d36c9298fc1abda6bdbacb164ea87
+PODFILE CHECKSUM: 134b75107918b8ba314c2629fa74aa1d61ee005b
 
 COCOAPODS: 1.2.0

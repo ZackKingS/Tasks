@@ -11,7 +11,7 @@ import UIKit
 import Kingfisher
 class TasksCell: UITableViewCell {
     
-    
+    var type :String?
     
     var task_NameL :UILabel?
     
@@ -37,9 +37,19 @@ class TasksCell: UITableViewCell {
             price_L?.text = viewModel.price
   
             
-            date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
+            if (type == "1") {
             
+                date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
+                
+                
+            }else if type == "2" {
             
+                 date_L?.text = "\(viewModel.create_time! )已完成该任务"
+            }
+            
+//            date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
+//            
+//            
             
             if viewModel.status == "-1" {
                 rightTop_L?.text = "可开始"

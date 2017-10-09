@@ -30,7 +30,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(str.MD5)
         
         
+      
      
+        print(UserDefaults.standard.bool(forKey: "LGFirstLaunch"))
+        
+        // 检测用户是不是第一次启动
+        
+        if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
+            
+        UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
+            
+            UserDefaults.standard.set(true, forKey: "LGFirstLaunch")
+            
+        } else {
+            
+   
+        }
+        
+    
+        
+        
+        
+      
+     
+        
+
+        
+        
+ 
         config()
         
      

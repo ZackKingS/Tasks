@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     
@@ -20,6 +20,9 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     let kUserHeaderHeight : CGFloat = 70
     
     let kwithDrawBtnWidth : CGFloat = 118
+    
+    
+    var userNameL   =  UILabel()
     
     //头部
     var headerView: UIView{
@@ -44,6 +47,9 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         nickName.textAlignment = .center
         nickName.textColor = UIColor.white
         view.addSubview(nickName)
+        
+       userNameL = nickName
+        
         return view
     }
     
@@ -111,7 +117,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     var rightDataArray:[String]{
-        let array = NSArray.init(objects: "22项","222.2元")
+        let array = NSArray.init(objects: "0项","0.0元")
         return array as! [String]
     }
     
@@ -141,7 +147,10 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         footerView.backgroundColor = UIColor.red
         view.addSubview(footerView)
 
-        
+
+        if  UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  {
+            userNameL.text = User.GetUser().nickname
+        }
   
 
         
@@ -189,10 +198,32 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         if indexPath.row == 0 {
             //已经完成的任务
            
+            
+            if ZBLOGIN_KEY == "login"    { //已经登录
+                  NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinish")))
+            }else{                //未登录
+                
+                SVProgressHUD.showError(withStatus: "请登录")
+            }
+            
+            
+            
+            
         
-                   NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinish")))
+            
             
         }else if   indexPath.row == 1{
+            
+            
+            
+            
+            if ZBLOGIN_KEY == "login"    { //已经登录
+                NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinishhh")))
+            }else{                //未登录
+                
+                SVProgressHUD.showError(withStatus: "请登录")
+            }
+            
             
         }
     }

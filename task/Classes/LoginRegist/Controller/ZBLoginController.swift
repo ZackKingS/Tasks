@@ -30,7 +30,7 @@ class ZBLoginController: UIViewController {
         
         let para = ["tel":phoneTF.text,"password":pwdTF.text?.MD5] as [String : AnyObject]
 
-//        let para = ["tel":"17386014224","password":"111111"] as [String : AnyObject]
+
         
         NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para) { (value) in
             let json = JSON(value ?? "123")
@@ -62,6 +62,13 @@ class ZBLoginController: UIViewController {
             let user : User = User.init(dict: (dataDict as [String : JSON] ))
             let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
             UserDefaults.standard.set(data, forKey: USER)
+            
+            
+            UserDefaults.standard.removeObject(forKey: ZBLOGIN_KEY)
+            UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
+            UserDefaults.standard.synchronize()
+            
+            
             
 
             SVProgressHUD.dismiss()

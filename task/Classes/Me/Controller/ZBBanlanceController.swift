@@ -13,16 +13,12 @@ import Alamofire
 
 import SVProgressHUD
 
-class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
     var tableView : UITableView?
     fileprivate var array = [TopicTitle]()
     
-     fileprivate var dataArray = [Tasks]()
-    
-    
-    var countL  :UILabel?
-    
+    fileprivate var dataArray = [Tasks]()
     
     var leftBtn :UIButton?
     
@@ -31,7 +27,7 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         //         设置导航栏颜色
         
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +35,7 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         setupTableVie()
         setRefresh()
         setupNavBar()
-      tableView?.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: kNavBarHeight, right: 0);
+        tableView?.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: kNavBarHeight, right: 0);
         
     }
     
@@ -60,15 +56,15 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
             
             NetworkTool.getTaskList(url: str, completionHandler: { (json) in
                 /*
-                 id	:	50
-                 title	:	仙人掌股票开户
-                 price	:	5.00
-                 create_time	:	2017-09-30 17:11:57
-                 check_time	:	null
-
+                 "status" : -1,
+                 "id" : 26,
+                 "title" : "天值基金开户",
+                 "deadline" : "2017-10-20 10:33:26",
+                 "price" : "6.00",
+                 "start_time" : "2017-09-29 10:33:26"
                  */
                 
-                let dataArr  = json["data"]["list"].arrayValue
+                let dataArr  = json["data"].arrayValue
                 
                 var temparr = [Tasks]()
                 for dict    in dataArr{
@@ -81,13 +77,6 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
                 self!.dataArray = temparr
                 self!.tableView?.reloadData()
                 
-                
-                DispatchQueue.main.async {
-                     self?.countL?.text = "\(self!.dataArray.count)项"
-                }
-                
-               
-                
             })
             
         })
@@ -97,12 +86,12 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         tableView?.mj_header = header
         tableView?.mj_header.beginRefreshing()
         tableView?.mj_header = header
-   
+        
         
     }
     
-
-   
+    
+    
     
     func setupNavBar() {
         
@@ -119,14 +108,14 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         
         
         
-     
         
-        navigationItem.title = "已完成的任务";
+        
+        navigationItem.title = "账户余额";
         
     }
-  
     
- 
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -160,8 +149,8 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let inview = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 80))
-
-        inview.backgroundColor = UIColor.white
+        
+        //        inview.backgroundColor = UIColor.red
         
         let bordView = UIView()
         inview.addSubview(bordView)
@@ -177,7 +166,7 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
             make.right.equalTo(inview).offset(-15)
         }
         
-
+        
         let finiTasskL = UILabel()
         finiTasskL.text = "你共完成任务"
         finiTasskL.font = UIFont.systemFont(ofSize: 18)
@@ -190,9 +179,6 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         }
         
         let taskcountL = UILabel()
-        
-        countL = taskcountL
-        
         taskcountL.text = "0项"
         taskcountL.textAlignment =  .right
         taskcountL.font = UIFont.systemFont(ofSize: 18)
@@ -212,11 +198,9 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         let identifier = "mainCell"
         let cell = TasksCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
-        
-         cell.type = "2"
-        cell.viewModel = dataArray[indexPath.row]
         
         return cell
         
@@ -236,20 +220,20 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
     // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let str = "unlogin"
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        if  str.contains("qwe")    { //已经登录 做任务
-//            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
-//        }else if  str.contains("unlogin")     {  //未登录 去登陆
-//            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
-//            present(nav, animated: true, completion: nil)
-//        }else if  str.contains("done")     {  //已做
-//            if   str.contains("success")  {  //审核通过
-//                navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-//            }else  if str.contains("fail"){    //审核未通过
-//                navigationController?.pushViewController(ZBTaskFailController() , animated: true)
-//            }
-//        }
+        //        let str = "unlogin"
+        //        tableView.deselectRow(at: indexPath, animated: true)
+        //        if  str.contains("qwe")    { //已经登录 做任务
+        //            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
+        //        }else if  str.contains("unlogin")     {  //未登录 去登陆
+        //            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
+        //            present(nav, animated: true, completion: nil)
+        //        }else if  str.contains("done")     {  //已做
+        //            if   str.contains("success")  {  //审核通过
+        //                navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
+        //            }else  if str.contains("fail"){    //审核未通过
+        //                navigationController?.pushViewController(ZBTaskFailController() , animated: true)
+        //            }
+        //        }
         
         
         
@@ -258,6 +242,7 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
 }
+
 
 
 

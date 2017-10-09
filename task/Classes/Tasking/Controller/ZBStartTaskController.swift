@@ -66,7 +66,7 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     
 
   
-    //MARK:=============================  拍照   ============================
+    //MARK:=============================  添加图片   ============================
     
     @IBAction func photoComeIn(_ sender: Any) {
         
