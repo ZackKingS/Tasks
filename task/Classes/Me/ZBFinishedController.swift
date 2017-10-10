@@ -51,7 +51,7 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
             
             var str = ""
             
-            if ZBLOGIN_KEY == "login"    { //已经登录
+            if ZBLOGINED_FLAG    { //已经登录
                 str = "\(API_DONETASK_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
                 str = API_GETTASKLIST_URL

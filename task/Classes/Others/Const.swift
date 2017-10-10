@@ -116,6 +116,11 @@ let API_LOGIN_URL = BaseURL + "v1/user/login"
 //找回
 let API_GETPWDBACK_URL = BaseURL + "v1/user/resetpwd"
 
+//查询余额
+let API_GETIMCOME_URL = BaseURL + "/v1/user/income"
+
+
+
 //----------------   任务接口---------------------------
 //获取任务列表
 let API_GETTASKLIST_URL = BaseURL + "v1/task/list"

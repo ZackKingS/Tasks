@@ -47,8 +47,8 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
             
             var str = ""
             
-            if ZBLOGIN_KEY == "login"    { //已经登录
-                str = "\(API_DONETASK_URL)?userid=\(User.GetUser().id!)"
+            if ZBLOGINED_FLAG    { //已经登录
+                str = "\(API_GETIMCOME_URL)?id=\(User.GetUser().id!)"
             }else{                //未登录
                 str = API_GETTASKLIST_URL
             }
@@ -56,12 +56,10 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
             
             NetworkTool.getTaskList(url: str, completionHandler: { (json) in
                 /*
-                 "status" : -1,
-                 "id" : 26,
-                 "title" : "天值基金开户",
-                 "deadline" : "2017-10-20 10:33:26",
-                 "price" : "6.00",
-                 "start_time" : "2017-09-29 10:33:26"
+                 money           :    5.00
+                 plus_or_minus   :    1
+                 description    :    仙人掌开户成功
+                 create_time    :    2017-10-09 14:40:11
                  */
                 
                 let dataArr  = json["data"].arrayValue
@@ -107,9 +105,6 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         ] //UIFont(name: "Heiti SC", size: 24.0)!
         
         
-        
-        
-        
         navigationItem.title = "账户余额";
         
     }
@@ -126,10 +121,10 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         tableView = UITableView(frame:  CGRect(x: 0 , y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height ), style: UITableViewStyle.plain)
         tableView?.dataSource = self
         tableView?.delegate = self
-        tableView?.separatorStyle = .none
+//        tableView?.separatorStyle = .none
         self.view.addSubview(tableView!)
         view.backgroundColor = UIColor.globalBackgroundColor()
-        //        automaticallyAdjustsScrollViewInsets = true
+      
     }
     
     
@@ -143,22 +138,19 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80
+        return 150
     }
     
+    
+    // MARK:======== 头部  ===========
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let inview = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 80))
-        
-        //        inview.backgroundColor = UIColor.red
+        let inview = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: 150))
+        inview.backgroundColor  = UIColor.white
+     
         
         let bordView = UIView()
         inview.addSubview(bordView)
-        bordView.layer.cornerRadius = 6
-        bordView.layer.borderColor = UIColor.gray.cgColor
-        bordView.layer.borderWidth = 1
-        bordView.layer.masksToBounds = true
-        
         bordView.snp.makeConstraints { (make) in
             make.top.equalTo(inview).offset(10)
             make.left.equalTo(inview).offset(20)
@@ -167,27 +159,73 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         }
         
         
+        
+        let line_v = UIView()
+        inview.addSubview(line_v)
+        line_v.backgroundColor = UIColor.lightGray
+        line_v.snp.makeConstraints { (make) in
+            make.height.equalTo(2)
+            make.left.equalTo(inview).offset(20)
+            make.bottom.equalTo(inview).offset(-5)
+            make.right.equalTo(inview).offset(-15)
+        }
+        
+        
+   
+        
         let finiTasskL = UILabel()
-        finiTasskL.text = "你共完成任务"
-        finiTasskL.font = UIFont.systemFont(ofSize: 18)
+        finiTasskL.text = "账户余额（元）"
+        finiTasskL.font = UIFont.systemFont(ofSize: 15)
         inview.addSubview(finiTasskL)
         finiTasskL.snp.makeConstraints { (make) in
-            make.centerY.equalTo(inview.snp.centerY)
-            make.left.equalTo(inview).offset(35)
+            make.top.equalTo(inview).offset(20)
+            make.left.equalTo(inview).offset(70)
             make.width.equalTo(200)
             make.height.equalTo(15)
         }
         
+        let icon_wallet = UIImageView()
+        icon_wallet.image = UIImage.init(named: "wale")
+        inview.addSubview(icon_wallet)
+        icon_wallet.snp.makeConstraints { (make) in
+            make.top.equalTo(inview).offset(20)
+            make.left.equalTo(inview).offset(20)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
+        
+        
         let taskcountL = UILabel()
-        taskcountL.text = "0项"
-        taskcountL.textAlignment =  .right
-        taskcountL.font = UIFont.systemFont(ofSize: 18)
+        taskcountL.text = "500.00"
+        taskcountL.textAlignment =  .left
+        taskcountL.font = UIFont.systemFont(ofSize: 36)
+        taskcountL.textColor  =  UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1)
         inview.addSubview(taskcountL)
         taskcountL.snp.makeConstraints { (make) in
-            make.centerY.equalTo(inview.snp.centerY)
-            make.right.equalTo(inview).offset(-35)
+            make.centerY.equalTo(inview.snp.centerY).offset(20)
+            make.left.equalTo(inview).offset(70)
+            make.width.equalTo(200)
+            make.height.equalTo(40)
+        }
+        
+        
+        
+        let button:UIButton = UIButton(type:.custom)
+        button.setTitle("立即提现", for:.normal) //普通状态下的文字
+        button.backgroundColor = UIColor.colorWithHexString(Color_Value: "e6761c", alpha: 1)
+        
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.layer.cornerRadius = kScornerRadius
+        button.layer.masksToBounds = true
+        button.setTitleColor(UIColor.white, for: .normal) //普通状态下文字的颜色
+        button.addTarget(self, action: #selector(withdrew), for: .touchUpInside)
+        inview.addSubview(button)
+        button.snp.makeConstraints { (make) in
             make.width.equalTo(100)
-            make.height.equalTo(15)
+            make.height.equalTo(50)
+            make.centerY.equalTo(inview).offset(10)
+            make.right.equalTo(inview).offset(-50)
+            
         }
         
         
@@ -196,12 +234,18 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
+    func withdrew(){
+        
+        
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         let identifier = "mainCell"
-        let cell = TasksCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
-        
+        let cell = BalanceCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
+     
+        cell.viewModel = dataArray[indexPath.row]
         return cell
         
     }
@@ -209,7 +253,7 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160;
+        return 90;
     }
     
     deinit {
@@ -220,22 +264,7 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
     // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //        let str = "unlogin"
-        //        tableView.deselectRow(at: indexPath, animated: true)
-        //        if  str.contains("qwe")    { //已经登录 做任务
-        //            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
-        //        }else if  str.contains("unlogin")     {  //未登录 去登陆
-        //            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
-        //            present(nav, animated: true, completion: nil)
-        //        }else if  str.contains("done")     {  //已做
-        //            if   str.contains("success")  {  //审核通过
-        //                navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-        //            }else  if str.contains("fail"){    //审核未通过
-        //                navigationController?.pushViewController(ZBTaskFailController() , animated: true)
-        //            }
-        //        }
-        
-        
+    
         
         
         

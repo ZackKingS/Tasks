@@ -36,6 +36,7 @@
 		3A3BB4D31F8C606F00B87EB4 /* SecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */; };
 		3A3BB4D71F8C619F00B87EB4 /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */; };
 		3A3BB4D81F8C619F00B87EB4 /* SecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */; };
+		3A3BB4DA1F8C7AFE00B87EB4 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D91F8C7AFE00B87EB4 /* BalanceCell.swift */; };
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
 		3A3E6A9A1F7B39FA0025E63B /* ZBGetPwdBackedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */; };
 		3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */; };
@@ -133,6 +134,7 @@
 		3A3BB4D41F8C619F00B87EB4 /* SecondTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
 		3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
 		3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondTableViewCell.xib; sourceTree = "<group>"; };
+		3A3BB4D91F8C7AFE00B87EB4 /* BalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBGetPwdBackedController.swift; sourceTree = "<group>"; };
 		3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBGetPwdBackedController.xib; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1110BB1F78C14F009989D6 /* ZBLeftCell.swift */,
+				3A3BB4D91F8C7AFE00B87EB4 /* BalanceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				3A839E821F6BDD160024B9B0 /* TasksViewController.swift in Sources */,
 				3A097CA71F6FAE9F00222AEA /* QQDRrawerViewController.swift in Sources */,
 				3A3E6AAA1F7B731E0025E63B /* ZBStartTaskController.swift in Sources */,
+				3A3BB4DA1F8C7AFE00B87EB4 /* BalanceCell.swift in Sources */,
 				3A097CBA1F6FB9B800222AEA /* LLCycleScrollViewCell.swift in Sources */,
 				3A839E851F6BDD170024B9B0 /* ZBNavVC.swift in Sources */,
 				3A506E831F7A53E0004DF7C3 /* ZBCleanTool.swift in Sources */,

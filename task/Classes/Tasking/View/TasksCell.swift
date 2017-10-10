@@ -57,6 +57,10 @@ class TasksCell: UITableViewCell {
                 bgV?.image = UIImage.init(named: "mission_orange")
                 
                 
+            }else if type == "3" {
+                
+                   rightTop_L?.isHidden = true
+                
             }
             
             
