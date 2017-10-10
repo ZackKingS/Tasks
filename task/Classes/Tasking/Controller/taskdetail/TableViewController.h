@@ -10,4 +10,9 @@
 
 @interface TableViewController : UITableViewController
 @property(strong,nonatomic)NSString * taskinfo;
+@property(nonatomic,assign)int count;
+
+
+
+
 @end

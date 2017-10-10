@@ -22,6 +22,9 @@ class TasksCell: UITableViewCell {
      var date_L :UILabel?
     
      var bgV :UIImageView?
+    var fini :UIImageView?
+    
+    
     
     // MARK:- 自定义属性
     var viewModel : Tasks? {
@@ -41,26 +44,44 @@ class TasksCell: UITableViewCell {
             
                 date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
                 
-                
+                fini?.isHidden = true
+                rightTop_L?.isHidden = false
+
             }else if type == "2" {
             
                  date_L?.text = "\(viewModel.create_time! )已完成该任务"
+                     fini?.isHidden = false
+                
+                
+                rightTop_L?.isHidden = true
+                bgV?.image = UIImage.init(named: "mission_orange")
+                
+                
             }
             
-//            date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
-//            
-//            
             
             if viewModel.status == "-1" {
                 rightTop_L?.text = "可开始"
                 rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "508cee", alpha: 1)
                 bgV?.image = UIImage.init(named: "mission_blue")
-            }else   {
+                
+                
+            }else if  viewModel.status == "0" {
                  rightTop_L?.text = "进行中"
                  rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "fc7979", alpha: 1)
                 
                 bgV?.image = UIImage.init(named: "mission_red")
+           
+                
             }
+//            else if  viewModel.status == "0" {
+//                rightTop_L?.text = "进行中"
+//                rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "fc7979", alpha: 1)
+//                
+//                bgV?.image = UIImage.init(named: "mission_red")
+//                
+//                
+//            }
 
         }
         
@@ -91,16 +112,28 @@ class TasksCell: UITableViewCell {
    
         let grayView = UIImageView.init(image: UIImage.init(named: "mission_blue"))
         addSubview(grayView)
-        
         bgV = grayView
-
-        
         grayView.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(10)
             make.left.equalTo(self).offset(15)
             make.bottom.equalTo(self).offset(-5)
             make.right.equalTo(self).offset(-15)
         }
+        
+        
+        
+        let finiV = UIImageView.init(image: UIImage.init(named: "mytask_complete"))
+        addSubview(finiV)
+        fini = finiV
+        finiV.snp.makeConstraints { (make) in
+
+            make.right.equalTo(self).offset(-55)
+            make.centerY.equalTo(self)
+            make.width.equalTo(70)
+            make.height.equalTo(50)
+        }
+        
+        
         
         
         let taskNameL = UILabel()

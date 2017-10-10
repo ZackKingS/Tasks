@@ -31,6 +31,11 @@
 		3A111CA71F7A0A7600675991 /* ZBForgotPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CA61F7A0A7600675991 /* ZBForgotPwdController.xib */; };
 		3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A111CA81F7A2C0400675991 /* ZBSetPwdController.swift */; };
 		3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A111CAA1F7A2C0F00675991 /* ZBSetPwdController.xib */; };
+		3A3BB4CF1F8C5CB600B87EB4 /* TaskDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4CD1F8C5CB600B87EB4 /* TaskDetailCell.m */; };
+		3A3BB4D01F8C5CB600B87EB4 /* TaskDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BB4CE1F8C5CB600B87EB4 /* TaskDetailCell.xib */; };
+		3A3BB4D31F8C606F00B87EB4 /* SecondTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */; };
+		3A3BB4D71F8C619F00B87EB4 /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */; };
+		3A3BB4D81F8C619F00B87EB4 /* SecondTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */; };
 		3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C9C331F74ED620080DA70 /* TasksCell.swift */; };
 		3A3E6A9A1F7B39FA0025E63B /* ZBGetPwdBackedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */; };
 		3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */; };
@@ -120,6 +125,14 @@
 		3A27D7FB1F7DFB67003AD58A /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		3A27D7FC1F7DFB67003AD58A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		3A27D7FD1F7DFB67003AD58A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3A3BB4CC1F8C5CB600B87EB4 /* TaskDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailCell.h; sourceTree = "<group>"; };
+		3A3BB4CD1F8C5CB600B87EB4 /* TaskDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailCell.m; sourceTree = "<group>"; };
+		3A3BB4CE1F8C5CB600B87EB4 /* TaskDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailCell.xib; sourceTree = "<group>"; };
+		3A3BB4D11F8C606F00B87EB4 /* SecondTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondTableViewController.h; sourceTree = "<group>"; };
+		3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewController.m; sourceTree = "<group>"; };
+		3A3BB4D41F8C619F00B87EB4 /* SecondTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondTableViewCell.h; sourceTree = "<group>"; };
+		3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondTableViewCell.m; sourceTree = "<group>"; };
+		3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondTableViewCell.xib; sourceTree = "<group>"; };
 		3A3C9C331F74ED620080DA70 /* TasksCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksCell.swift; sourceTree = "<group>"; };
 		3A3E6A991F7B39FA0025E63B /* ZBGetPwdBackedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBGetPwdBackedController.swift; sourceTree = "<group>"; };
 		3A3E6A9D1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBGetPwdBackedController.xib; sourceTree = "<group>"; };
@@ -353,12 +366,20 @@
 				3A5CD30D1F7F374400B706CB /* PushViewcontroller.swift */,
 				3A5CD30A1F7F374400B706CB /* TableViewController.h */,
 				3A5CD30C1F7F374400B706CB /* TableViewController.m */,
+				3A3BB4D11F8C606F00B87EB4 /* SecondTableViewController.h */,
+				3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */,
 				3A5CD3071F7F374300B706CB /* TCPagesView.h */,
 				3A5CD3081F7F374300B706CB /* TCPagesView.m */,
 				3A5CD30E1F7F374500B706CB /* TcPrgressView.h */,
 				3A5CD30B1F7F374400B706CB /* TcPrgressView.m */,
 				3A5CD3091F7F374400B706CB /* ViewController.h */,
 				3A5CD3061F7F374300B706CB /* ViewController.m */,
+				3A3BB4CC1F8C5CB600B87EB4 /* TaskDetailCell.h */,
+				3A3BB4CD1F8C5CB600B87EB4 /* TaskDetailCell.m */,
+				3A3BB4CE1F8C5CB600B87EB4 /* TaskDetailCell.xib */,
+				3A3BB4D41F8C619F00B87EB4 /* SecondTableViewCell.h */,
+				3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */,
+				3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */,
 			);
 			path = taskdetail;
 			sourceTree = "<group>";
@@ -563,9 +584,11 @@
 				3A3E6AB41F7B80140025E63B /* ZBTaskSuccessController.xib in Resources */,
 				3A3E6AAC1F7B73280025E63B /* ZBStartTaskController.xib in Resources */,
 				3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */,
+				3A3BB4D01F8C5CB600B87EB4 /* TaskDetailCell.xib in Resources */,
 				3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */,
 				3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */,
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
+				3A3BB4D81F8C619F00B87EB4 /* SecondTableViewCell.xib in Resources */,
 				3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */,
 				3A3E6AB81F7B85E00025E63B /* ZBTaskFailController.xib in Resources */,
 				3A0935AB1F6BD99100C1BA5A /* Assets.xcassets in Resources */,
@@ -635,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ACE8AD41F7DE62C003BF779 /* ZBFinishedController.swift in Sources */,
+				3A3BB4CF1F8C5CB600B87EB4 /* TaskDetailCell.m in Sources */,
 				3A5CD3121F7F374500B706CB /* TableViewController.m in Sources */,
 				3A111CA11F79FB3400675991 /* ZBRegistViewController.swift in Sources */,
 				3A111C9F1F79F89900675991 /* UIButton+Extension.swift in Sources */,
@@ -654,6 +678,7 @@
 				3A839E7A1F6BDCAC0024B9B0 /* AppDelegate.swift in Sources */,
 				3A111CA51F7A0A6D00675991 /* ZBForgotPwdController.swift in Sources */,
 				3A111CA91F7A2C0400675991 /* ZBSetPwdController.swift in Sources */,
+				3A3BB4D71F8C619F00B87EB4 /* SecondTableViewCell.m in Sources */,
 				3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */,
 				3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */,
 				3A4EBD6E1F7CA45B00C6DDC1 /* User.swift in Sources */,
@@ -673,6 +698,7 @@
 				3A3C9C341F74ED620080DA70 /* TasksCell.swift in Sources */,
 				3AD3FBE71F6BE543007406E1 /* TopicViewController.swift in Sources */,
 				3A5CD3101F7F374500B706CB /* TCPagesView.m in Sources */,
+				3A3BB4D31F8C606F00B87EB4 /* SecondTableViewController.m in Sources */,
 				3A097CBC1F6FB9B800222AEA /* LLPillPageControl.swift in Sources */,
 				3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */,
 				3A5CD30F1F7F374500B706CB /* ViewController.m in Sources */,

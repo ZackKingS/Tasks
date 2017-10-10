@@ -199,6 +199,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="随便逛逛"/>
+                    <connections>
+                        <action selector="off:" destination="-1" eventType="touchUpInside" id="TYX-mv-uhY"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录代表您已经阅读并同意使用协议和隐私条款" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Omk-Bp-WgC">
                     <rect key="frame" x="32.5" y="605" width="310" height="37"/>

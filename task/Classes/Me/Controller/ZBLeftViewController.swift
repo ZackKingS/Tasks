@@ -133,6 +133,15 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if  UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  {
+            userNameL.text = User.GetUser().nickname
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -148,9 +157,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         view.addSubview(footerView)
 
 
-        if  UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  {
-            userNameL.text = User.GetUser().nickname
-        }
+       
   
 
         
@@ -195,22 +202,20 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.row == 0 {
             //已经完成的任务
            
             
-            if ZBLOGIN_KEY == "login"    { //已经登录
+            if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  { //已经登录
                   NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinish")))
             }else{                //未登录
                 
                 SVProgressHUD.showError(withStatus: "请登录")
             }
             
-            
-            
-            
-        
-            
+   
             
         }else if   indexPath.row == 1{
             

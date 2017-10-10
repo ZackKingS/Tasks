@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-
+#import "TaskDetailCell.h"
 
 @interface TableViewController ()
 
@@ -24,6 +24,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    [self.tableView registerNib: [UINib nibWithNibName:@"TaskDetailCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,14 +49,10 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+
     
-    cell.textLabel.text =   self.taskinfo;  //[NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
-    cell.textLabel.textColor = [UIColor blackColor];
+    TaskDetailCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
     return cell;
 }
 

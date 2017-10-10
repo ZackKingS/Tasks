@@ -23,6 +23,17 @@ class ZBLoginController: UIViewController {
     @IBOutlet weak var close: UIButton!
     
     
+    
+    
+    @IBAction func off(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
     @IBAction func login(_ sender: Any) {
         
     SVProgressHUD.show()

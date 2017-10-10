@@ -38,25 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
             
-        UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
-            
+            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
             UserDefaults.standard.set(true, forKey: "LGFirstLaunch")
             
-        } else {
-            
-   
         }
-        
-    
-        
-        
-        
-      
-     
-        
-
-        
-        
+  
  
         config()
         

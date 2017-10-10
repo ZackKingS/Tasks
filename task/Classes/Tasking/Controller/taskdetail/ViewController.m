@@ -14,6 +14,7 @@
 #import <Kingfisher/Kingfisher.h>
 //#import <SDWebImage/SDImageCache.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SecondTableViewController.h"
 @interface ViewController ()<TcPageDelegate>
 
 @property (nonatomic, strong) UIView * navgationView;
@@ -25,6 +26,9 @@
 @property (nonatomic, strong) UIImageView * avatarImageView;
 
 @property (nonatomic, strong) UIImageView * taskImageV;
+
+@property (nonatomic, strong) NSDictionary *taskInfoDic;
+
 @end
 
 @implementation ViewController
@@ -43,25 +47,10 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
-   
     [self initUI];
     
-    
-    
-   
-    
-//    NSData * imageData = [[NSUserDefaults standardUserDefaults]objectForKey:self.taskid];//图片缓存
-//
-//    if (imageData) {
-//          UIImage *image = [UIImage imageWithData:imageData];
-//         self.taskImageV.image = image;
-//
-////        self.taskid.
-//
-//    }else{
-        [self getTaskInfo];
-//    }
+    [self getTaskInfo];
+
 
 }
 
@@ -74,6 +63,9 @@
     //发送请求
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
+        
+         
+        
         NSString * str = [NSString stringWithFormat:@"http://taskbao.dev.cnfol.wh/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
         NSURL *url = [NSURL URLWithString:str];
         
@@ -84,31 +76,36 @@
         NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
 
+            /*
+             id    :    34
+             title    :    平安证券开户
+             description    :    平安证券开户
+             image    :    http://pic.58pic.com/58pic/13/71/05/32M58PICZKY_1024.jpg
+             price    :    10.00
+             start_time    :    2017-09-29 10:39:43
+             deadline    :    2017-11-29 10:39:43
+             status    :    -1
+             */
+            
+            
+            
              NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
      
+            self.taskInfoDic = dict;
+            
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"taskInfo" object:nil userInfo:dict[@"data"]];
+            
+
+            
             //1.确定URL
             NSURL *url = [NSURL URLWithString:dict[@"data"][@"image"]];
-            
-    
-//            //2.根据url下载图片二进制数据到本地
-//            NSData *imageData = [NSData dataWithContentsOfURL:url];
-//
-//            if (imageData != nil ) {
-//                    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:self.taskid];
-//            }
-            
         
-            
             //回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
-                //3.转换图片格式
-//                UIImage *image = [UIImage imageWithData:imageData];
+ 
                 
-                //4.显示UI
-//                self.taskImageV.image = image;
-                
-                
-                [self.taskImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defaut_task"]];
+                [self.taskImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loding"]];
             });
             
         }];
@@ -124,11 +121,11 @@
 
     self.title= self.taskName;
     
-    UIImageView * headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -100, screenWidth, screenWidth*9/16+200)];
+    UIImageView * headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenWidth*9/16+200)];
     headView.autoresizesSubviews = YES;
     headView.backgroundColor = [UIColor whiteColor];
     headView.clipsToBounds = YES;
-    headView.image = [UIImage imageNamed:@"defaut_task"];
+    headView.image = [UIImage imageNamed:@"loding"];
     _taskImageV = headView;
 
     
@@ -136,10 +133,25 @@
     for (int i = 0; i <2; i++) {
         
         
-        TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
-        vc.taskinfo = self.taskName;
-        [array addObject:vc];
+        
+        if (i == 0 ) {
+             TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+            vc.taskinfo = self.taskName;
+            [array addObject:vc];
+        }else{
+           SecondTableViewController   * vc = [[SecondTableViewController alloc] initWithStyle:UITableViewStylePlain];
+            [array addObject:vc];
+        }
+        
+        
+//        TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
+//        vc.taskinfo = self.taskName;
+//        vc.count = i;
+//        [array addObject:vc];
     }
+    
+    
+    
     
     
    
@@ -183,17 +195,6 @@
 
 }
 
-
-//- (UIImageView *)avatarImageView
-//{
-//    if (!_avatarImageView) {
-//        _avatarImageView = [[UIImageView alloc] init];
-//        _avatarImageView.layer.masksToBounds = YES;
-//        _avatarImageView.layer.cornerRadius = 30.f;
-//        _avatarImageView.backgroundColor = [UIColor lightGrayColor];
-//    }
-//    return _avatarImageView;
-//}
 
 
 - (void)didReceiveMemoryWarning {
