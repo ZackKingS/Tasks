@@ -12,10 +12,16 @@ class ZBTaskSuccessController: UIViewController {
     
     @IBOutlet weak var backBtn: UIButton!
     
+    @IBOutlet weak var priceL: UILabel!
+    
+    var price : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setConfig()
+        priceL.text = "¥\(price!)"
+        
     }
     
     
@@ -27,7 +33,6 @@ class ZBTaskSuccessController: UIViewController {
             NSFontAttributeName: UIFont.systemFont(ofSize: 18)
         ] 
         navigationItem.title = "任务完成";
-        
         backBtn.layer.cornerRadius = kScornerRadius
         backBtn.layer.masksToBounds = true
         

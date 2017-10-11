@@ -74,11 +74,19 @@ class ZBLoginController: UIViewController {
             let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
             UserDefaults.standard.set(data, forKey: USER)
             
+
+            let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
             
-            UserDefaults.standard.removeObject(forKey: ZBLOGIN_KEY)
-            UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
-            UserDefaults.standard.synchronize()
+            print(login)
             
+            if !UserDefaults.standard.bool(forKey: ZBLOGIN_KEY) {
+                
+                    print(login)
+
+                UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
+
+                UserDefaults.standard.synchronize()
+            }
             
             
 

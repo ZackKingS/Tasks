@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AdSupport
 class QQDRrawerViewController: UIViewController {
 
     //  创建单例
@@ -105,6 +105,32 @@ class QQDRrawerViewController: UIViewController {
     
     /// 打开抽屉
     func openDrawer(openDrawerWithDuration: CGFloat) {
+        
+        
+        
+        
+        
+        
+        
+        let url = "/v1/user/profile"
+        let key = SecureTool.reKey(url: url)
+        let timestamp :String = SecureTool.reTimestamp()
+        let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+        let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
+        NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+            
+            let dataArr  = json["data"].dictionaryValue
+            print(dataArr["account"]!)
+            print(dataArr["finished"]!)
+            
+         
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotProfile"), object: self, userInfo: ["key": dataArr])
+
+            
+        })
+        
+        
+        
         
         UIView.animate(withDuration: TimeInterval(openDrawerWithDuration), delay: 0, options: .curveLinear, animations: {
             self.mainViewController?.view.transform = CGAffineTransform.init(translationX: self.maxWidth!, y: 0)

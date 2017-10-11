@@ -376,7 +376,13 @@ extension TasksViewController {
        
             var str = ""
     
-            if ZBLOGINED_FLAG   { //已经登录
+             print(UserDefaults.standard.object(forKey: ZBLOGIN_KEY)!)
+            
+            let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
+            
+            print(login)
+            
+            if     login  { //已经登录
                   str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
                str = API_GETTASKLIST_URL

@@ -101,6 +101,7 @@ let ZBLOGIN_KEY = "login" as String
 
 let ZBLOGINED_FLAG  :Bool = UserDefaults.standard.object(forKey: ZBLOGIN_KEY) as! Bool
 
+let ZBLogin = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
 
 let USER = "user"
 
@@ -116,8 +117,11 @@ let API_LOGIN_URL = BaseURL + "v1/user/login"
 //找回
 let API_GETPWDBACK_URL = BaseURL + "v1/user/resetpwd"
 
+//查询明显
+let API_GETIMCOME_URL = BaseURL + "v1/user/income"
+
 //查询余额
-let API_GETIMCOME_URL = BaseURL + "/v1/user/income"
+let API_GETPROFILE_URL = BaseURL + "v1/user/profile"
 
 
 

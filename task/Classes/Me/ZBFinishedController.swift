@@ -54,7 +54,8 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
             if ZBLOGINED_FLAG    { //已经登录
                 str = "\(API_DONETASK_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
-                str = API_GETTASKLIST_URL
+                SVProgressHUD.showError(withStatus: "请登录")
+                return
             }
             
             
@@ -235,27 +236,13 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
     
     // MARK:========  点击cell============
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        let str = "unlogin"
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        if  str.contains("qwe")    { //已经登录 做任务
-//            navigationController?.pushViewController(TaskDetailViewController(), animated: true)
-//        }else if  str.contains("unlogin")     {  //未登录 去登陆
-//            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
-//            present(nav, animated: true, completion: nil)
-//        }else if  str.contains("done")     {  //已做
-//            if   str.contains("success")  {  //审核通过
-//                navigationController?.pushViewController(ZBTaskSuccessController(), animated: true)
-//            }else  if str.contains("fail"){    //审核未通过
-//                navigationController?.pushViewController(ZBTaskFailController() , animated: true)
-//            }
-//        }
-        
-        
-        
-        
-        
-        
+
+        tableView.deselectRow(at: indexPath, animated: true)
+        let  task : Tasks  = dataArray[indexPath.row]
+       let suss =  ZBTaskSuccessController()
+           suss.price = task.price
+        navigationController?.pushViewController(suss, animated: true)
+
     }
 }
 

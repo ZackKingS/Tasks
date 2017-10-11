@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import AdSupport
+import  SwiftyJSON
 class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 
     
@@ -116,11 +118,22 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         return array as! [String]
     }
     
-    var rightDataArray:[String]{
-        let array = NSArray.init(objects: "0项","0.0元")
-        return array as! [String]
-    }
+//    var rightDataArray:[String]{
+//        var array = NSArray.init(objects: "0项","0.0元")
+//        return array as! [String]
+//
+////         var array : [String] = [String]()
+////        array = [ "0项","0.0元"]
+////        return array
+//    }
     
+    
+        
+    var rightDataArray : [String] = [String]()
+//    rightDataArray = [ "0项","0.0元"]
+    
+  
+    var zbtableView : UITableView?
     
     var leftDataArray:[String]{
         let array = NSArray.init(objects: "mission","wallet")
@@ -137,9 +150,38 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        
+        print("123")
         if  UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  {
             userNameL.text = User.GetUser().nickname
+            
+            
+//            let url = "/v1/user/profile"
+//            let key = SecureTool.reKey(url: url)
+//            let timestamp :String = SecureTool.reTimestamp()
+//            let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+//            let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
+//            NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+//                
+//                let dataArr  = json["data"].dictionaryValue
+//                print(dataArr["account"]!)
+//                print(dataArr["finished"]!)
+//                
+//                let finished = "\(dataArr["finished"]!.stringValue)项"
+//                 let account = "\(dataArr["account"]!.stringValue)元"
+//
+//                self.rightDataArray = [ finished, account]
+//                self.zbtableView?.reloadData()
+//
+//            })
+            
+            
         }
+        
+        
+        
+        
+        
     }
     
     override func viewDidLoad() {
@@ -152,15 +194,38 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        
+         zbtableView = tableView
         view.addSubview(headerView)
         footerView.backgroundColor = UIColor.red
         view.addSubview(footerView)
 
 
-       
+        rightDataArray = [ "0项","0.0元"]
   
-
+        NotificationCenter.default.addObserver(self, selector: #selector(gotProfile(notification:)), name: NSNotification.Name(rawValue: "gotProfile"), object: nil)
         
+        
+    }
+    
+   
+    
+    
+    /// 点击了加号按钮
+    @objc  func gotProfile(notification: Notification) {
+        
+
+
+        var dic  = notification.userInfo!["key"]!  as!  [String : JSON]
+    
+        
+        let finished = "\(dic["finished"]!.stringValue)项"
+         let account = "\(dic["account"]!.stringValue)元"
+
+        self.rightDataArray = [ finished, account]
+        self.zbtableView?.reloadData()
+        
+      
     }
 
     // MARK: - UITableViewDataSource,UITableViewDelegate

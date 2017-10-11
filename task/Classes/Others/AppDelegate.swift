@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AdSupport
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,26 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
 
-        
-        let str = "abcd"
-        print(str.MD5)
-        
-        
-      
      
-        print(UserDefaults.standard.bool(forKey: "LGFirstLaunch"))
+      
+   
         
         // 检测用户是不是第一次启动
-        
-        if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
-            
-            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
-            UserDefaults.standard.set(true, forKey: "LGFirstLaunch")
-            
-        }
-  
- 
         config()
+        
+        
+    
         
      
         return true
@@ -57,11 +47,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let timeStamp:CLong  = CLong(nowDate.timeIntervalSince1970)
         print(timeStamp)
         
-        if  (UserDefaults.standard.object(forKey: "everLaunched") == nil)  { //第一次启动
-            UserDefaults.standard.set("YES", forKey: "everLaunched")
-            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
-        }
+//        if  (UserDefaults.standard.object(forKey: "everLaunched") == nil)  { //第一次启动
+//            UserDefaults.standard.set("YES", forKey: "everLaunched")
+//            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
+//        }
         
+        print(UserDefaults.standard.bool(forKey: "LGFirstLaunch"))
+        if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
+            
+            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
+            
+            UserDefaults.standard.set(true, forKey: "LGFirstLaunch")
+            UserDefaults.standard.synchronize()
+        }
         
     }
 

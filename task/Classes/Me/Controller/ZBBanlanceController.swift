@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftTheme
 import Alamofire
-
+import AdSupport
 import SVProgressHUD
 
 class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewDataSource{
@@ -47,10 +47,23 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
             
             var str = ""
             
+
+            
+            let key =  self?.produceKey()
+            
+            let timestamp :String = (self?.retimestamp())!
+            
+            let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+            
             if ZBLOGINED_FLAG    { //已经登录
-                str = "\(API_GETIMCOME_URL)?id=\(User.GetUser().id!)"
+                str = "\(API_GETIMCOME_URL)?id=\(User.GetUser().id!)&key=\(key!)&t=\(timestamp)&imei=\((uuid as String))"
+                
+                print(str)
+                
             }else{                //未登录
-                str = API_GETTASKLIST_URL
+               
+                SVProgressHUD.showError(withStatus: "请登录")
+                return
             }
             
             
@@ -88,6 +101,32 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
+    
+    func  retimestamp() -> String{
+        
+        let nowDate = NSDate(timeIntervalSinceNow: 0)
+        // 时间戳的值
+        let t:CLong  = CLong(nowDate.timeIntervalSince1970)
+        
+        let x : Int = Int(t)
+        let xNSNumber = x as NSNumber
+        let timestamp : String = xNSNumber.stringValue
+        
+        return timestamp
+    }
+    
+    
+    func produceKey() -> String{
+        
+       var  strr = retimestamp() as NSString
+        strr =  strr.substring(from: strr.length - 5) as NSString
+        var adId = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+        adId =  adId.substring(from: adId.length - 5)  as NSString
+        let key =    ((adId as String) + (strr as String) + ("/v1/user/income".MD5 )).MD5
+
+        return key!
+        
+    }
     
     
     
@@ -202,7 +241,7 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         taskcountL.textColor  =  UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1)
         inview.addSubview(taskcountL)
         taskcountL.snp.makeConstraints { (make) in
-            make.centerY.equalTo(inview.snp.centerY).offset(20)
+            make.centerY.equalTo(inview.snp.centerY).offset(10)
             make.left.equalTo(inview).offset(70)
             make.width.equalTo(200)
             make.height.equalTo(40)

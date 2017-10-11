@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBTaskSuccessController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="backBtn" destination="7d9-jZ-C2b" id="VJx-SS-SLf"/>
+                <outlet property="priceL" destination="1Yu-SD-M3y" id="sJl-vW-Vwx"/>
                 <outlet property="view" destination="iN0-l3-epB" id="mvL-Yz-zWz"/>
             </connections>
         </placeholder>
