@@ -158,6 +158,14 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     @IBAction func next(_ sender: Any) {
         
   
+        if picV.image == nil  {
+            
+            SVProgressHUD.showInfo(withStatus: "请上传照片")
+            return
+            
+        }
+        
+        
         SVProgressHUD.show()
         
         let data = UIImageJPEGRepresentation( ZBStartTaskController.picImage!, 0.5)!
