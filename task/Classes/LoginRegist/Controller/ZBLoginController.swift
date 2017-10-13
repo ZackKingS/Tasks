@@ -39,9 +39,16 @@ class ZBLoginController: UIViewController {
     SVProgressHUD.show()
         
         
-        let para = ["tel":phoneTF.text,"password":pwdTF.text?.MD5] as [String : AnyObject]
+        //方法：(phone后5.md5 + pwd.md5 )md5
+        var  phone_last5 =  phoneTF.text! as NSString
+        phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
+        var final_pwd = (phone_last5 as String).MD5 + (pwdTF.text?.MD5)!
+        final_pwd = final_pwd.MD5
+        
+        let para = ["tel":phoneTF.text!,"password":final_pwd] as [String : AnyObject]
 
 
+        print(para)
         
         NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para) { (value) in
             let json = JSON(value ?? "123")
@@ -53,19 +60,24 @@ class ZBLoginController: UIViewController {
             
             let errorStr   = json["errorno"].stringValue
             
-            if errorStr ==  "20032" {
+            if errorStr ==  "20032"  ||  errorStr ==  "20031" || errorStr ==  "20032" || errorStr ==  "20030" {
                 SVProgressHUD.showError(withStatus: json["message"].stringValue)
                 SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
                 return
-            }else if errorStr ==  "20031" {
-                SVProgressHUD.showError(withStatus: json["message"].stringValue)
-                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
-                return
-            }else if errorStr ==  "20032" {
-                SVProgressHUD.showError(withStatus: json["message"].stringValue)
-                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
-                return
             }
+//            else if errorStr ==  "20031" {
+//                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+//                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+//                return
+//            }else if errorStr ==  "20032" {
+//                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+//                   SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+//                return
+//            }else if errorStr ==  "20030" {
+//                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+//                SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+//                return
+//            }
             
           
             
@@ -73,23 +85,13 @@ class ZBLoginController: UIViewController {
             let user : User = User.init(dict: (dataDict as [String : JSON] ))
             let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData
             UserDefaults.standard.set(data, forKey: USER)
-            
-
-            let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
-            
-            print(login)
-            
+        
+         
             if !UserDefaults.standard.bool(forKey: ZBLOGIN_KEY) {
-                
-                    print(login)
-
                 UserDefaults.standard.set(true, forKey: ZBLOGIN_KEY)
-
                 UserDefaults.standard.synchronize()
             }
             
-            
-
             SVProgressHUD.dismiss()
               self.dismiss(animated: true, completion: nil)
         }

@@ -54,8 +54,17 @@ class ZBSetPwdController: UIViewController {
         case 1: 
             print("reg")  //注册
             
+            
+            //方法：(phone后5.md5 + pwd.md5 )md5
+            var  phone_last5 =  phone! as NSString
+            phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
+            var final_pwd = (phone_last5 as String).MD5 + (pwd_s.text?.MD5)!
+            final_pwd = final_pwd.MD5
+            
+            
+            
               SVProgressHUD.show()
-            let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":pwd_s.text!.MD5]  as [String : AnyObject]
+            let para =  ["tel":phone!,"verifycode":sms! ,"nickname" : nickName!,"password":final_pwd]  as [String : AnyObject]
           
             NetworkTool.postMesa(url: API_REGISTE_URL, parameters: para) { (value) in
               
@@ -93,8 +102,14 @@ class ZBSetPwdController: UIViewController {
             print("forgetpwd")
             
             
+            //方法：(phone后5.md5 + pwd.md5 )md5
+            var  phone_last5 =  phone! as NSString
+            phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
+            var final_pwd = (phone_last5 as String).MD5 + (pwd_s.text?.MD5)!
+            final_pwd = final_pwd.MD5
+            
             SVProgressHUD.show()
-            let para =  ["tel":phone!,"verifycode":sms! ,"password":pwd_s.text!]  as [String : AnyObject]
+            let para =  ["tel":phone!,"verifycode":sms! ,"password":final_pwd]  as [String : AnyObject]
             
             NetworkTool.postMesa(url: API_GETPWDBACK_URL, parameters: para) { (value) in
                 
