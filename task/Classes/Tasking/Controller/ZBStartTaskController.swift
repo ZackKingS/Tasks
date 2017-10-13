@@ -28,6 +28,11 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
     
     @IBOutlet weak var takeCame: UIButton!
     
+    
+    @IBOutlet weak var pivH: NSLayoutConstraint!
+    
+    @IBOutlet weak var btnCons: NSLayoutConstraint!
+    
     var taskid :String?
     
     static  var picImage :UIImage?
@@ -37,6 +42,11 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
         
         setConfig()
         
+        if isIPhone6 {
+            
+            pivH.constant = 130
+            btnCons.constant = -10
+        }
         
         
         

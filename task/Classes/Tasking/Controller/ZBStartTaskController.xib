@@ -12,8 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBStartTaskController" customModule="task" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="a1L-YA-vI8" id="r2m-f3-czC"/>
+                <outlet property="btnCons" destination="bWZ-1Y-fr0" id="vmZ-xo-9hf"/>
                 <outlet property="nextBtn" destination="fiR-ZH-PVs" id="g9R-hd-xUh"/>
                 <outlet property="picV" destination="uuh-6T-txv" id="o3s-ao-Uz2"/>
+                <outlet property="pivH" destination="DQu-zQ-NYh" id="vxj-42-riJ"/>
                 <outlet property="takeCame" destination="1AV-vF-nk6" id="ayf-y9-nt3"/>
                 <outlet property="topView" destination="5AZ-Rm-v8c" id="AXJ-zb-xSY"/>
                 <outlet property="view" destination="Krf-W1-klG" id="H0j-Qq-jk9"/>

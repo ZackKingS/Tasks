@@ -48,7 +48,7 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 let dataArr  = json["data"].dictionaryValue
                 print(dataArr["account"] ?? "123")
-                print(dataArr["finished"]!)
+//                print(dataArr["finished"]!)
                 
                 if   dataArr["account"] != nil{
                        self.taskcountLable?.text = dataArr["account"]!.stringValue

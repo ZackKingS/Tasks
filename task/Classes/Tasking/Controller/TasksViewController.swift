@@ -11,7 +11,7 @@ import UIKit
 import SwiftTheme
 import Alamofire
 import SwiftyJSON
-
+import MJRefresh
 import StoreKit
 import SVProgressHUD
 
@@ -398,8 +398,51 @@ extension TasksViewController {
         tableView?.mj_header = header
         tableView?.mj_header.beginRefreshing()
         tableView?.mj_header = header
-     
+        
+
+        
+        tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { [weak self] in
+            var str = ""
+            let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
+            if     login  { //已经登录
+                
+                let task    = self?.dataArray.last
+                str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)&id=\(task?.id ?? "10")"
+            }else{                //未登录
+                
+                let task    = self?.dataArray.last
+                str = "\(API_GETTASKLIST_URL)?id=\(task?.id ?? "10")"
+            }
+            
+            
+            NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+                /*
+                 "status" : -1,
+                 "id" : 26,
+                 "title" : "天值基金开户",
+                 "deadline" : "2017-10-20 10:33:26",
+                 "price" : "6.00",
+                 "start_time" : "2017-09-29 10:33:26"
+                 */
+                self?.tableView?.mj_footer.endRefreshing()
+                let dataArr  = json["data"].arrayValue
+                
+                var temparr = [Tasks]()
+                for dict    in dataArr{
+                    print(dict)
+                    let task    = Tasks.init(dictt: (dict.dictionaryValue  ))
+                    temparr.append(task)
+                }
+                
+                self?.tableView?.mj_header.endRefreshing()
+                self?.dataArray.append(contentsOf: temparr)
+                self?.tableView?.reloadData()
+                
+            })
+        })
     }
+    
+    
     
     
 }

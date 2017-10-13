@@ -50,6 +50,7 @@
 		3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB51F7B859C0025E63B /* ZBTaskFailController.swift */; };
 		3A3E6AB81F7B85E00025E63B /* ZBTaskFailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6AB71F7B85E00025E63B /* ZBTaskFailController.xib */; };
 		3A4530FE1F90633B0069B97F /* ZBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4530FD1F90633B0069B97F /* ZBButton.swift */; };
+		3A4531001F909F040069B97F /* RefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4530FF1F909F040069B97F /* RefreshFooter.swift */; };
 		3A4EBD6E1F7CA45B00C6DDC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EBD6D1F7CA45B00C6DDC1 /* User.swift */; };
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
 		3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */; };
@@ -152,6 +153,7 @@
 		3A4530F91F90598E0069B97F /* CountDown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CountDown.h; sourceTree = "<group>"; };
 		3A4530FA1F90598E0069B97F /* CountDown.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
 		3A4530FD1F90633B0069B97F /* ZBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBButton.swift; sourceTree = "<group>"; };
+		3A4530FF1F909F040069B97F /* RefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooter.swift; sourceTree = "<group>"; };
 		3A4EBD6D1F7CA45B00C6DDC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetingController.swift; sourceTree = "<group>"; };
 		3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBSetingController.storyboard; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */,
+				3A4530FF1F909F040069B97F /* RefreshFooter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				3A3BB4D31F8C606F00B87EB4 /* SecondTableViewController.m in Sources */,
 				3A097CBC1F6FB9B800222AEA /* LLPillPageControl.swift in Sources */,
 				3A3E6AB61F7B859C0025E63B /* ZBTaskFailController.swift in Sources */,
+				3A4531001F909F040069B97F /* RefreshFooter.swift in Sources */,
 				3A5CD30F1F7F374500B706CB /* ViewController.m in Sources */,
 				3A097CBB1F6FB9B800222AEA /* LLFilledPageControl.swift in Sources */,
 				3A097CBE1F6FB9B800222AEA /* LLViewExtensions.swift in Sources */,
