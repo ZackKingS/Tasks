@@ -110,6 +110,17 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         NotificationCenter.default.addObserver(self, selector: #selector(pushsetting), name: NSNotification.Name(rawValue: "pushsetting"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
 
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(gologin), name: NSNotification.Name(rawValue: "gologin"), object: nil)
+        
+    }
+    
+    @objc  func   gologin(){
+        
+        QQDRrawerViewController.sharedDrawerViewController.closeDrawer(closeDrawerWithDuration: 0.2)
+        let nav = ZBNavVC.init(rootViewController: ZBLoginController())
+        present(nav, animated: true, completion: nil)
+        
     }
     
     
@@ -183,38 +194,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     /// 点击了加号按钮
   @objc  func checkDetail(notification: Notification) {
 //
-//    let titles  = notification.userInfo!["key"] as! NSString
-//
-//     print(titles)
-//
-//
-//     navigationController?.pushViewController(TaskDetailViewController(), animated: true)
-    
-    
-//    if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
-//        
-//        if    dataArray[indexPath.row].status == "-1"  {  //任务可开始
-//            
-//            let taskDetailController = ViewController()
-//            taskDetailController.taskid =  dataArray[indexPath.row].id
-//            taskDetailController.taskName =  dataArray[indexPath.row].title
-//            self.navigationController?.pushViewController(taskDetailController, animated: true)
-//            
-//        }else if    dataArray[indexPath.row].status == "0"  { //任务审核中
-//            self.navigationController?.pushViewController(ZBTaskUnderReviewController(), animated: true)
-//            
-//            
-//        }else if    dataArray[indexPath.row].status == "1"  { //任务失败
-//            self.navigationController?.pushViewController(ZBTaskFailController(), animated: true)
-//            
-//            
-//            
-//        }
-//        
-//    }else     {  //未登录 去登陆
-//        let nav = ZBNavVC.init(rootViewController: ZBLoginController())
-//        present(nav, animated: true, completion: nil)
-//    }
+
     }
     
     
@@ -338,7 +318,11 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
      
             }else if    dataArray[indexPath.row].status == "1"  { //任务失败
-                self.navigationController?.pushViewController(ZBTaskFailController(), animated: true)
+                
+                
+                let fail = ZBTaskFailController()
+                fail.taskid = dataArray[indexPath.row].id
+                self.navigationController?.pushViewController(fail, animated: true)
                 
                 
                 

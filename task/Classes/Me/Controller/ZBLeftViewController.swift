@@ -288,7 +288,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
                   NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinish")))
             }else{                //未登录
                 
-                SVProgressHUD.showError(withStatus: "请登录")
+                 NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "gologin")))
             }
             
    
@@ -298,11 +298,11 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
             
             
-            if ZBLOGIN_KEY == "login"    { //已经登录
+            if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录
                 NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinishhh")))
             }else{                //未登录
                 
-                SVProgressHUD.showError(withStatus: "请登录")
+               NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "gologin")))
             }
             
             

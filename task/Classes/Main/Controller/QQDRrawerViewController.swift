@@ -122,10 +122,19 @@ class QQDRrawerViewController: UIViewController {
             let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
             NetworkTool.getTaskList(url: str, completionHandler: { (json) in
                 
-                let dataArr  = json["data"].dictionaryValue
-                print(dataArr["account"]!)
-                print(dataArr["finished"]!)
+                print(json)
                 
+                if json["message"].stringValue != "success"{
+                    
+                    return
+                }
+                
+                 let dataArr  = json["data"].dictionaryValue
+                
+                if  dataArr["account"] == nil    ||  dataArr["finished"] == nil  {
+                    return
+                    
+                }
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotProfile"), object: self, userInfo: ["key": dataArr])
                 

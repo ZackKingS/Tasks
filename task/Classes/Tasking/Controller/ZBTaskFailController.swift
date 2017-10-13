@@ -12,6 +12,8 @@ class ZBTaskFailController: UIViewController {
     
     
     
+    var taskid :String?
+    
     
     @IBOutlet weak var backBtn: UIButton!
     
@@ -22,6 +24,18 @@ class ZBTaskFailController: UIViewController {
         
     }
     
+    
+    
+    @IBOutlet weak var reload: UIButton!
+    
+    
+    @IBAction func reload(_ sender: Any) {
+        
+        
+        let start = ZBStartTaskController()
+        start.taskid = taskid
+        navigationController?.pushViewController(start, animated: true)
+    }
     
     
     override func viewDidLoad() {
@@ -42,5 +56,7 @@ class ZBTaskFailController: UIViewController {
         backBtn.layer.cornerRadius = kScornerRadius
         backBtn.layer.masksToBounds = true
         
+        reload.layer.cornerRadius = kScornerRadius
+        reload.layer.masksToBounds = true
     }
 }

@@ -22,9 +22,41 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
     
     var leftBtn :UIButton?
     
+    var taskcountLable :UILabel?
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //         设置导航栏颜色
+        
+       
+    }
+    
+    func checkBalance(){
+        
+   
+       
+            let url = "/v1/user/profile"
+            let key = SecureTool.reKey(url: url)
+            let timestamp :String = SecureTool.reTimestamp()
+            let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+            let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
+        
+        print(str)
+        
+            NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+                
+                let dataArr  = json["data"].dictionaryValue
+                print(dataArr["account"] ?? "123")
+                print(dataArr["finished"]!)
+                
+                if   dataArr["account"] != nil{
+                       self.taskcountLable?.text = dataArr["account"]!.stringValue
+                }
+             
+  
+            })
+      
         
     }
     
@@ -235,7 +267,15 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
         
         
         let taskcountL = UILabel()
-        taskcountL.text = "500.00"
+        taskcountLable = taskcountL
+        
+        if !UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
+               taskcountL.text = "0.00"
+        }
+        
+         checkBalance()
+//
+//        taskcountL.text = "0.00"
         taskcountL.textAlignment =  .left
         taskcountL.font = UIFont.systemFont(ofSize: 36)
         taskcountL.textColor  =  UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1)
