@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SVProgressHUD
-class ZBRegistViewController: UIViewController {
+class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
     
     
     
@@ -21,6 +21,11 @@ class ZBRegistViewController: UIViewController {
     @IBOutlet weak var nickTF: UITextField!
     
     @IBOutlet weak var nextBtn: UIButton!
+    
+    
+    @IBOutlet weak var nextBottonCons: NSLayoutConstraint!
+    
+    var count = 1
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -36,7 +41,29 @@ class ZBRegistViewController: UIViewController {
         
         setConfig()
         
+        phoneNumL.delegate = self
+        nickTF.delegate = self
+        smsTF.delegate = self
        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if count != 1 { return }
+        
+        if isIPhone6 {
+             UIView.animate(withDuration: 0.3, animations: {
+                 self.nextBottonCons.constant = self.nextBottonCons.constant + 200
+             })
+        }else if isIPhone6P{
+             UIView.animate(withDuration: 0.3, animations: {
+                self.nextBottonCons.constant = self.nextBottonCons.constant + 150
+           })
+        }
+        
+     
+        
+        count = count + 1
     }
     
     

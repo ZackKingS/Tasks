@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SVProgressHUD
 
-class ZBForgotPwdController: UIViewController {
+class ZBForgotPwdController: UIViewController ,UITextFieldDelegate{
     
     
     typealias Tomato = (Int, Int) -> Int
@@ -23,7 +23,8 @@ class ZBForgotPwdController: UIViewController {
     
     @IBOutlet weak var nextBtn: UIButton!
     
-    
+    @IBOutlet weak var bottomCons: NSLayoutConstraint!
+     var count = 1
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -40,8 +41,32 @@ class ZBForgotPwdController: UIViewController {
         
         setConfig()
         
+        phoneL.delegate = self
+        smsL.delegate = self
+        smsL.delegate = self
+        
+        
        
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if count != 1 { return }
+        
+        if isIPhone6 {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bottomCons.constant = self.bottomCons.constant + 200
+            })
+        }else if isIPhone6P{
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bottomCons.constant = self.bottomCons.constant + 150
+            })
+        }
+        
+        
+        
+        count = count + 1
+    }
+    
     
     
     @IBOutlet weak var sentSMS: UIButton!

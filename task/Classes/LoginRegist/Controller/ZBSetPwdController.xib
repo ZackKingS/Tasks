@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBSetPwdController" customModule="task" customModuleProvider="target">
             <connections>
+                <outlet property="bottomCons" destination="Ths-Pr-IH6" id="P2W-zv-Pz9"/>
                 <outlet property="commitBtn" destination="me6-gt-kcj" id="WQB-Hx-ENC"/>
                 <outlet property="pwd_f" destination="F30-HG-MmM" id="cLM-Pr-2Kv"/>
                 <outlet property="pwd_s" destination="SYI-ZR-PUf" id="8O3-q4-cjQ"/>

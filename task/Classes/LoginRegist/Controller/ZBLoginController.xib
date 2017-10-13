@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZR-2e-1nO">
-                    <rect key="frame" x="40" y="60" width="34" height="25"/>
+                    <rect key="frame" x="20" y="50" width="34" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="aQt-oP-rjQ"/>
                         <constraint firstAttribute="height" constant="25" id="jUO-q1-8yB"/>
@@ -231,9 +231,9 @@
                 <constraint firstAttribute="bottom" secondItem="Omk-Bp-WgC" secondAttribute="bottom" constant="25" id="SFW-Yk-jIX"/>
                 <constraint firstItem="mlP-mF-yOw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="259" id="Z6K-Kq-Rhw"/>
                 <constraint firstAttribute="trailing" secondItem="Hr3-xb-6ER" secondAttribute="trailing" id="cVk-Ac-Fnn"/>
-                <constraint firstItem="eZR-2e-1nO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="j1y-ub-LWd"/>
+                <constraint firstItem="eZR-2e-1nO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="j1y-ub-LWd"/>
                 <constraint firstItem="mlP-mF-yOw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="lU8-RW-Bmq"/>
-                <constraint firstItem="eZR-2e-1nO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="sVa-0D-TRh"/>
+                <constraint firstItem="eZR-2e-1nO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="sVa-0D-TRh"/>
                 <constraint firstItem="ddd-EF-IrI" firstAttribute="top" secondItem="9CX-Vq-2gP" secondAttribute="bottom" constant="8" id="sVh-rW-XMX"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>

@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import UIKit
 import SVProgressHUD
-class ZBSetPwdController: UIViewController {
+class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
     
      var typecase : Int = 0
 
@@ -25,16 +25,49 @@ class ZBSetPwdController: UIViewController {
     @IBOutlet weak var pwd_s: UITextField!
     
     @IBOutlet weak var commitBtn: UIButton!
+    
+    
+    @IBOutlet weak var bottomCons: NSLayoutConstraint!
+      var count = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setConfig()
+        
+        pwd_s.delegate = self
+        pwd_f.delegate = self
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         pwd_s.resignFirstResponder()
         pwd_f.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if count != 1 { return }
+        
+        if isIPhone6 {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bottomCons.constant = self.bottomCons.constant + 200
+            })
+            
+            
+            
+           
+        }else if isIPhone6P{
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bottomCons.constant = self.bottomCons.constant + 150
+            })
+            
+        }
+        
+        
+        
+        count = count + 1
     }
     
     @IBAction func commit(_ sender: Any) {

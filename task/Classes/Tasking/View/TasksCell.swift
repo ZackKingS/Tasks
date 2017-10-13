@@ -216,7 +216,7 @@ class TasksCell: UITableViewCell {
         
         
 
-        let button:UIButton = UIButton(type:.custom)
+        let button:ZBButton = ZBButton(type:.custom)
         button.setTitle("查看", for:.normal) //普通状态下的文字
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(UIColor.colorWithHexString(Color_Value: "ff821e", alpha: 1), for: .normal)
@@ -257,10 +257,10 @@ class TasksCell: UITableViewCell {
         
 //          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
         
-        let sizeM =  "xxcew"
-        let sizeString = String(format: "123123%@", sizeM)
-//          let sizeString = "123132312"
-         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkDetail"), object: self, userInfo: ["key": sizeString])
+//        let sizeM =  "xxcew"
+//        let sizeString = String(format: "123123%@", sizeM)
+////          let sizeString = "123132312"
+//         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkDetail"), object: self, userInfo: ["key": sizeString])
     }
  
     

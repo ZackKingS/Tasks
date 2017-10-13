@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZBRegistViewController" customModule="task" customModuleProvider="target">
             <connections>
+                <outlet property="nextBottonCons" destination="1AD-uc-gtG" id="NZG-Zx-Evk"/>
                 <outlet property="nextBtn" destination="nI2-qs-260" id="SfH-65-4yL"/>
                 <outlet property="nickTF" destination="fVL-ll-FHV" id="2jK-LA-gR0"/>
                 <outlet property="phoneNumL" destination="Klt-xt-9zz" id="wDF-Qr-Arn"/>
@@ -78,7 +79,7 @@
                                 <constraint firstAttribute="height" constant="26" id="PAV-lI-MLJ"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称（1-14位数字或汉子）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fVL-ll-FHV">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称（1-14位数字或汉字）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fVL-ll-FHV">
                             <rect key="frame" x="61" y="116" width="175" height="33"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="ktj-MM-eYX"/>
@@ -110,7 +111,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-a7-a29">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8S-a7-a29" customClass="CountDown">
                             <rect key="frame" x="221" y="62" width="89" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="89" id="fNr-IE-tsU"/>
