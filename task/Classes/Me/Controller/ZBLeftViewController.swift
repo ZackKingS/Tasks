@@ -153,7 +153,7 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         print("123")
         if  UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)  {
-            userNameL.text = User.GetUser().nickname
+//            userNameL.text = User.GetUser().nickname
             
             
 //            let url = "/v1/user/profile"
@@ -215,14 +215,25 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
     @objc  func gotProfile(notification: Notification) {
         
 
-
-        var dic  = notification.userInfo!["key"]!  as!  [String : JSON]
-    
         
-        let finished = "\(dic["finished"]!.stringValue)项"
-         let account = "\(dic["account"]!.stringValue)元"
+        
+        let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
+        
+        
+        
+        if     login  { //已经登录
+            var dic  = notification.userInfo!["key"]!  as!  [String : JSON]
+            let finished = "\(dic["finished"]!.stringValue)项"
+            let account = "\(dic["account"]!.stringValue)元"
+             self.rightDataArray = [ finished, account]
+            
+              userNameL.text = User.GetUser().nickname
+        }else{
+              self.rightDataArray = [ "0项","0.0元"]
+             userNameL.text = "请登录"
+        }
+        
 
-        self.rightDataArray = [ finished, account]
         self.zbtableView?.reloadData()
         
       

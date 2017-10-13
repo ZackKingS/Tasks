@@ -8,6 +8,7 @@
 
 import UIKit
 import AdSupport
+import SwiftyJSON
 class QQDRrawerViewController: UIViewController {
 
     //  创建单例
@@ -109,25 +110,34 @@ class QQDRrawerViewController: UIViewController {
         
         
         
+        let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
         
         
         
-        let url = "/v1/user/profile"
-        let key = SecureTool.reKey(url: url)
-        let timestamp :String = SecureTool.reTimestamp()
-        let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
-        let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
-        NetworkTool.getTaskList(url: str, completionHandler: { (json) in
-            
-            let dataArr  = json["data"].dictionaryValue
-            print(dataArr["account"]!)
-            print(dataArr["finished"]!)
-            
-         
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotProfile"), object: self, userInfo: ["key": dataArr])
-
-            
-        })
+        if     login  { //已经登录
+            let url = "/v1/user/profile"
+            let key = SecureTool.reKey(url: url)
+            let timestamp :String = SecureTool.reTimestamp()
+            let uuid = ASIdentifierManager.shared().advertisingIdentifier.uuidString as NSString
+            let    str = "\(API_GETPROFILE_URL)?id=\(User.GetUser().id!)&key=\(key)&t=\(timestamp)&imei=\((uuid as String))"
+            NetworkTool.getTaskList(url: str, completionHandler: { (json) in
+                
+                let dataArr  = json["data"].dictionaryValue
+                print(dataArr["account"]!)
+                print(dataArr["finished"]!)
+                
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotProfile"), object: self, userInfo: ["key": dataArr])
+                
+                
+            })
+        }else{                //未登录
+           let    dataArr  = ["account":"0.0","finished":"0"]
+              NotificationCenter.default.post(name: NSNotification.Name(rawValue: "gotProfile"), object: self, userInfo: ["key": dataArr])
+        }
+        
+        
+     
         
         
         

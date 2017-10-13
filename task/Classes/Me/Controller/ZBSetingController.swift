@@ -37,6 +37,9 @@ class ZBSetingController: UITableViewController {
         
         SVProgressHUD.show()
         
+      
+        
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             
@@ -66,7 +69,8 @@ class ZBSetingController: UITableViewController {
     @IBAction func logout(_ sender: Any) {
         
         
-        
+        UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
+        UserDefaults.standard.synchronize()
         navigationController?.popViewController(animated: true)
     }
     

@@ -12,56 +12,42 @@ import SwiftTheme
 import Alamofire
 import SwiftyJSON
 
+import StoreKit
 import SVProgressHUD
 
 class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
     var tableView : UITableView?
     fileprivate var array = [TopicTitle]()
-    
-    
     var leftBtn :UIButton?
-    
-    
-    
-    
-       fileprivate var dataArray = [Tasks]()
+   fileprivate var dataArray = [Tasks]()
   
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setRefresh()
+        
+
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         layoutDecisionByNetwork()
-     
          setupNavBar()
         addNotifications()
         
-   
-    
     }
-    
-    
-    
     
     func layoutDecisionByNetwork(){
         
         let reachability = Reachability()  // 准备获取网络连接信息
-        
         if (reachability?.isReachable)! { // 判断网络连接状态
-     
-      
             setupTableVie()
             setRefresh()
-            
         } else {
-          
-        
             //no_network_Page
             let box = UIView()
             box.backgroundColor = UIColor.white
@@ -84,9 +70,6 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             
             
             let errorL = UILabel()
-            
-       
-            
             errorL.text = "您的网络出现了故障，请检查网络哦~"
             errorL.textColor = UIColor.colorWithHexString(Color_Value: "#999999", alpha: 1)
             errorL.font = UIFont.systemFont(ofSize: 17)
@@ -102,7 +85,6 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let button:UIButton = UIButton(type:.custom)
             button.setTitle("重新加载", for:.normal) //普通状态下的文字
             button.backgroundColor = UIColor.colorWithHexString(Color_Value: "d9d9d9", alpha: 1)
-            
             button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
             button.layer.cornerRadius = kScornerRadius
             button.layer.masksToBounds = true
@@ -122,22 +104,12 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func addNotifications(){
         
         NotificationCenter.default.addObserver(self, selector: #selector(checkDetail(notification:)), name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
-        
-
-           NotificationCenter.default.addObserver(self, selector: #selector(closeTheDrawer), name: NSNotification.Name(rawValue: "closeTheDrawer"), object: nil)
-        
-        
+       NotificationCenter.default.addObserver(self, selector: #selector(closeTheDrawer), name: NSNotification.Name(rawValue: "closeTheDrawer"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pushfinish), name: NSNotification.Name(rawValue: "pushfinish"), object: nil)
-        
-               NotificationCenter.default.addObserver(self, selector: #selector(pushfinishhh), name: NSNotification.Name(rawValue: "pushfinishhh"), object: nil)
-
+       NotificationCenter.default.addObserver(self, selector: #selector(pushfinishhh), name: NSNotification.Name(rawValue: "pushfinishhh"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pushsetting), name: NSNotification.Name(rawValue: "pushsetting"), object: nil)
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "refresh"), object: nil)
-        
-        
-        
+
     }
     
     
@@ -204,9 +176,7 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
         }
         
-        
-        
-        
+       
     }
     
     
@@ -327,14 +297,11 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
          tableView.deselectRow(at: indexPath, animated: true)
         
         
-       
+
         if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
-            
             
             if    dataArray[indexPath.row].status == "-1"  {  //任务可开始
                
-                
-             
                 let taskDetailController = ViewController()
                 taskDetailController.taskid =  dataArray[indexPath.row].id
                 taskDetailController.taskName =  dataArray[indexPath.row].title
@@ -376,11 +343,11 @@ extension TasksViewController {
        
             var str = ""
     
-             print(UserDefaults.standard.object(forKey: ZBLOGIN_KEY)!)
+//             print(UserDefaults.standard.object(forKey: ZBLOGIN_KEY)!)
             
             let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
             
-            print(login)
+       
             
             if     login  { //已经登录
                   str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
@@ -420,14 +387,8 @@ extension TasksViewController {
         header?.lastUpdatedTimeLabel.isHidden = true
         tableView?.mj_header = header
         tableView?.mj_header.beginRefreshing()
-        
         tableView?.mj_header = header
-        
-        
-
-        
-        
-        
+     
     }
     
     
