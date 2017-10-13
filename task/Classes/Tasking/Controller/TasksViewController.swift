@@ -401,6 +401,8 @@ extension TasksViewController {
         
 
         
+    
+        
         tableView?.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: { [weak self] in
             var str = ""
             let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
@@ -426,6 +428,11 @@ extension TasksViewController {
                  */
                 self?.tableView?.mj_footer.endRefreshing()
                 let dataArr  = json["data"].arrayValue
+                
+                
+                if dataArr.count < 10 {
+                    
+                }
                 
                 var temparr = [Tasks]()
                 for dict    in dataArr{
