@@ -144,10 +144,28 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
             SVProgressHUD.show()
             let para =  ["tel":phone!,"verifycode":sms! ,"password":final_pwd]  as [String : AnyObject]
             
+            print(para)
+            
             NetworkTool.postMesa(url: API_GETPWDBACK_URL, parameters: para) { (value) in
                 
-                let json = JSON(value ?? "123")
+                
+                
                  SVProgressHUD.dismiss()
+                let json = JSON(value ?? "123")
+                
+                print(json)
+                
+                
+                let message = json["errorno"].stringValue
+                
+                if message == "20052"{
+                    
+                    SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                    return
+                }
+                
+                
+                
                 let dataDict   = json["data"].dictionaryValue
                 let user : User = User.init(dict: (dataDict as [String : JSON] ))
                 let data = NSKeyedArchiver.archivedData(withRootObject: user) as NSData

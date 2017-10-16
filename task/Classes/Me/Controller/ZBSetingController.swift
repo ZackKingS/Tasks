@@ -33,21 +33,21 @@ class ZBSetingController: UITableViewController {
     
     @IBAction func clear(_ sender: Any) {
         
-        ZBCleanTool.clearCache()
-        
-        SVProgressHUD.show()
-        
-      
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            
-            
-            SVProgressHUD.showSuccess(withStatus: "")
-            SVProgressHUD.setAnimationDuration(1)
-            self.sizeBtn.setTitle(" 0 M", for: .normal)
-        }
+//        ZBCleanTool.clearCache()
+//
+//        SVProgressHUD.show()
+//
+//
+//
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//
+//
+//
+//            SVProgressHUD.showSuccess(withStatus: "")
+//            SVProgressHUD.setAnimationDuration(1)
+//            self.sizeBtn.setTitle(" 0 M", for: .normal)
+//        }
     }
     
     
@@ -107,6 +107,8 @@ class ZBSetingController: UITableViewController {
         
         if indexPath.row == 0 {
 
+            alcer()
+            
 
         }else if indexPath.row == 1{
           print("1111")
@@ -116,4 +118,49 @@ class ZBSetingController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
+    func alcer(){
+        
+        
+        let alert = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // change the style sheet text color
+        alert.view.tintColor = UIColor.black
+        
+        let actionCancel = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        let actionCamera = UIAlertAction.init(title: "确定", style: .default) { (UIAlertAction) -> Void in
+            self.cleannn()
+        }
+        
+       
+      
+        
+        alert.addAction(actionCancel)
+        alert.addAction(actionCamera)
+    
+        
+        self.present(alert, animated: true, completion: nil)
+    
+    }
+    
+  
+    private func cleannn(){
+        
+        ZBCleanTool.clearCache()
+        
+        SVProgressHUD.show()
+        
+        
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            
+            SVProgressHUD.showSuccess(withStatus: "")
+            SVProgressHUD.setAnimationDuration(1)
+            self.sizeBtn.setTitle(" 0 M", for: .normal)
+        }
+        
+    }
+    
+        
+        
 }

@@ -431,7 +431,7 @@ extension TasksViewController {
                 
                 
                 if dataArr.count < 10 {
-                    
+                    self?.tableView?.mj_footer.endRefreshingWithNoMoreData()
                 }
                 
                 var temparr = [Tasks]()
