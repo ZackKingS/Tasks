@@ -103,11 +103,7 @@ class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
                 
                    sender.startCountDown()
             }
-
         }
-
-        
-        
     }
     
     
