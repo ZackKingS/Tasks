@@ -54,7 +54,9 @@ class ZBFinishedController: UIViewController,UITableViewDelegate,UITableViewData
             if ZBLOGINED_FLAG    { //已经登录
                 str = "\(API_DONETASK_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
-                SVProgressHUD.showError(withStatus: "请登录")
+//                SVProgressHUD.showError(withStatus: "请登录")
+                self?.showHint(hint: "请登录")
+                
                 return
             }
             

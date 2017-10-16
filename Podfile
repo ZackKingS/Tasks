@@ -19,11 +19,14 @@ target 'task' do
     
     pod 'SwiftTheme'  
 
-#pod 'Reveal-SDK', :configurations => ['Debug']
+    #pod 'Reveal-SDK', :configurations => ['Debug']
 
-	pod 'SDWebImage'
+    pod 'SDWebImage'
+
+    pod 'MBProgressHUD'
+
  	
-pod 'ReachabilitySwift'  
+    pod 'ReachabilitySwift'  
 
 
 

@@ -170,13 +170,14 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
   
         if picV.image == nil  {
             
-            SVProgressHUD.showInfo(withStatus: "请上传照片")
+//            SVProgressHUD.showInfo(withStatus: "请上传照片")
+            self.showHint(hint: "请上传照片")
             return
             
         }
         
         
-        SVProgressHUD.show()
+//        SVProgressHUD.show()
         
         let data = UIImageJPEGRepresentation( ZBStartTaskController.picImage!, 0.5)!
         
@@ -217,7 +218,7 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
                         
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        SVProgressHUD.dismiss()
+//                        SVProgressHUD.dismiss()
                         
                         
                         let  under = ZBTaskUnderReviewController()
@@ -231,7 +232,8 @@ class ZBStartTaskController: UIViewController  ,UIImagePickerControllerDelegate,
                 case .failure(let encodingError):
                     print(encodingError)
                     
-                    SVProgressHUD.showError(withStatus: "上传失败")
+                  
+                      self.showHint(hint: "上传失败")
                 }
         }
         )

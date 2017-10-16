@@ -72,10 +72,18 @@ class ZBForgotPwdController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var sentSMS: UIButton!
     
     
-    @IBAction func sentSMS(_ sender: Any) {
+    @IBAction func sentSMS(_ sender: CountDownBtn) {
+        
+         // todo  手机号正则过滤
+        if phoneL.text!.characters.count < 10 {
+            
+            self.showHint(hint: "请输入手机号")
+            return
+        }
         
         
-        // todo  手机号正则过滤
+         sender.startCountDown()
+       
         
         let str = API_GETSMS_URL + "?tel=\(phoneL.text!)&action=1"
         NetworkTool.getMesa( url: str  ){ (result) in

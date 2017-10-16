@@ -36,7 +36,7 @@ class ZBLoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-    SVProgressHUD.show()
+//    SVProgressHUD.show()
         
         
         //方法：(phone后5.md5 + pwd.md5 )md5
@@ -61,8 +61,12 @@ class ZBLoginController: UIViewController {
             let errorStr   = json["errorno"].stringValue
             
             if errorStr ==  "20032"  ||  errorStr ==  "20031" || errorStr ==  "20032" || errorStr ==  "20030" {
-                SVProgressHUD.showError(withStatus: json["message"].stringValue)
-                SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+                
+                
+                self.showHint(hint: json["message"].stringValue)
+                
+//                SVProgressHUD.showError(withStatus: json["message"].stringValue)
+//                SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
                 return
             }
 //            else if errorStr ==  "20031" {

@@ -76,8 +76,11 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
         let str1 = pwd_s.text as! String
         let str2 = pwd_f.text as! String
         if    !(str1 == str2 ) {
-            SVProgressHUD.showError(withStatus: "两次输入密码不同")
-            SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
+//            SVProgressHUD.showError(withStatus: "两次输入密码不同")
+            
+            self.showHint(hint: "两次输入密码不同")
+            
+//            SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
             return
         }
         
@@ -160,7 +163,10 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
                 
                 if message == "20052"{
                     
-                    SVProgressHUD.showError(withStatus: json["message"].stringValue)
+//                    SVProgressHUD.showError(withStatus: json["message"].stringValue)
+                    
+                    self.showHint(hint:  json["message"].stringValue)
+                    
                     return
                 }
                 

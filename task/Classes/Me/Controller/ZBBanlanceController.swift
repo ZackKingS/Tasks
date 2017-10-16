@@ -94,7 +94,7 @@ class ZBBanlanceController: UIViewController,UITableViewDelegate,UITableViewData
                 
             }else{                //未登录
                
-                SVProgressHUD.showError(withStatus: "请登录")
+                self?.showHint(hint: "请登录")
                 return
             }
             

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SVProgressHUD
+import SwiftyJSON
 class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
     
     
@@ -71,14 +72,17 @@ class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
     @IBOutlet weak var sentSMS: UIButton!
     
     
-    @IBAction func sentSMS(_ sender: Any) {
+    @IBAction func sentSMS(_ sender: CountDownBtn) {
         
         
-        if phoneNumL.text!.characters.count == 0{
+        if phoneNumL.text!.characters.count < 10{
             
-            SVProgressHUD.showError(withStatus: "请输入手机号")
+
+            
+            self.showHint(hint: "请输入手机号")
             return
         }
+     
      
         
       // todo  手机号正则过滤
@@ -90,6 +94,15 @@ class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
             SVProgressHUD.dismiss(withDelay: TimeInterval.init(1))
             
             print(result ?? "213")
+            
+            let json  = result as! JSON
+            
+            let errorno  = json["data"].stringValue
+            
+            if errorno != "20013"{ //已经注册
+                
+                   sender.startCountDown()
+            }
 
         }
 

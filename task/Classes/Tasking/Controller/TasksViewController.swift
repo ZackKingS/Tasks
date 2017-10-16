@@ -14,6 +14,7 @@ import SwiftyJSON
 import MJRefresh
 import StoreKit
 import SVProgressHUD
+import MBProgressHUD
 
 class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
 
@@ -38,6 +39,28 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         layoutDecisionByNetwork()
          setupNavBar()
         addNotifications()
+        
+//        self.showHint(hint: "231123132")
+//        self.showhi
+//
+//
+//        let HUD = MBProgressHUD.showAdded(to: self.view, animated: true)
+//        HUD.delegate = self as? MBProgressHUDDelegate
+//
+//        //常用设置
+//        //小矩形的背景色
+//        HUD.bezelView.color = UIColor.clear
+//        //显示的文字
+//        HUD.label.text = "加载中1..."
+//        //细节文字
+//        HUD.detailsLabel.text = "请耐心等待..."
+//        //设置背景,加遮罩
+//        HUD.backgroundView.style = .blur //或SolidColor
+//        HUD.hide(animated: true, afterDelay: 2)
+//
+     
+        
+     
         
     }
     
