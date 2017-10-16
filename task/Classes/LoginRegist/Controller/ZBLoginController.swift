@@ -39,6 +39,12 @@ class ZBLoginController: UIViewController {
 //    SVProgressHUD.show()
         
         
+        if phoneTF.text!.characters.count < 11 ||   pwdTF.text!.characters.count < 6 {
+            
+            self.showHint(hint: "请输入手机号")
+            return
+        }
+        
         //方法：(phone后5.md5 + pwd.md5 )md5
         var  phone_last5 =  phoneTF.text! as NSString
         phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
@@ -99,10 +105,7 @@ class ZBLoginController: UIViewController {
             SVProgressHUD.dismiss()
               self.dismiss(animated: true, completion: nil)
         }
-        
-        
-        
-        
+ 
     }
     
     

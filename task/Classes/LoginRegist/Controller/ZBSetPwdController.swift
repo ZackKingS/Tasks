@@ -138,6 +138,13 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
             print("forgetpwd")
             
             
+            if sms!.characters.count < 4{
+                
+                self.showHint(hint: "请输入验证码")
+                return
+            }
+            
+            
             //方法：(phone后5.md5 + pwd.md5 )md5
             var  phone_last5 =  phone! as NSString
             phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
@@ -151,20 +158,14 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
             
             NetworkTool.postMesa(url: API_GETPWDBACK_URL, parameters: para) { (value) in
                 
-                
-                
+            
                  SVProgressHUD.dismiss()
                 let json = JSON(value ?? "123")
-                
-                print(json)
-                
                 
                 let message = json["errorno"].stringValue
                 
                 if message == "20052"{
-                    
-//                    SVProgressHUD.showError(withStatus: json["message"].stringValue)
-                    
+            
                     self.showHint(hint:  json["message"].stringValue)
                     
                     return

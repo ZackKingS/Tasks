@@ -99,7 +99,7 @@ class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
             
             let errorno  = json["data"].stringValue
             
-            if errorno != "20013"{ //已经注册
+            if errorno != "20013"{ //没有注册的话
                 
                    sender.startCountDown()
             }

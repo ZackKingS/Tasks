@@ -52,7 +52,6 @@
 		3A41A9551F9484660004A30B /* CountDownBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41A9541F9484660004A30B /* CountDownBtn.swift */; };
 		3A4530FE1F90633B0069B97F /* ZBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4530FD1F90633B0069B97F /* ZBButton.swift */; };
 		3A4531001F909F040069B97F /* RefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4530FF1F909F040069B97F /* RefreshFooter.swift */; };
-		3A4531251F945C960069B97F /* UIViewController+SLHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4531241F945C950069B97F /* UIViewController+SLHUD.m */; };
 		3A4531271F945D110069B97F /* UIViewController+ZBHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4531261F945D110069B97F /* UIViewController+ZBHUD.swift */; };
 		3A4EBD6E1F7CA45B00C6DDC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EBD6D1F7CA45B00C6DDC1 /* User.swift */; };
 		3A506E7F1F7A4240004DF7C3 /* ZBSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */; };
@@ -158,8 +157,6 @@
 		3A4530FA1F90598E0069B97F /* CountDown.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CountDown.m; sourceTree = "<group>"; };
 		3A4530FD1F90633B0069B97F /* ZBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBButton.swift; sourceTree = "<group>"; };
 		3A4530FF1F909F040069B97F /* RefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshFooter.swift; sourceTree = "<group>"; };
-		3A4531231F945C950069B97F /* UIViewController+SLHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SLHUD.h"; sourceTree = "<group>"; };
-		3A4531241F945C950069B97F /* UIViewController+SLHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SLHUD.m"; sourceTree = "<group>"; };
 		3A4531261F945D110069B97F /* UIViewController+ZBHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ZBHUD.swift"; sourceTree = "<group>"; };
 		3A4EBD6D1F7CA45B00C6DDC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3A506E7E1F7A4240004DF7C3 /* ZBSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBSetingController.swift; sourceTree = "<group>"; };
@@ -457,8 +454,6 @@
 				3A506E821F7A53E0004DF7C3 /* ZBCleanTool.swift */,
 				3A839E881F6BE2470024B9B0 /* NetworkTool.swift */,
 				3AD35E891F8DC7090049AD81 /* SecureTool.swift */,
-				3A4531231F945C950069B97F /* UIViewController+SLHUD.h */,
-				3A4531241F945C950069B97F /* UIViewController+SLHUD.m */,
 				3A4531261F945D110069B97F /* UIViewController+ZBHUD.swift */,
 			);
 			path = Tools;
@@ -739,7 +734,6 @@
 				3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */,
 				3A111C9D1F79F4B400675991 /* UIImage+Extension.swift in Sources */,
 				3A4530FE1F90633B0069B97F /* ZBButton.swift in Sources */,
-				3A4531251F945C960069B97F /* UIViewController+SLHUD.m in Sources */,
 				3A097CB91F6FB9B800222AEA /* LLCycleScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
