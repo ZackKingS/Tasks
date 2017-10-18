@@ -375,13 +375,8 @@ extension TasksViewController {
         let header = RefreshHeder(refreshingBlock: { [weak self] in  //自定义的header
        
             var str = ""
-    
-//             print(UserDefaults.standard.object(forKey: ZBLOGIN_KEY)!)
-            
             let login = UserDefaults.standard.object(forKey: ZBLOGIN_KEY)! as! Bool
-            
-       
-            
+            self?.tableView?.mj_footer.resetNoMoreData()
             if     login  { //已经登录
                   str = "\(API_GETTASKLIST_URL)?userid=\(User.GetUser().id!)"
             }else{                //未登录
