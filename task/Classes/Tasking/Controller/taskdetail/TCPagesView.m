@@ -376,7 +376,7 @@ static void *TcPagingViewScrollContext = &TcPagingViewScrollContext;
         else
         {
             CGRect frame = self.headerView.frame;
-            frame.origin.y = -newOffsetY -_segmentViewHeight-_headHeight - 100;
+            frame.origin.y = -newOffsetY -_segmentViewHeight-_headHeight - 100 +100;
             self.headerView.frame = frame;
             
             CGRect sementFrame = _segmentView.frame;

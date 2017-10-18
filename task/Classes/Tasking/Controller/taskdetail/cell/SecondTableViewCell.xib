@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="496" height="249"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="496" height="249"/>
+                <rect key="frame" x="0.0" y="0.0" width="496" height="248.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 233.333 元" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORt-w3-EVX">
@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务时间：2017.09.13 - 2017.09.30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="faY-JY-vrO">
-                        <rect key="frame" x="20" y="177" width="210" height="16"/>
+                        <rect key="frame" x="20" y="211" width="210" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,7 +39,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HP-Sz-93E">
-                        <rect key="frame" x="20" y="201" width="0.0" height="0.0"/>
+                        <rect key="frame" x="20" y="235" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                     <constraint firstItem="ORt-w3-EVX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="Npa-lf-hSA"/>
                     <constraint firstItem="ORt-w3-EVX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="eCS-lz-Lok"/>
                     <constraint firstItem="Lsg-xJ-GpW" firstAttribute="top" secondItem="ORt-w3-EVX" secondAttribute="bottom" constant="8" id="nkr-t7-9G0"/>
-                    <constraint firstItem="faY-JY-vrO" firstAttribute="top" secondItem="Lsg-xJ-GpW" secondAttribute="bottom" constant="16" id="v1Y-7a-xKT"/>
+                    <constraint firstItem="faY-JY-vrO" firstAttribute="top" secondItem="Lsg-xJ-GpW" secondAttribute="bottom" constant="50" id="v1Y-7a-xKT"/>
                     <constraint firstItem="3HP-Sz-93E" firstAttribute="top" secondItem="faY-JY-vrO" secondAttribute="bottom" constant="8" id="v7c-Gz-LJx"/>
                 </constraints>
             </tableViewCellContentView>
