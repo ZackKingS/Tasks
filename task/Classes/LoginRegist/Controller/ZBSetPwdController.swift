@@ -128,10 +128,7 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
                 
             }
             
-            
-            
-            
-            
+          
           
             
         case 2:
