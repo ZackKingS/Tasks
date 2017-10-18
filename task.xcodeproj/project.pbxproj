@@ -80,6 +80,8 @@
 		3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE41F6BE452007406E1 /* Const.swift */; };
 		3AD3FBE71F6BE543007406E1 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */; };
 		3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */; };
+		3AE78DFB1F96E95200F80497 /* ZBNewFeatureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE78DFA1F96E95200F80497 /* ZBNewFeatureController.swift */; };
+		3AE78DFF1F96EC3800F80497 /* ZBNewFeatureController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE78DFE1F96EC3800F80497 /* ZBNewFeatureController.storyboard */; };
 		3AF7D17D1F7F836500A152A7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF7D17C1F7F836500A152A7 /* String+Extension.swift */; };
 		D289EE37943C4D1ED477CDDD /* Pods_task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C4E7B06A151AEEB75F059F /* Pods_task.framework */; };
 /* End PBXBuildFile section */
@@ -190,6 +192,8 @@
 		3AD3FBE41F6BE452007406E1 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		3AD3FBE61F6BE543007406E1 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeder.swift; sourceTree = "<group>"; };
+		3AE78DFA1F96E95200F80497 /* ZBNewFeatureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBNewFeatureController.swift; sourceTree = "<group>"; };
+		3AE78DFE1F96EC3800F80497 /* ZBNewFeatureController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBNewFeatureController.storyboard; sourceTree = "<group>"; };
 		3AF7D17C1F7F836500A152A7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		61BC022906E73D074FB189EA /* Pods-task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.release.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.release.xcconfig"; sourceTree = "<group>"; };
 		B0DE5DFBAA50C332D2A53C01 /* Pods-task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.debug.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.debug.xcconfig"; sourceTree = "<group>"; };
@@ -413,6 +417,7 @@
 		3A839E711F6BDCAC0024B9B0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3AE78DF61F96E93C00F80497 /* NewFeatureViewController */,
 				3A839E721F6BDCAC0024B9B0 /* Main */,
 				3A839E791F6BDCAC0024B9B0 /* Tasking */,
 				3A111C941F79E42100675991 /* LoginRegist */,
@@ -446,7 +451,6 @@
 		3A839E741F6BDCAC0024B9B0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				3A41A9541F9484660004A30B /* CountDownBtn.swift */,
 				3A839E861F6BDE390024B9B0 /* UIColor+Extension.swift */,
 				3A111C9C1F79F4B400675991 /* UIImage+Extension.swift */,
 				3A111C9E1F79F89900675991 /* UIButton+Extension.swift */,
@@ -455,6 +459,7 @@
 				3A839E881F6BE2470024B9B0 /* NetworkTool.swift */,
 				3AD35E891F8DC7090049AD81 /* SecureTool.swift */,
 				3A4531261F945D110069B97F /* UIViewController+ZBHUD.swift */,
+				3A41A9541F9484660004A30B /* CountDownBtn.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -527,6 +532,39 @@
 				3A4530FD1F90633B0069B97F /* ZBButton.swift */,
 				3A5CD3171F7F457600B706CB /* TaskInfoView.swift */,
 				3A5CD3191F7F459600B706CB /* TaskInfoView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3AE78DF61F96E93C00F80497 /* NewFeatureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AE78DF71F96E93C00F80497 /* Controller */,
+				3AE78DF81F96E93C00F80497 /* Model */,
+				3AE78DF91F96E93C00F80497 /* View */,
+			);
+			path = NewFeatureViewController;
+			sourceTree = "<group>";
+		};
+		3AE78DF71F96E93C00F80497 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AE78DFA1F96E95200F80497 /* ZBNewFeatureController.swift */,
+				3AE78DFE1F96EC3800F80497 /* ZBNewFeatureController.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3AE78DF81F96E93C00F80497 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3AE78DF91F96E93C00F80497 /* View */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -606,6 +644,7 @@
 				3A3E6AB41F7B80140025E63B /* ZBTaskSuccessController.xib in Resources */,
 				3A3E6AAC1F7B73280025E63B /* ZBStartTaskController.xib in Resources */,
 				3A111CAB1F7A2C0F00675991 /* ZBSetPwdController.xib in Resources */,
+				3AE78DFF1F96EC3800F80497 /* ZBNewFeatureController.storyboard in Resources */,
 				3A3BB4D01F8C5CB600B87EB4 /* TaskDetailCell.xib in Resources */,
 				3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */,
 				3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */,
@@ -691,6 +730,7 @@
 				3A839E891F6BE2470024B9B0 /* NetworkTool.swift in Sources */,
 				3A097CBD1F6FB9B800222AEA /* LLSnakePageControl.swift in Sources */,
 				3A5CD3181F7F457600B706CB /* TaskInfoView.swift in Sources */,
+				3AE78DFB1F96E95200F80497 /* ZBNewFeatureController.swift in Sources */,
 				3AD35E8A1F8DC7090049AD81 /* SecureTool.swift in Sources */,
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
 				3AF7D17D1F7F836500A152A7 /* String+Extension.swift in Sources */,

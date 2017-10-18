@@ -22,12 +22,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         networkStatusManage()
        
         window = UIWindow(frame: UIScreen.main.bounds)
-        let nav  = ZBNavVC.init(rootViewController: TasksViewController())
-        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
-        self.window?.makeKeyAndVisible()
+//        let nav  = ZBNavVC.init(rootViewController: TasksViewController())
+//        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+//        self.window?.makeKeyAndVisible()
 
      
       
+        
+        // 得到当前应用的版本号
+        let infoDictionary = Bundle.main.infoDictionary
+        let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+        // 取出之前保存的版本号
+        let userDefaults = UserDefaults.standard
+        let appVersion = userDefaults.string(forKey: "appVersion")
+       let  storyboard = UIStoryboard.init(name: "ZBNewFeatureController", bundle: nil)
+        if appVersion == nil || appVersion != currentAppVersion {
+            
+            userDefaults.setValue(currentAppVersion, forKey: "appVersion")
+            let guideViewController = storyboard.instantiateInitialViewController()
+            self.window?.rootViewController = guideViewController
+            self.window?.makeKeyAndVisible()
+
+        }else{
+            
+            let nav  = ZBNavVC.init(rootViewController: TasksViewController())
+            self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+            self.window?.makeKeyAndVisible()
+        }
+        
+            
+        
    
         
         // 检测用户是不是第一次启动

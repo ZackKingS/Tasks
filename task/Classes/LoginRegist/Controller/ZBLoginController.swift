@@ -36,9 +36,6 @@ class ZBLoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-//    SVProgressHUD.show()
-        
-        
         if phoneTF.text!.characters.count < 11 ||   pwdTF.text!.characters.count < 6 {
             
             self.showHint(hint: "请输入手机号")
@@ -53,9 +50,6 @@ class ZBLoginController: UIViewController {
         
         let para = ["tel":phoneTF.text!,"password":final_pwd] as [String : AnyObject]
 
-
-        print(para)
-        
         NetworkTool.postMesa(url: API_LOGIN_URL, parameters: para) { (value) in
             let json = JSON(value ?? "123")
             
@@ -120,16 +114,13 @@ class ZBLoginController: UIViewController {
     @IBAction func close(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
-        
-        
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)  //会有黑线
-        
          navigationController?.navigationBar.shadowImage = UIImage()
       
     }
@@ -137,15 +128,9 @@ class ZBLoginController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
+    
         setConfig()
-        
-       
 
-
-      
-      
     }
     
     typealias Tomato = (Int, Int) -> Int
