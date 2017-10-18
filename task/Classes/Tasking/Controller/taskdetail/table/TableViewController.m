@@ -58,16 +58,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
-//    UIViewController * vvc = [[UIViewController alloc] init];
-//    [self.navigationController pushViewController:vvc animated:YES];
 
-    UIViewController * vc = [[UIViewController alloc] init];
-    vc.title = @"新控制器";
-    vc.view.backgroundColor  = [UIColor redColor];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

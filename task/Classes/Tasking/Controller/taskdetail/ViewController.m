@@ -121,7 +121,7 @@
 
     self.title= self.taskName;
     
-    UIImageView * headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenWidth*9/16+200)];
+    UIImageView * headView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, screenWidth, screenWidth*9/16+200 )];
     headView.autoresizesSubviews = YES;
     headView.backgroundColor = [UIColor whiteColor];
     headView.clipsToBounds = YES;
@@ -144,10 +144,7 @@
         }
         
         
-//        TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
-//        vc.taskinfo = self.taskName;
-//        vc.count = i;
-//        [array addObject:vc];
+
     }
     
     

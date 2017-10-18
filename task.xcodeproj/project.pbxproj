@@ -385,22 +385,14 @@
 			isa = PBXGroup;
 			children = (
 				3A5CD30D1F7F374400B706CB /* PushViewcontroller.swift */,
-				3A5CD30A1F7F374400B706CB /* TableViewController.h */,
-				3A5CD30C1F7F374400B706CB /* TableViewController.m */,
-				3A3BB4D11F8C606F00B87EB4 /* SecondTableViewController.h */,
-				3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */,
+				3A5CD3091F7F374400B706CB /* ViewController.h */,
+				3A5CD3061F7F374300B706CB /* ViewController.m */,
+				3AE2E4821F97445900E5F78E /* table */,
+				3AE2E4831F97446700E5F78E /* cell */,
 				3A5CD3071F7F374300B706CB /* TCPagesView.h */,
 				3A5CD3081F7F374300B706CB /* TCPagesView.m */,
 				3A5CD30E1F7F374500B706CB /* TcPrgressView.h */,
 				3A5CD30B1F7F374400B706CB /* TcPrgressView.m */,
-				3A5CD3091F7F374400B706CB /* ViewController.h */,
-				3A5CD3061F7F374300B706CB /* ViewController.m */,
-				3A3BB4CC1F8C5CB600B87EB4 /* TaskDetailCell.h */,
-				3A3BB4CD1F8C5CB600B87EB4 /* TaskDetailCell.m */,
-				3A3BB4CE1F8C5CB600B87EB4 /* TaskDetailCell.xib */,
-				3A3BB4D41F8C619F00B87EB4 /* SecondTableViewCell.h */,
-				3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */,
-				3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */,
 			);
 			path = taskdetail;
 			sourceTree = "<group>";
@@ -534,6 +526,30 @@
 				3A5CD3191F7F459600B706CB /* TaskInfoView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3AE2E4821F97445900E5F78E /* table */ = {
+			isa = PBXGroup;
+			children = (
+				3A5CD30A1F7F374400B706CB /* TableViewController.h */,
+				3A5CD30C1F7F374400B706CB /* TableViewController.m */,
+				3A3BB4D11F8C606F00B87EB4 /* SecondTableViewController.h */,
+				3A3BB4D21F8C606F00B87EB4 /* SecondTableViewController.m */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		3AE2E4831F97446700E5F78E /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3A3BB4CC1F8C5CB600B87EB4 /* TaskDetailCell.h */,
+				3A3BB4CD1F8C5CB600B87EB4 /* TaskDetailCell.m */,
+				3A3BB4CE1F8C5CB600B87EB4 /* TaskDetailCell.xib */,
+				3A3BB4D41F8C619F00B87EB4 /* SecondTableViewCell.h */,
+				3A3BB4D51F8C619F00B87EB4 /* SecondTableViewCell.m */,
+				3A3BB4D61F8C619F00B87EB4 /* SecondTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		3AE78DF61F96E93C00F80497 /* NewFeatureViewController */ = {

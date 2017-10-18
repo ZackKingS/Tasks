@@ -109,11 +109,6 @@ class ZBRegistViewController: UIViewController ,UITextFieldDelegate {
     
     @IBAction func next(_ sender: Any) {
         
-        
-        
-       
-        
-        
         let pwd = ZBSetPwdController()
         pwd.typecase = 1
         pwd.phone =  phoneNumL.text

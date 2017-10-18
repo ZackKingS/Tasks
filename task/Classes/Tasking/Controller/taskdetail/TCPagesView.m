@@ -157,8 +157,8 @@ static void *TcPagingViewScrollContext = &TcPagingViewScrollContext;
     }
 
     CGRect frame = _headerView.frame;
-    frame.size.height = _headHeight + 50+100;
-    frame.origin.y = -100;
+    frame.size.height = _headHeight + 50+100 -62 ;
+    frame.origin.y = -100 ;
     _headerView.frame = frame;
     [self addSubview:_headerView];
     
@@ -351,7 +351,7 @@ static void *TcPagingViewScrollContext = &TcPagingViewScrollContext;
         {
             //上面的划出屏幕 上面的固定
             CGRect frame = self.headerView.frame;
-            frame.origin.y = - _headHeight-100;
+            frame.origin.y = - _headHeight-100 ;
             self.headerView.frame = frame;
             
             CGRect sementFrame = _segmentView.frame;
@@ -364,7 +364,7 @@ static void *TcPagingViewScrollContext = &TcPagingViewScrollContext;
             CGFloat offset = -(newOffsetY + _headHeight + _segmentViewHeight);
             CGRect frame = self.headerView.frame;
             frame.origin.y = -100.f + offset * 0.6;
-            CGFloat height = _headHeight + 100.f + 50.f + offset *0.4;
+            CGFloat height = _headHeight + 100.f + 50.f + offset *0.4  -62 ;
             frame.size.height = height;
             
             self.headerView.frame = frame;
