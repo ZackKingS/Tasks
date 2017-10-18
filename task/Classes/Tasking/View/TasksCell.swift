@@ -83,14 +83,14 @@ class TasksCell: UITableViewCell {
            
                 
             }
-//            else if  viewModel.status == "0" {
-//                rightTop_L?.text = "进行中"
-//                rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "fc7979", alpha: 1)
-//                
-//                bgV?.image = UIImage.init(named: "mission_red")
-//                
-//                
-//            }
+            else if  viewModel.status == "1" {
+                rightTop_L?.text = "进行中"
+                rightTop_L?.backgroundColor = UIColor.colorWithHexString(Color_Value: "fc7979", alpha: 1)
+                
+                bgV?.image = UIImage.init(named: "mission_red")
+                
+                
+            }
 
         }
         

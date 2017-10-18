@@ -145,6 +145,13 @@ class ZBSetPwdController: UIViewController ,UITextFieldDelegate  {
             }
             
             
+            if (pwd_s!.text?.characters.count)! < 6{
+                
+                self.showHint(hint: "密码不能少于6位哦")
+                return
+            }
+            
+            
             //方法：(phone后5.md5 + pwd.md5 )md5
             var  phone_last5 =  phone! as NSString
             phone_last5 =  phone_last5.substring(from: phone_last5.length - 5) as NSString
