@@ -290,13 +290,8 @@ class ZBLeftViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                  NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "gologin")))
             }
-            
-   
-            
+     
         }else if   indexPath.row == 1{
-            
-            
-            
             
             if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录
                 NotificationCenter.default.post(Notification.init(name: Notification.Name(rawValue: "pushfinishhh")))

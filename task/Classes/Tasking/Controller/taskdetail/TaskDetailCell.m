@@ -38,9 +38,17 @@
     //回到主线程
     dispatch_async(dispatch_get_main_queue(), ^{
         
-           self.descri.text = note.userInfo[@"description"];
-        self.time.text =  [NSString stringWithFormat:@"任务时间: %@ - %@ ",note.userInfo[@"start_time"],note.userInfo[@"deadline"]];
         
+        NSString * start = [note.userInfo[@"start_time"] componentsSeparatedByString:@" "].firstObject;
+        NSString * end =   [note.userInfo[@"deadline"] componentsSeparatedByString:@" "].firstObject;
+        
+        
+        
+        
+           self.descri.text = note.userInfo[@"description"];
+//        self.time.text =  [NSString stringWithFormat:@"任务时间: %@ - %@ ",note.userInfo[@"start_time"],note.userInfo[@"deadline"]];
+        
+        self.time.text =  [NSString stringWithFormat:@"任务时间: %@ - %@ ",start,end];
 
         
     });

@@ -42,8 +42,13 @@ class TasksCell: UITableViewCell {
             
             if (type == "1") {
             
-                date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
                 
+                let start = viewModel.start_time!.components(separatedBy: " ").first
+                let end =  viewModel.deadline!.components(separatedBy: " ").first
+                 
+//                date_L?.text = viewModel.start_time! + " - " +  viewModel.deadline!
+                
+                date_L?.text = start! + " - " +  end!
                 fini?.isHidden = true
                 rightTop_L?.isHidden = false
 
