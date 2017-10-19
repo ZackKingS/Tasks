@@ -213,6 +213,16 @@
                     <color key="textColor" red="0.79381881476683935" green="0.79381881476683935" blue="0.79381881476683935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRt-gw-Qly">
+                    <rect key="frame" x="115" y="167" width="144" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ABf-O4-llP"/>
+                        <constraint firstAttribute="width" constant="144" id="QnQ-Cu-8hP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -223,6 +233,7 @@
                 <constraint firstItem="ddd-EF-IrI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6zP-5e-LmL"/>
                 <constraint firstAttribute="bottom" secondItem="Hr3-xb-6ER" secondAttribute="bottom" id="AgX-UE-KhE"/>
                 <constraint firstItem="Hr3-xb-6ER" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BAP-DJ-DZn"/>
+                <constraint firstItem="mlP-mF-yOw" firstAttribute="top" secondItem="yRt-gw-Qly" secondAttribute="bottom" constant="62" id="FI4-ZH-A4L"/>
                 <constraint firstAttribute="trailing" secondItem="WxY-sB-Cqu" secondAttribute="trailing" id="JS7-dQ-fdh"/>
                 <constraint firstAttribute="bottom" secondItem="WxY-sB-Cqu" secondAttribute="bottom" id="KzY-lz-TJc"/>
                 <constraint firstItem="WxY-sB-Cqu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LtS-bz-hJ2"/>
@@ -235,6 +246,7 @@
                 <constraint firstItem="mlP-mF-yOw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="lU8-RW-Bmq"/>
                 <constraint firstItem="eZR-2e-1nO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="sVa-0D-TRh"/>
                 <constraint firstItem="ddd-EF-IrI" firstAttribute="top" secondItem="9CX-Vq-2gP" secondAttribute="bottom" constant="8" id="sVh-rW-XMX"/>
+                <constraint firstItem="yRt-gw-Qly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zPq-56-Nvd"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>

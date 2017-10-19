@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = UserDefaults.standard
         let appVersion = userDefaults.string(forKey: "appVersion")
        let  storyboard = UIStoryboard.init(name: "ZBNewFeatureController", bundle: nil)
+        
+        
+
+        
         if appVersion == nil || appVersion != currentAppVersion {
             
             userDefaults.setValue(currentAppVersion, forKey: "appVersion")
@@ -50,17 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         
-            
-        
-   
         
         // 检测用户是不是第一次启动
         config()
-        
-        
-    
-        
-     
+       
         return true
     }
 
@@ -71,11 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let timeStamp:CLong  = CLong(nowDate.timeIntervalSince1970)
         print(timeStamp)
         
-//        if  (UserDefaults.standard.object(forKey: "everLaunched") == nil)  { //第一次启动
-//            UserDefaults.standard.set("YES", forKey: "everLaunched")
-//            UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
-//        }
-        
+
         print(UserDefaults.standard.bool(forKey: "LGFirstLaunch"))
         if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
             
