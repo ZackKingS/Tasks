@@ -16,7 +16,7 @@ import StoreKit
 import SVProgressHUD
 import MBProgressHUD
 
-class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate{
 
     var tableView : UITableView?
     fileprivate var array = [TopicTitle]()
@@ -39,6 +39,8 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         layoutDecisionByNetwork()
          setupNavBar()
         addNotifications()
+        
+        checkupdate ()
         
 //        self.showHint(hint: "231123132")
 //        self.showhi
@@ -362,6 +364,56 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         
     }
+    
+    
+    
+    func checkupdate (){
+        
+        
+        Alamofire.request(API_SOFTWARE_UPDATA_URL+"?platform=2", parameters: nil ).responseJSON { (response) in
+            //判断是否成功
+            guard response.result.isSuccess else {
+                return
+            }
+            if let value = response.result.value {
+                let infoDictionary = Bundle.main.infoDictionary
+                let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+                let json = JSON(value)
+                let version_name = json["data"]["version_name"].stringValue
+                if currentAppVersion != version_name {
+                    
+                    print( "去更新")
+                    
+                    let des = json["data"]["update_state"].stringValue
+                    
+                    self.compareVersion(currentAppVersion, storeVersion: version_name, note: des)
+                    
+                }
+            }
+        }
+    }
+    
+    
+    fileprivate func compareVersion(_ localVersion: String, storeVersion: String,note:String) {
+        let message = "本次更新内容：\n\(note)"
+        if localVersion.compare(storeVersion) == ComparisonResult.orderedAscending {
+            let alertView = UIAlertView(title: "发现新版本",message: message,delegate: self as? UIAlertViewDelegate,cancelButtonTitle: nil,otherButtonTitles: "马上更新","下次再说")
+            alertView.delegate = self
+            alertView.tag = 10086
+            alertView.show()
+        }
+    }
+    
+    func alertView(_ alertView:UIAlertView, clickedButtonAt buttonIndex: Int){
+        if(alertView.tag == 10086) {
+            if(buttonIndex == 0){
+                UIApplication.shared.openURL(URL(string:"https://itunes.apple.com/cn/app/wei-xin/id414478124?mt=8")!)
+            }else{
+                //下次再说
+            }
+        }
+    }
+    
 }
 
 
