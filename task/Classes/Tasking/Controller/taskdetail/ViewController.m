@@ -57,19 +57,11 @@
 -(void)getTaskInfo{
     
     
-    
-    
-    
     //发送请求
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        
-         
-        
         NSString * str = [NSString stringWithFormat:@"http://taskbao.dev.cnfol.wh/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
         NSURL *url = [NSURL URLWithString:str];
-        
-        
         
         
         NSURLSession *session = [NSURLSession sharedSession];
@@ -90,21 +82,15 @@
             
             
              NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-     
             self.taskInfoDic = dict;
             
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"taskInfo" object:nil userInfo:dict[@"data"]];
             
-
-            
             //1.确定URL
             NSURL *url = [NSURL URLWithString:dict[@"data"][@"image"]];
-        
             //回到主线程
             dispatch_async(dispatch_get_main_queue(), ^{
- 
-                
                 [self.taskImageV sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"loding"]];
             });
             
@@ -132,8 +118,6 @@
     NSMutableArray * array = [NSMutableArray array];
     for (int i = 0; i <2; i++) {
         
-        
-        
         if (i == 0 ) {
              TableViewController * vc = [[TableViewController alloc] initWithStyle:UITableViewStylePlain];
             vc.taskinfo = self.taskName;
@@ -143,21 +127,13 @@
             [array addObject:vc];
         }
         
-        
-
     }
     
     
-    
-    
-    
-   
     TCPagesView * view = [[TCPagesView alloc] initWithFrame:[UIScreen mainScreen].bounds titles:@[@"任务目标",@"任务奖励"] headHeight:screenWidth*9/16 +10 segmentHeight:50 + 10  headView:headView itemsMargin:30 itemWidth:150 viewControllers:array belongController:self];
     [self.view addSubview:view];
     view.delegate = self;
     
-
-
 
     UIView * bottomV = [[UIView alloc] initWithFrame:CGRectMake(0, screenHeight -  60 -64, screenWidth, 60)];
     bottomV.backgroundColor = [UIColor whiteColor];
@@ -165,7 +141,6 @@
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-   
     button.frame = CGRectMake((screenWidth - 100)/2, 0  , 100, 40);
     button.titleLabel.text = @"立即开始";
     button.titleLabel.font = [UIFont systemFontOfSize:15];

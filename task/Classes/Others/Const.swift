@@ -137,4 +137,9 @@ let API_UPLOADIMAGE_URL = BaseURL + "v1/task/donetask"
 let API_DONETASK_URL = BaseURL + "v1/task/donelist"
 
 
+//更新
+let  API_SOFTWARE_UPDATA_URL = BaseURL +  "v1/software"
+
+let  API_ERROR_MESSAGE_URL = BaseURL +  "v1/software/applog"
+
 //MARK: 正式接口

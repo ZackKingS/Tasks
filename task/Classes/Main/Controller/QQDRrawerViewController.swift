@@ -146,11 +146,6 @@ class QQDRrawerViewController: UIViewController {
         }
         
         
-     
-        
-        
-        
-        
         UIView.animate(withDuration: TimeInterval(openDrawerWithDuration), delay: 0, options: .curveLinear, animations: {
             self.mainViewController?.view.transform = CGAffineTransform.init(translationX: self.maxWidth!, y: 0)
             self.leftViewController?.view.transform = CGAffineTransform.identity

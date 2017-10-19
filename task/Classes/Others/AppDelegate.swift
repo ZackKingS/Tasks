@@ -53,14 +53,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
             self.window?.makeKeyAndVisible()
         }
-        
-        
+   
+        checkupdate()
+    
         // 检测用户是不是第一次启动
         config()
+        
+//        NetworkTool.errorMessage(error: "2333333")
+        
        
         return true
     }
 
+
+    
+    func checkupdate (){
+    
+        
+        Alamofire.request(API_SOFTWARE_UPDATA_URL+"?platform=2", parameters: nil ).responseJSON { (response) in
+            //判断是否成功
+            guard response.result.isSuccess else {
+                return
+            }
+              if let value = response.result.value {
+                let infoDictionary = Bundle.main.infoDictionary
+                let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+                let json = JSON(value)
+                let version_name = json["data"]["version_name"].stringValue
+                if currentAppVersion != version_name {
+                    
+                    print( "去更新")
+                }
+            }
+        }
+    }
+    
     func config(){
         
         let nowDate = NSDate(timeIntervalSinceNow: 0)

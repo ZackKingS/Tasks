@@ -116,9 +116,6 @@ class TasksCell: UITableViewCell {
     
     func setupUI()  {
         
-        
-
-   
         let grayView = UIImageView.init(image: UIImage.init(named: "mission_blue"))
         addSubview(grayView)
         bgV = grayView
@@ -142,11 +139,7 @@ class TasksCell: UITableViewCell {
             make.height.equalTo(50)
         }
         
-        
-        
-        
         let taskNameL = UILabel()
-        
         task_NameL = taskNameL
         taskNameL.text = "恒泰开户"
         taskNameL.font = UIFont.systemFont(ofSize: 14)
@@ -175,26 +168,13 @@ class TasksCell: UITableViewCell {
         
         
         let rightTopL = UILabel()
-        
         rightTop_L = rightTopL
-        
         rightTopL.text = "可开始"
         rightTopL.textAlignment = .center
-
         rightTopL.font = UIFont.systemFont(ofSize: 14)
         rightTopL.textColor = UIColor.white
         rightTopL.backgroundColor = UIColor.colorWithHexString(Color_Value: "508cee", alpha: 1)
         addSubview(rightTopL)
-//        rightTopL.snp.makeConstraints { (make) in
-//
-//            make.top.equalTo(self).offset(19)
-//            make.right.equalTo(self).offset(-20)
-//            make.width.equalTo(54)
-//            make.height.equalTo(23)
-//
-//
-//        }
-        
         rightTopL.frame = CGRect(x:screenWidth - 73, y:24, width:54,height : 24)
         let   corner  :UIRectCorner = UIRectCorner(rawValue: UIRectCorner.RawValue(UInt8(UIRectCorner.topLeft.rawValue) |  UInt8(UIRectCorner.bottomLeft.rawValue)));//这只圆角位置
         let  path = UIBezierPath.init(roundedRect: rightTopL.bounds, byRoundingCorners: corner, cornerRadii: CGSize(width:5,height:5))
@@ -206,9 +186,7 @@ class TasksCell: UITableViewCell {
         
         
         let dateL = UILabel()
-        
         date_L = dateL
-        
         dateL.text = "2017.09.13 - 2017.03.30"
         dateL.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(dateL)
@@ -238,34 +216,21 @@ class TasksCell: UITableViewCell {
         
         
         let checkView = UIImageView.init(image: UIImage.init(named: "right_arr"))
-        
         addSubview(checkView)
-        
         checkView.snp.makeConstraints { (make) in
             make.leading.equalTo(button.snp.trailing).offset(-1)
             make.centerY.equalTo(button.snp.centerY)
             make.width.equalTo(10)
             make.height.equalTo(10)
-//            make.bottom.equalTo(self).offset(-5)
-//            make.right.equalTo(self).offset(-15)
+
         }
         
-        
-        
-        
-        
-        
+       
         
     }
     func push(){
         
-        
-//          NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkDetail"), object: nil)
-        
-//        let sizeM =  "xxcew"
-//        let sizeString = String(format: "123123%@", sizeM)
-////          let sizeString = "123132312"
-//         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "checkDetail"), object: self, userInfo: ["key": sizeString])
+
     }
  
     
@@ -278,14 +243,7 @@ class TasksCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         
         super.setHighlighted(isHighlighted, animated: true)
-//        self.backgroundColor = UIColor.red
+
     }
-    
-//    - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
-//    {
-//    UIColor *backgroundColor = self.channelImageView.backgroundColor;
-//    [super setHighlighted:highlighted animated:animated];
-//    self.channelImageView.backgroundColor = backgroundColor;
-//    }
- 
+
 }
