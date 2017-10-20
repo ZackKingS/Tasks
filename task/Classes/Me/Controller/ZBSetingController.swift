@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 import SVProgressHUD
-class ZBSetingController: UITableViewController {
+import Alamofire
+import SwiftyJSON
+
+class ZBSetingController: UITableViewController ,UIAlertViewDelegate{
     
     @IBOutlet weak var sizeBtn: UIButton!
     
@@ -33,21 +36,7 @@ class ZBSetingController: UITableViewController {
     
     @IBAction func clear(_ sender: Any) {
         
-//        ZBCleanTool.clearCache()
-//
-//        SVProgressHUD.show()
-//
-//
-//
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//
-//
-//
-//            SVProgressHUD.showSuccess(withStatus: "")
-//            SVProgressHUD.setAnimationDuration(1)
-//            self.sizeBtn.setTitle(" 0 M", for: .normal)
-//        }
+
     }
     
     
@@ -59,6 +48,11 @@ class ZBSetingController: UITableViewController {
         }else if indexPath.row == 1{
             return 50
         }else if  indexPath.row == 2{
+            
+            return 50
+           
+        }else if  indexPath.row == 3{
+            
             return screenHeight - 50 * 2 - 20
         }
         
@@ -112,7 +106,11 @@ class ZBSetingController: UITableViewController {
 
         }else if indexPath.row == 1{
           print("1111")
+        }else if indexPath.row == 2{
+           checkupdate()
         }
+        
+        
         
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -159,6 +157,63 @@ class ZBSetingController: UITableViewController {
             self.sizeBtn.setTitle(" 0 M", for: .normal)
         }
         
+    }
+    
+    
+    func checkupdate (){
+        
+        
+        Alamofire.request(API_SOFTWARE_UPDATA_URL+"?platform=2", parameters: nil ).responseJSON { (response) in
+            //判断是否成功
+            guard response.result.isSuccess else {
+                return
+            }
+            if let value = response.result.value {
+                let infoDictionary = Bundle.main.infoDictionary
+                let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
+                let json = JSON(value)
+                let version_name = json["data"]["version_name"].stringValue
+                
+                
+                print(currentAppVersion)
+                
+                print(version_name)
+                
+                if currentAppVersion != version_name {
+                    
+                    print( "去更新")
+                    
+                    let des = json["data"]["update_state"].stringValue
+                    
+                    self.compareVersion(currentAppVersion, storeVersion: version_name, note: des)
+                    
+                }else{
+                    
+                    self.showHint(hint: "已经是最新版本")
+                }
+            }
+        }
+    }
+    
+    
+    fileprivate func compareVersion(_ localVersion: String, storeVersion: String,note:String) {
+        let message = "本次更新内容：\n\(note)"
+        if localVersion.compare(storeVersion) == ComparisonResult.orderedAscending {
+            let alertView = UIAlertView(title: "发现新版本",message: message,delegate: self as? UIAlertViewDelegate,cancelButtonTitle: nil,otherButtonTitles: "马上更新","下次再说")
+            alertView.delegate = self
+            alertView.tag = 10086
+            alertView.show()
+        }
+    }
+    
+    func alertView(_ alertView:UIAlertView, clickedButtonAt buttonIndex: Int){
+        if(alertView.tag == 10086) {
+            if(buttonIndex == 0){
+                UIApplication.shared.openURL(URL(string:"https://itunes.apple.com/cn/app/wei-xin/id414478124?mt=8")!)
+            }else{
+                //下次再说
+            }
+        }
     }
     
         

@@ -71,9 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         print(UserDefaults.standard.bool(forKey: "LGFirstLaunch"))
         if !UserDefaults.standard.bool(forKey: "LGFirstLaunch") {
-            
             UserDefaults.standard.set(false, forKey: ZBLOGIN_KEY)
-            
             UserDefaults.standard.set(true, forKey: "LGFirstLaunch")
             UserDefaults.standard.synchronize()
         }

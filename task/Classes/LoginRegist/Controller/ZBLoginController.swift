@@ -36,9 +36,15 @@ class ZBLoginController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         
-        if phoneTF.text!.characters.count < 11 ||   pwdTF.text!.characters.count < 6 {
+        if phoneTF.text!.characters.count < 11  {
             
             self.showHint(hint: "请输入手机号")
+            return
+        }
+        
+        if    pwdTF.text!.characters.count < 6 {
+            
+            self.showHint(hint: "请输入密码")
             return
         }
         

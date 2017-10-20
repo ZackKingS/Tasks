@@ -107,7 +107,11 @@ let USER = "user"
 
 //MARK: 测试接口
 //----------------   用户接口---------------------------
-let BaseURL = "http://taskbao.dev.cnfol.wh/"
+//let BaseURL = "http://taskbao.dev.cnfol.wh/"
+
+let BaseURL = "http://61.183.83.170:30001/"
+
+
 //短信
 let API_GETSMS_URL = BaseURL + "v1/user/smsverify"
 //注册

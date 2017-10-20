@@ -60,7 +60,7 @@
     //发送请求
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSString * str = [NSString stringWithFormat:@"http://taskbao.dev.cnfol.wh/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
+        NSString * str = [NSString stringWithFormat:@"http://61.183.83.170:30001/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
         NSURL *url = [NSURL URLWithString:str];
         
         
