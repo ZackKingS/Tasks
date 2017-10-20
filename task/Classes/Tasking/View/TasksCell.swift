@@ -142,12 +142,12 @@ class TasksCell: UITableViewCell {
         let taskNameL = UILabel()
         task_NameL = taskNameL
         taskNameL.text = "恒泰开户"
-        taskNameL.font = UIFont.systemFont(ofSize: 14)
+        taskNameL.font = UIFont.systemFont(ofSize: 17)
         self.addSubview(taskNameL)
         taskNameL.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(17)
             make.left.equalTo(self).offset(35)
-            make.width.equalTo(100)
+            make.width.equalTo(250)
             make.height.equalTo(30)
         }
         

@@ -105,7 +105,9 @@ class ZBSetingController: UITableViewController ,UIAlertViewDelegate{
             
 
         }else if indexPath.row == 1{
-          print("1111")
+          
+            navigationController?.pushViewController(ZBAboutMe(), animated: true)
+            
         }else if indexPath.row == 2{
            checkupdate()
         }

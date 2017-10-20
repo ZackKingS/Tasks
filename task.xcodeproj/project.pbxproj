@@ -75,6 +75,8 @@
 		3AB9D1E91F751AFD00BB3A68 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9D1E81F751AFD00BB3A68 /* Tasks.swift */; };
 		3AB9D1ED1F75221D00BB3A68 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */; };
 		3ACE8AD41F7DE62C003BF779 /* ZBFinishedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */; };
+		3AD1BC961F99DB280082D0ED /* ZBAboutMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD1BC951F99DB280082D0ED /* ZBAboutMe.swift */; };
+		3AD1BC9A1F99DB450082D0ED /* ZBAboutMe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD1BC991F99DB450082D0ED /* ZBAboutMe.xib */; };
 		3AD35E8A1F8DC7090049AD81 /* SecureTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD35E891F8DC7090049AD81 /* SecureTool.swift */; };
 		3AD3FBE31F6BE42A007406E1 /* TopicTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE11F6BE42A007406E1 /* TopicTitle.swift */; };
 		3AD3FBE51F6BE452007406E1 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3FBE41F6BE452007406E1 /* Const.swift */; };
@@ -187,6 +189,8 @@
 		3AB9D1E81F751AFD00BB3A68 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		3AB9D1EC1F75221D00BB3A68 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZBFinishedController.swift; path = task/Classes/Me/ZBFinishedController.swift; sourceTree = SOURCE_ROOT; };
+		3AD1BC951F99DB280082D0ED /* ZBAboutMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBAboutMe.swift; sourceTree = "<group>"; };
+		3AD1BC991F99DB450082D0ED /* ZBAboutMe.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBAboutMe.xib; sourceTree = "<group>"; };
 		3AD35E891F8DC7090049AD81 /* SecureTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureTool.swift; sourceTree = "<group>"; };
 		3AD3FBE11F6BE42A007406E1 /* TopicTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTitle.swift; sourceTree = "<group>"; };
 		3AD3FBE41F6BE452007406E1 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				3A506E801F7A4279004DF7C3 /* ZBSetingController.storyboard */,
 				3ACE8AD31F7DE62C003BF779 /* ZBFinishedController.swift */,
 				3A0C17211F8B437F0081C54C /* ZBBanlanceController.swift */,
+				3AD1BC951F99DB280082D0ED /* ZBAboutMe.swift */,
+				3AD1BC991F99DB450082D0ED /* ZBAboutMe.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -664,6 +670,7 @@
 				3A3BB4D01F8C5CB600B87EB4 /* TaskDetailCell.xib in Resources */,
 				3A3E6A9E1F7B3B8B0025E63B /* ZBGetPwdBackedController.xib in Resources */,
 				3A3E6AA01F7B4F120025E63B /* TaskDetailViewController.xib in Resources */,
+				3AD1BC9A1F99DB450082D0ED /* ZBAboutMe.xib in Resources */,
 				3A0935AE1F6BD99100C1BA5A /* LaunchScreen.storyboard in Resources */,
 				3A3BB4D81F8C619F00B87EB4 /* SecondTableViewCell.xib in Resources */,
 				3A506E811F7A4279004DF7C3 /* ZBSetingController.storyboard in Resources */,
@@ -749,6 +756,7 @@
 				3AE78DFB1F96E95200F80497 /* ZBNewFeatureController.swift in Sources */,
 				3AD35E8A1F8DC7090049AD81 /* SecureTool.swift in Sources */,
 				3AD3FBE91F6BF5A4007406E1 /* RefreshHeder.swift in Sources */,
+				3AD1BC961F99DB280082D0ED /* ZBAboutMe.swift in Sources */,
 				3AF7D17D1F7F836500A152A7 /* String+Extension.swift in Sources */,
 				3A110E951F756B61009989D6 /* Reachability.swift in Sources */,
 				3A3E6A9A1F7B39FA0025E63B /* ZBGetPwdBackedController.swift in Sources */,

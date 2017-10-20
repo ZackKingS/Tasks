@@ -35,19 +35,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         
-        if appVersion == nil || appVersion != currentAppVersion {
-            
-            userDefaults.setValue(currentAppVersion, forKey: "appVersion")
-            let guideViewController = storyboard.instantiateInitialViewController()
-            self.window?.rootViewController = guideViewController
-            self.window?.makeKeyAndVisible()
-
-        }else{
-            
-            let nav  = ZBNavVC.init(rootViewController: TasksViewController())
-            self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
-            self.window?.makeKeyAndVisible()
-        }
+        
+        
+        let nav  = ZBNavVC.init(rootViewController: TasksViewController())
+        self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+        self.window?.makeKeyAndVisible()
+        
+        
+        
+//        if appVersion == nil || appVersion != currentAppVersion {
+//
+//            userDefaults.setValue(currentAppVersion, forKey: "appVersion")
+//            let guideViewController = storyboard.instantiateInitialViewController()
+//            self.window?.rootViewController = guideViewController
+//            self.window?.makeKeyAndVisible()
+//
+//        }else{
+//
+//            let nav  = ZBNavVC.init(rootViewController: TasksViewController())
+//            self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
+//            self.window?.makeKeyAndVisible()
+//        }
    
 
         // 检测用户是不是第一次启动
