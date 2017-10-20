@@ -164,6 +164,8 @@
     [button setTitle:@"立即开始" forState:UIControlStateNormal ];
     [button addTarget:self action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
     [bottomV addSubview:button];
+    
+    
 }
 
 -(void)start{
@@ -186,11 +188,6 @@
     }
     
     
-    
-    
-//    ZBStartTaskController *star = [[ZBStartTaskController alloc]init];
-//    star.taskid = self.taskid;
-//    [self.navigationController pushViewController:star animated:YES];
     
 }
 
