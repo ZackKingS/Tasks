@@ -13,5 +13,7 @@
 @property(strong,nonatomic)NSString * taskid;
 
 @property(strong,nonatomic)NSString * taskName;
+
+@property(strong,nonatomic)NSString * status;
 @end
 

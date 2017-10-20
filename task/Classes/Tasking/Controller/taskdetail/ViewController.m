@@ -60,7 +60,20 @@
     //发送请求
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
-        NSString * str = [NSString stringWithFormat:@"http://61.183.83.170:30001/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
+        NSString * str = @"";
+        BOOL login =   [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
+        
+        NSLog(@"%d",login);
+        
+        if (login) {
+             str = [NSString stringWithFormat:@"http://61.183.83.170:30001/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
+        }else{
+            
+              str = [NSString stringWithFormat:@"http://61.183.83.170:30001/v1/task/one?id=%@" ,self.taskid];
+        }
+        
+        
+//        NSString * str = [NSString stringWithFormat:@"http://61.183.83.170:30001/v1/task/one?userid=%@&id=%@",[User GetUser].id ,self.taskid];
         NSURL *url = [NSURL URLWithString:str];
         
         
@@ -155,10 +168,29 @@
 
 -(void)start{
     
+      BOOL login =   [[NSUserDefaults standardUserDefaults] boolForKey:@"login"];
     
-    ZBStartTaskController *star = [[ZBStartTaskController alloc]init];
-    star.taskid = self.taskid;
-    [self.navigationController pushViewController:star animated:YES];
+    NSLog(@"%d",login);
+    
+    if (login ) {
+        
+        ZBStartTaskController *star = [[ZBStartTaskController alloc]init];
+        star.taskid = self.taskid;
+        [self.navigationController pushViewController:star animated:YES];
+    }else{
+        
+        ZBLoginController *login = [[ZBLoginController alloc]init];
+        ZBNavVC *vc  = [[ZBNavVC alloc]initWithRootViewController:login];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+      
+    }
+    
+    
+    
+    
+//    ZBStartTaskController *star = [[ZBStartTaskController alloc]init];
+//    star.taskid = self.taskid;
+//    [self.navigationController pushViewController:star animated:YES];
     
 }
 

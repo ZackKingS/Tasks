@@ -312,13 +312,17 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         
 
-        if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
-            
+//        print(UserDefaults.standard.bool(forKey: ZBLOGIN_KEY))
+        
+//        if UserDefaults.standard.bool(forKey: ZBLOGIN_KEY)   { //已经登录 做任务
+        
             if    dataArray[indexPath.row].status == "-1"  {  //任务可开始
                
                 let taskDetailController = ViewController()
                 taskDetailController.taskid =  dataArray[indexPath.row].id
                 taskDetailController.taskName =  dataArray[indexPath.row].title
+                taskDetailController.status =  dataArray[indexPath.row].status
+                
                 self.navigationController?.pushViewController(taskDetailController, animated: true)
                 
             }else if    dataArray[indexPath.row].status == "0"  { //任务审核中
@@ -336,10 +340,10 @@ class TasksViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 
             }
             
-        }else     {  //未登录 去登陆
-            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
-            present(nav, animated: true, completion: nil)
-        }
+//        }else     {  //未登录 去登陆
+//            let nav = ZBNavVC.init(rootViewController: ZBLoginController())
+//            present(nav, animated: true, completion: nil)
+//        }
         
         
         
