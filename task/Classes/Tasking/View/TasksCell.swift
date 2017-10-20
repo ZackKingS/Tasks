@@ -139,6 +139,7 @@ class TasksCell: UITableViewCell {
             make.height.equalTo(50)
         }
         
+        
         let taskNameL = UILabel()
         task_NameL = taskNameL
         taskNameL.text = "恒泰开户"
