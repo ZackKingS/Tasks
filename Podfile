@@ -28,6 +28,7 @@ target 'task' do
  	
     pod 'ReachabilitySwift'  
 
+pod 'JPush'
 
 
 end

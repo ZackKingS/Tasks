@@ -11,7 +11,18 @@ import Alamofire
 import SwiftyJSON
 import AdSupport
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,JPUSHRegisterDelegate{
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+        
+        print("willPresent")
+    }
+    
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+         print("didReceive")
+    }
+    
 
     var window: UIWindow?
 
@@ -24,19 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
      
-        // 得到当前应用的版本号
-        let infoDictionary = Bundle.main.infoDictionary
-        let currentAppVersion = infoDictionary!["CFBundleShortVersionString"] as! String
-        // 取出之前保存的版本号
-        let userDefaults = UserDefaults.standard
-        let appVersion = userDefaults.string(forKey: "appVersion")
-       let  storyboard = UIStoryboard.init(name: "ZBNewFeatureController", bundle: nil)
-        
-        
-
-        
-        
-        
         let nav  = ZBNavVC.init(rootViewController: TasksViewController())
         self.window?.rootViewController = QQDRrawerViewController.drawerWithViewController(_leftViewcontroller: ZBLeftViewController.init(),_mainViewController: nav,DrawerMaxWithd: kMaxLeftOffset)
         self.window?.makeKeyAndVisible()
@@ -66,8 +64,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //1. 任务详情的url是写死的
         //2. 跳转更新的url是写死的
        //3. 推送
+
+        if #available(iOS 8.0, *) {
+            let type: UInt = UIUserNotificationType.badge.rawValue | UIUserNotificationType.sound.rawValue | UIUserNotificationType.alert.rawValue
+            JPUSHService.register(forRemoteNotificationTypes: type, categories: nil)
+        } else {
+            let type: UInt = UIUserNotificationType.badge.rawValue | UIUserNotificationType.sound.rawValue | UIUserNotificationType.alert.rawValue
+            JPUSHService.register(forRemoteNotificationTypes: type, categories: nil)
+        }
+        // 参数2: 填你创建的应用生成的AppKey
+        // 参数3: 可以不填
+        // 参数4: 这个值生产环境为YES，开发环境为NO(BOOL值)
+        JPUSHService.setup(withOption: launchOptions, appKey: "62ea209c75aadacd9f863b65", channel: nil, apsForProduction: false)
+        
+ 
+        
+        
         return true
     }
+    
+    // 注册成功后会调用AppDelegate的下面方法，得到设备的deviceToken
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        JPUSHService.registerDeviceToken(deviceToken as Data!)
+        print("Notification token: ", deviceToken)
+    }
+    
+    //（App即将进入前台）中将小红点清除
+    func applicationWillEnterForeground(application: UIApplication) {    UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    // 处理接收推送错误的情况(一般不会…)
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("error: Notification setup failed: ", error)
+    }
+    
+    // App在后台时收到推送时的处理
+    private func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        JPUSHService.handleRemoteNotification(userInfo)
+
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        /**
+         *  iOS的应用程序分为3种状态
+         *      1、前台运行的状态UIApplicationStateActive；
+         *      2、后台运行的状态UIApplicationStateInactive；
+         *      3、app关闭状态UIApplicationStateBackground。
+         */
+        // 应用在前台 或者后台开启状态下，不跳转页面，让用户选择。
+        if (application.applicationState == UIApplicationState.active) || (application.applicationState == UIApplicationState.background){
+//            UIAlertView(title: "推送消息", message: "\(alert)", delegate: nil, cancelButtonTitle: "确定").show()
+        }else{
+            //杀死状态下，直接跳转到跳转页面
+        }
+        // badge清零
+        application.applicationIconBadgeNumber = 0
+        JPUSHService.resetBadge()
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+
+    
 
     func config(){
         
