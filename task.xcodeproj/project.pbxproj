@@ -920,6 +920,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8E534K4D8Z;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = task/Classes/Others/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -944,6 +945,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8E534K4D8Z;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = task/Classes/Others/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
