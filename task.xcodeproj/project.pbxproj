@@ -198,6 +198,12 @@
 		3AD3FBE81F6BF5A4007406E1 /* RefreshHeder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshHeder.swift; sourceTree = "<group>"; };
 		3AE78DFA1F96E95200F80497 /* ZBNewFeatureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBNewFeatureController.swift; sourceTree = "<group>"; };
 		3AE78DFE1F96EC3800F80497 /* ZBNewFeatureController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZBNewFeatureController.storyboard; sourceTree = "<group>"; };
+		3AEFECB21F9D964F00FEA4C7 /* jcore-ios-1.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.6.a"; sourceTree = "<group>"; };
+		3AEFECB31F9D964F00FEA4C7 /* jpush-extension-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-extension-ios-1.0.0.a"; sourceTree = "<group>"; };
+		3AEFECB41F9D964F00FEA4C7 /* jpush-ios-3.0.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.7.a"; sourceTree = "<group>"; };
+		3AEFECB51F9D964F00FEA4C7 /* JPushNotificationExtensionService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPushNotificationExtensionService.h; sourceTree = "<group>"; };
+		3AEFECB61F9D964F00FEA4C7 /* JPUSHService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		3AEFECB71F9D9A7700FEA4C7 /* task.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = task.entitlements; sourceTree = "<group>"; };
 		3AF7D17C1F7F836500A152A7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		61BC022906E73D074FB189EA /* Pods-task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.release.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.release.xcconfig"; sourceTree = "<group>"; };
 		B0DE5DFBAA50C332D2A53C01 /* Pods-task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-task.debug.xcconfig"; path = "Pods/Target Support Files/Pods-task/Pods-task.debug.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 		3A0935A21F6BD99100C1BA5A /* task */ = {
 			isa = PBXGroup;
 			children = (
+				3AEFECB71F9D9A7700FEA4C7 /* task.entitlements */,
 				3A839E711F6BDCAC0024B9B0 /* Classes */,
 				3A0935AA1F6BD99100C1BA5A /* Assets.xcassets */,
 				3A0935AC1F6BD99100C1BA5A /* LaunchScreen.storyboard */,
@@ -248,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				3A27D7EA1F7DFB67003AD58A /* TakePhoto */,
+				3AEFECB11F9D964F00FEA4C7 /* JPush */,
 				3A097CB11F6FB9B800222AEA /* LLCycleScrollView */,
 				3A097CB81F6FB9B800222AEA /* LLCycleScrollView.bundle */,
 			);
@@ -591,6 +599,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3AEFECB11F9D964F00FEA4C7 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				3AEFECB21F9D964F00FEA4C7 /* jcore-ios-1.1.6.a */,
+				3AEFECB31F9D964F00FEA4C7 /* jpush-extension-ios-1.0.0.a */,
+				3AEFECB41F9D964F00FEA4C7 /* jpush-ios-3.0.7.a */,
+				3AEFECB51F9D964F00FEA4C7 /* JPushNotificationExtensionService.h */,
+				3AEFECB61F9D964F00FEA4C7 /* JPUSHService.h */,
+			);
+			path = JPush;
+			sourceTree = "<group>";
+		};
 		C1AD29ACB4EB5464304D31A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +657,11 @@
 						DevelopmentTeam = 8E534K4D8Z;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -915,6 +940,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = task/task.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -940,6 +966,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = task/task.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

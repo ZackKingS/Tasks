@@ -11,7 +11,9 @@ import Alamofire
 import SwiftyJSON
 import AdSupport
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,JPUSHRegisterDelegate {//
+   
+    
 
     var window: UIWindow?
 
@@ -66,9 +68,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //1. 任务详情的url是写死的
         //2. 跳转更新的url是写死的
        //3. 推送
+        
+//        let entity = JPUSHRegisterEntity();
+//        entity.types = Int(JPAuthorizationOptions.alert.rawValue) |  Int(JPAuthorizationOptions.sound.rawValue) |  Int(JPAuthorizationOptions.badge.rawValue);
+//        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self);
+//        // 注册极光推送
+//        JPUSHService.setup(withOption: launchOptions, appKey: "845b93e08c7fa192df019c07", channel:"Publish channel" , apsForProduction: false);
+//        // 获取推送消息
+//        let remote = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? Dictionary<String,Any>;
+//        // 如果remote不为空，就代表应用在未打开的时候收到了推送消息
+//        if remote != nil {
+//            // 收到推送消息实现的方法
+////            self.perform(#selector(receivePush), with: remote, afterDelay: 1.0);
+//        }
+
+        
         return true
     }
+    
+    
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
 
+
+        print(">JPUSHRegisterDelegate jpushNotificationCenter willPresent")
+    }
+
+    @available(iOS 10.0, *)
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+
+
+        print(">JPUSHRegisterDelegate jpushNotificationCenter didReceive")
+    }
+
+ 
+    
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//
+//
+//        JPUSHService.handleRemoteNotification(userInfo)
+////        let alert: String = userInfo["aps"]!["alert"]
+////        var badge: Int = userInfo["aps"]!["badge"]
+////        badge -= 1
+////        JPUSHService.setBadge(badge)
+////        UIApplication.shared.applicationIconBadgeNumber = 0
+////        /**
+////         *  iOS的应用程序分为3种状态
+////         *      1、前台运行的状态UIApplicationStateActive；
+////         *      2、后台运行的状态UIApplicationStateInactive；
+////         *      3、app关闭状态UIApplicationStateBackground。
+////         */
+////        // 应用在前台 或者后台开启状态下，不跳转页面，让用户选择。
+////        if (application.applicationState == UIApplicationState.active) || (application.applicationState == UIApplicationState.background){
+////            UIAlertView(title: "推送消息", message: "\(alert)", delegate: nil, cancelButtonTitle: "确定").show()
+////        }else{
+////            //杀死状态下，直接跳转到跳转页面
+////        }
+////        // badge清零
+////        application.applicationIconBadgeNumber = 0
+////        JPUSHService.resetBadge()
+////        completionHandler(UIBackgroundFetchResult.newData)
+//
+//
+//    }
+    
+    
+    
     func config(){
         
         let nowDate = NSDate(timeIntervalSinceNow: 0)

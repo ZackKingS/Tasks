@@ -9,3 +9,8 @@
 //#import "User-Swift.h"
 
 #import <CommonCrypto/CommonDigest.h>
+
+
+#import "JPUSHService.h"
+#import "JPushNotificationExtensionService.h"
+#import <UserNotifications/UserNotifications.h>
